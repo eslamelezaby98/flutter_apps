@@ -1,9 +1,12 @@
+import 'package:e_commerce_app/core/auth.dart';
+import 'package:e_commerce_app/screens/home_screen.dart';
 import 'package:e_commerce_app/widgets/custom_button.dart';
 import 'package:e_commerce_app/widgets/custom_social_button.dart';
 import 'package:e_commerce_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<Auth> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -60,7 +63,10 @@ class LoginScreen extends StatelessWidget {
                 validator: (value) {},
               ),
               SizedBox(height: 5),
-              Text('Forget my password'),
+              Text(
+                'Forget a password',
+                style: TextStyle(color: Colors.blue),
+              ),
               SizedBox(height: 30),
               CustomButton(
                 title: 'Sign In',
@@ -83,14 +89,20 @@ class LoginScreen extends StatelessWidget {
                 title: 'Continue With Google',
                 buttonColor: Colors.white,
                 imagePath: 'assets/images/google_logo.png',
-                onTap: () {},
+                onTap: () async {
+                  await controller.signInWithGoogle();
+                  Get.to(HomeScreen());
+                  // Get.to(HomeScreen());
+                },
               ),
               SizedBox(height: 15),
               CustomSocialButton(
                 title: 'Continue With Facebook',
                 buttonColor: Colors.white,
                 imagePath: 'assets/images/facebook_logo.png',
-                onTap: () {},
+                onTap: () {
+                  Get.to(()=>HomeScreen());
+                },
               ),
             ],
           ),
