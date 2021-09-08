@@ -8,10 +8,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 50, right: 30, left: 30),
+          padding: const EdgeInsets.only(top: 80, right: 30, left: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
