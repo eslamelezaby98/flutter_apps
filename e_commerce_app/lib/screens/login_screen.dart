@@ -100,8 +100,9 @@ class LoginScreen extends GetWidget<Auth> {
                 title: 'Continue With Facebook',
                 buttonColor: Colors.white,
                 imagePath: 'assets/images/facebook_logo.png',
-                onTap: () {
-                  Get.to(()=>HomeScreen());
+                onTap: () async{
+                  await controller.signInWithFacebook();
+                  Get.to(() => HomeScreen());
                 },
               ),
             ],
