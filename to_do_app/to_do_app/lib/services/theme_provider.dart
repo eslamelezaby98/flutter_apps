@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
+  late SharedPreferences prefs;
+
   // Need a selected theme.
   late ThemeData _selectedTheme;
 
   //Declare a dark and a light theme
-
   ThemeData _light = ThemeData(
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
@@ -34,12 +36,18 @@ class ThemeProvider extends ChangeNotifier {
   ThemeData get getTheme => _selectedTheme;
 
   // Implement a switchTheme method that changes the current theme.
-  void switchTheme() {
+  switchTheme() async {
+    prefs = await SharedPreferences.getInstance();
     if (_selectedTheme == _dark) {
       _selectedTheme = _light;
+      await prefs.setBool('isDarkTheme', false);
     } else {
       _selectedTheme = _dark;
+      await prefs.setBool('isDarkTheme', true);
     }
     notifyListeners();
   }
+
+  // shared_preferences
+
 }
