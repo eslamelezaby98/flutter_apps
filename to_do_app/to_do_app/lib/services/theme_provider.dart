@@ -10,7 +10,7 @@ class ThemeProvider extends ChangeNotifier {
 
   //Declare a dark and a light theme
   ThemeData _light = ThemeData(
-    primaryColor: Colors.white,
+    primaryColor: Colors.lightGreenAccent,
     scaffoldBackgroundColor: Colors.white,
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
