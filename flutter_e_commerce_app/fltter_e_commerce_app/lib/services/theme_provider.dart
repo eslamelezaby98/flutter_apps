@@ -15,7 +15,7 @@ class ThemesProvider extends ChangeNotifier {
       elevation: 0,
       centerTitle: true,
     ),
-     hintColor: Colors.black54,
+     hintColor: Colors.black38,
      
   );
 

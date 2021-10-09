@@ -1,5 +1,6 @@
 import 'package:fltter_e_commerce_app/screens/home_screen.dart';
 import 'package:fltter_e_commerce_app/screens/login_screen.dart';
+import 'package:fltter_e_commerce_app/services/main_provider.dart';
 import 'package:fltter_e_commerce_app/services/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,10 +12,11 @@ void main() {
     var isLightTheme = value.getBool('isLightTheme') ?? false;
 
     runApp(
-      ChangeNotifierProvider(
-        create: (_) => ThemesProvider(isLigthTheme: isLightTheme),
-        child: MyApp(),
-      ),
+      MultiProvider(providers: [
+        Provider<ThemesProvider>(
+            create: (_) => ThemesProvider(isLigthTheme: isLightTheme)),
+        Provider<MainProvider>(create: (_) => MainProvider()),
+      ], child: MyApp()),
     );
   });
 }
