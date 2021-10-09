@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-// Remmber: we should state management to change a mode
-
 class Themes {
+  // ligth mode
   static final lightMode = ThemeData(
     primaryColor: Colors.greenAccent,
     brightness: Brightness.light,

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_app/screens/home_screen.dart';
-import 'package:to_do_app/themes/theme.dart';
+import 'package:to_do_app/services/theme_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(isDarkTheme: false),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: Themes.darkMode,
-      darkTheme: Themes.lightMode,
-      themeMode: ThemeMode.light,
+      theme: themeProvider.getTheme,
       home: HomeScreen(),
     );
   }
