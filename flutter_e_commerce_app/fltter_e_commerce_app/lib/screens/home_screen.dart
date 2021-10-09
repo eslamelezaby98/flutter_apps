@@ -1,19 +1,41 @@
+import 'package:fltter_e_commerce_app/services/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final ThemesProvider themesProvider =
+        Provider.of<ThemesProvider>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'HomeScreen',
-        ),
+      body: CustomScrollView(
+
+        slivers: [
+          SliverAppBar(
+            snap: false,
+            pinned: true,
+            floating: false,
+            title: Container(
+              height: 50,
+              child: TextField(
+                style: TextStyle(
+                  color: ThemeData().hintColor,
+                ),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                    ),
+                    hintText: 'Search about what you want',
+                    prefixIcon: Icon(
+                      Icons.search,
+                      // color: ,
+                    )),
+              ),
+            ),
+          ),
+        
+        ],
       ),
-      body: Column(children: [
-        Text('Test Text',style: TextStyle(fontSize: 30,),)
-      ],),
     );
   }
 }
