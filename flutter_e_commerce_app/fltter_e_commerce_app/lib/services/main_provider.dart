@@ -2,22 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainProvider extends ChangeNotifier {
-  List<Widget> screens = <Widget>[
-    Text(
-      'Index 0: Home',
+  final List<Widget> screens = <Widget>[
+    Center(
+      child: Text(
+        'Home',
+      ),
     ),
-    Text(
-      'Index 1: Business',
+    Center(
+      child: Text(
+        'Shopping cart',
+      ),
     ),
-    Text(
-      'Index 2: School',
-    ),
+    Center(
+      child: Text(
+        'Account',
+      ),
+    )
   ];
 
-  int selectedScreenIndex = 0;
+  int cureentIndex = 0;
 
   onTap(int index) {
-    selectedScreenIndex = index;
+    cureentIndex = index;
     print(index);
     notifyListeners();
   }
