@@ -1,13 +1,10 @@
+import 'package:fltter_e_commerce_app/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainProvider extends ChangeNotifier {
   final List<Widget> screens = <Widget>[
-    Center(
-      child: Text(
-        'Home',
-      ),
-    ),
+    HomeScreen(),
     Center(
       child: Text(
         'Shopping cart',

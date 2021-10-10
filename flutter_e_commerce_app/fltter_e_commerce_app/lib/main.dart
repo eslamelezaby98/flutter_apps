@@ -1,4 +1,4 @@
-import 'package:fltter_e_commerce_app/screens/home_screen.dart';
+import 'package:fltter_e_commerce_app/screens/main_screen.dart';
 import 'package:fltter_e_commerce_app/services/main_provider.dart';
 import 'package:fltter_e_commerce_app/services/theme_provider.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themesProvider.getTheme,
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }
