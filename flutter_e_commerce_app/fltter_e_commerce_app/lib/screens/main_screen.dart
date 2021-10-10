@@ -35,7 +35,9 @@ class MainScreen extends StatelessWidget {
             selectedItemColor: Colors.white70,
             onTap: value.onTap,
             currentIndex: value.cureentIndex,
+            type: BottomNavigationBarType.fixed,
             items: [
+
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_outlined),
                 label: '',
@@ -47,7 +49,13 @@ class MainScreen extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_outline),
                 label: '',
-              )
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.menu),
+                label: '',
+              ),
+             
+              
             ],
           ),
           body: value.screens.elementAt(value.cureentIndex),
