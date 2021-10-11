@@ -18,7 +18,6 @@ class MainScreen extends StatelessWidget {
             currentIndex: value.cureentIndex,
             type: BottomNavigationBarType.fixed,
             items: [
-
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_outlined),
                 label: '',
@@ -31,12 +30,6 @@ class MainScreen extends StatelessWidget {
                 icon: Icon(Icons.person_outline),
                 label: '',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: '',
-              ),
-             
-              
             ],
           ),
           body: value.screens.elementAt(value.cureentIndex),

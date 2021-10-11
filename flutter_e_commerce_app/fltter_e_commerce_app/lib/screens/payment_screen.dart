@@ -74,9 +74,9 @@ class PromotionalCardsWidget extends StatelessWidget {
     return Container(
       height: 200,
       decoration: BoxDecoration(
-        color: Color(0xffEC981A),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black),
+        border: Border.all(color: Colors.black26),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -164,6 +164,7 @@ class PaymentMethodWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 20,
               color: Colors.white,
+              decoration: TextDecoration.underline,
             ),
           ),
         ),
