@@ -55,7 +55,7 @@ class CartScreen extends StatelessWidget {
               height: 150,
               width: size.width,
               decoration: BoxDecoration(
-                color: Color(0xffEC981A),
+                color: Color(0xff0B1423),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
@@ -70,11 +70,11 @@ class CartScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Subtotal',
-                          style: GoogleFonts.openSans(fontSize: 15),
+                          style: GoogleFonts.openSans(fontSize: 15,color: Colors.white),
                         ),
                         Text(
                           '1500 \$',
-                          style: GoogleFonts.openSans(fontSize: 20),
+                          style: GoogleFonts.openSans(fontSize: 20,color: Colors.white),
                         ),
                       ],
                     ),
@@ -94,7 +94,7 @@ class CartScreen extends StatelessWidget {
                         height: 50,
                         width: size.width,
                         decoration: BoxDecoration(
-                          color: Color(0xff0B1423),
+                          color: Color(0xffEC981A),
                           borderRadius: BorderRadius.circular(40),
                         ),
                         child: Center(
@@ -102,7 +102,7 @@ class CartScreen extends StatelessWidget {
                           'CHECK OUT',
                           style: GoogleFonts.openSans(
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         )),
                       ),
