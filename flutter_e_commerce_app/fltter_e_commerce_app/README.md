@@ -1,10 +1,10 @@
-# fltter_e_commerce_app
+
 
 **State management**
 
 ---
 
-- [ ]  Provider
+- [x]  Getx
 
 **Auth**
 
@@ -20,11 +20,3 @@
 
 - [ ]  Dark and light mode
 - [ ]  Localization ( multi-languages )
-- [ ]  Payment
-- [ ]  Response UI
-
----
-
-**Databases**
-
-- [ ]  Firestore
