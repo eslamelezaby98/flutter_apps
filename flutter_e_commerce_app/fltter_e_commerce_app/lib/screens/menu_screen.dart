@@ -14,7 +14,7 @@ class MenuScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, left: 10, bottom: 20),
             child: Text(
               'Shopping on Categories',
-              style: GoogleFonts.aBeeZee(
+              style: GoogleFonts.openSans(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
               ),
@@ -29,32 +29,32 @@ class MenuScreen extends StatelessWidget {
           CategoriesCard(
             title: 'Supermarket',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://www.pngitem.com/pimgs/m/241-2413626_grocery-transparent-images-png-grocery-png-png-download.png',
           ),
           CategoriesCard(
             title: 'Fashion',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://images.click.in/classifieds/images/190/21_04_2017_12_38_52_2hkfjh9tsmnk3aqfrttef73vj6_86cefxiuhg.png',
           ),
           CategoriesCard(
-            title: 'TMobiles',
+            title: 'Mobiles',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://cdn.osxdaily.com/wp-content/uploads/2019/10/iphone-11-and-iphone-11-pro-line.jpg',
           ),
           CategoriesCard(
             title: 'Home',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/home-1633038782.jpg',
           ),
           CategoriesCard(
             title: 'Electorincs',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://www.seekpng.com/png/full/774-7744281_samsung-electronics-samsung-electronic-product-png.png',
           ),
           CategoriesCard(
             title: 'COVID-19',
             imagePath:
-                'https://itconsultingonline.net/wp-content/uploads/2018/11/merchant-center-magento.png',
+                'https://economictimes.indiatimes.com/thumb/msid-83134310,width-1200,height-900,resizemode-4,imgsize-474366/9.jpg',
           ),
         ],
       ),
@@ -82,8 +82,10 @@ class CategoriesCard extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(10)),
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: NetworkImage(
                   imagePath,
+                
                 ),
               ),
             ),

@@ -1,4 +1,4 @@
-import 'package:fltter_e_commerce_app/screens/categories_widgets/top_categories.dart';
+import 'package:fltter_e_commerce_app/screens/cart_screen.dart';
 import 'package:fltter_e_commerce_app/screens/home_screen.dart';
 import 'package:fltter_e_commerce_app/screens/menu_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,11 +7,7 @@ import 'package:flutter/material.dart';
 class MainProvider extends ChangeNotifier {
   final List<Widget> screens = <Widget>[
     HomeScreen(),
-    Center(
-      child: Text(
-        'Shopping cart',
-      ),
-    ),
+    CartScreen(),
     Center(
       child: Text(
         'Account',
@@ -30,7 +26,11 @@ class MainProvider extends ChangeNotifier {
 
   // Categories Provider Method
   final List categories = [
-    TopCategories(),
+    Center(
+      child: Text(
+        'Top Deals',
+      ),
+    ),
     Center(
       child: Text(
         'Supermarket',
