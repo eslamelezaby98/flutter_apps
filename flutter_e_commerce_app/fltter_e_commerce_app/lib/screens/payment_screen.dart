@@ -1,4 +1,6 @@
+import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -8,21 +10,25 @@ class PaymentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xffF7F7F7),
+      backgroundColor: kMainColor,
       appBar: AppBar(
-        backgroundColor: Color(0xffF7F7F7),
+        backgroundColor: kMainColor,
+        elevation: 0.0,
+        centerTitle: true,
         title: Text(
           'Payment',
           style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
+            color: Colors.black,
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -46,7 +47,7 @@ class ProductCard extends StatelessWidget {
           Container(
             width: 200,
             height: 50,
-            color: Color(0xffF8E8CE),
+            color: kLightColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

@@ -1,3 +1,4 @@
+import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,21 +9,16 @@ class UserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xffF7F7F7),
+      backgroundColor: kMainColor,
       appBar: AppBar(
-        backgroundColor: Color(0xffF7F7F7),
+        backgroundColor: kMainColor,
+        elevation: 0.0,
+        centerTitle: true,
         title: Text(
           'Profile',
           style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new_outlined,
+            color: Colors.black,
           ),
         ),
       ),

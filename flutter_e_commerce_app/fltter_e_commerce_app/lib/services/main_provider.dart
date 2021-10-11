@@ -11,10 +11,10 @@ class MainProvider extends ChangeNotifier {
     UserProfile()
   ];
 
-  int cureentIndex = 0;
+  int currentIndex = 0;
 
   onTap(int index) {
-    cureentIndex = index;
+    currentIndex = index;
     print(index);
     notifyListeners();
   }

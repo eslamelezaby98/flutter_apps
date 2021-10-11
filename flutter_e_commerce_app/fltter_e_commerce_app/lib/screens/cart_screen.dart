@@ -1,5 +1,7 @@
+import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:fltter_e_commerce_app/screens/payment_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartScreen extends StatelessWidget {
@@ -9,19 +11,23 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xffF7F7F7),
+      backgroundColor: kMainColor,
       appBar: AppBar(
-        backgroundColor: Color(0xffF7F7F7),
+        elevation: 0.0,
+        backgroundColor: kMainColor,
+        centerTitle: true,
         title: Text(
           'Cart',
           style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
         leading: IconButton(
           onPressed: () {},
           icon: Icon(
-            Icons.arrow_back_ios_new_outlined,
+            Icons.bookmark_border,
+            color: Colors.black,
           ),
         ),
         actions: [
@@ -29,14 +35,7 @@ class CartScreen extends StatelessWidget {
             onPressed: () {},
             icon: Icon(
               Icons.favorite_border_sharp,
-              color: Color(0xffEC981A),
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.bookmark_border,
-              color: Colors.black,
+              color: kSecondColor,
             ),
           ),
         ],
@@ -70,23 +69,20 @@ class CartScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Subtotal',
-                          style: GoogleFonts.openSans(fontSize: 15,color: Colors.white),
+                          style: GoogleFonts.openSans(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Text(
                           '1500 \$',
-                          style: GoogleFonts.openSans(fontSize: 20,color: Colors.white),
+                          style: GoogleFonts.openSans(
+                              fontSize: 20, color: Colors.white),
                         ),
                       ],
                     ),
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PaymentScreen(),
-                        ),
-                      );
+                      Get.to(()=>PaymentScreen());
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 70, left: 70),
@@ -94,7 +90,7 @@ class CartScreen extends StatelessWidget {
                         height: 50,
                         width: size.width,
                         decoration: BoxDecoration(
-                          color: Color(0xffEC981A),
+                          color: kSecondColor,
                           borderRadius: BorderRadius.circular(40),
                         ),
                         child: Center(

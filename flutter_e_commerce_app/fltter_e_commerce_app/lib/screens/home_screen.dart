@@ -1,3 +1,4 @@
+import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:fltter_e_commerce_app/widgets/product_card.dart';
 import 'package:fltter_e_commerce_app/widgets/sales_card.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: kMainColor,
       appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: kMainColor,
         title: Container(
           height: 50,
           child: TextField(
@@ -34,28 +38,27 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Categories
+            //List of categories
             Container(
               height: 50,
-              // color: Colors.red,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    CategoriesTap(
+                    CategoriesCard(
                       title: 'Top Deals',
                     ),
-                    CategoriesTap(
+                    CategoriesCard(
                       title: 'Mobiles',
                     ),
-                    CategoriesTap(
+                    CategoriesCard(
                       title: 'Home',
                     ),
-                    CategoriesTap(
+                    CategoriesCard(
                       title: 'Fashion',
                     ),
-                    CategoriesTap(title: 'Computers'),
-                    CategoriesTap(
+                    CategoriesCard(title: 'Computers'),
+                    CategoriesCard(
                       title: 'COVID-19',
                     ),
                   ],
@@ -114,28 +117,56 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class CategoriesTap extends StatelessWidget {
+// Head1
+class HeaderText extends StatelessWidget {
   final String title;
 
-  const CategoriesTap({required this.title});
+  const HeaderText({required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 40,
-        width: 100,
-        decoration: BoxDecoration(
-          color: Color(0xffF8E8CE),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.black26),
+      padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+      child: Text(
+        title,
+        style: GoogleFonts.openSans(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 25,
+          backgroundColor: Colors.black,
         ),
-        child: Center(
-          child: Text(
-            title,
-            style: GoogleFonts.openSans(
-              fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+//small categories card
+class CategoriesCard extends StatelessWidget {
+  final String title;
+  const CategoriesCard({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        //TODO: move to category screen
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          height: 40,
+          width: 100,
+          decoration: BoxDecoration(
+            color: kLightColor,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black26),
+          ),
+          child: Center(
+            child: Text(
+              title,
+              style: GoogleFonts.openSans(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
