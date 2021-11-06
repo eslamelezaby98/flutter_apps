@@ -149,7 +149,7 @@ class CategoriesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO: move to category screen
+  
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

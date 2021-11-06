@@ -65,7 +65,7 @@ class AccountScreenCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO: Move to account info
+       
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

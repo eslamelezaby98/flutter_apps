@@ -153,7 +153,7 @@ class PaymentMethodWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO: Move to payment method
+        
       },
       child: Container(
         height: 100,
