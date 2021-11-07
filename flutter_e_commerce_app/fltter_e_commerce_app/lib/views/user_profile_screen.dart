@@ -11,15 +11,8 @@ class UserProfile extends StatelessWidget {
     return Scaffold(
       backgroundColor: kMainColor,
       appBar: AppBar(
-        backgroundColor: kMainColor,
-        elevation: 0.0,
-        centerTitle: true,
         title: Text(
           'Profile',
-          style: GoogleFonts.openSans(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
         ),
       ),
       body: Padding(
@@ -64,9 +57,7 @@ class AccountScreenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-       
-      },
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(

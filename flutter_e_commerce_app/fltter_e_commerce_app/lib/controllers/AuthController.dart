@@ -1,4 +1,5 @@
-import 'package:fltter_e_commerce_app/views/auth_screens/register_screen.dart';
+import 'package:fltter_e_commerce_app/views/AuthScreens/login_screen.dart';
+import 'package:fltter_e_commerce_app/views/AuthScreens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +8,7 @@ class AuthController extends GetxController {
 
   List<Widget> authScreens = [
     RegisterScreen(),
-    Center(child: Text('Auth Screen')),
+    LoginScreen(),
   ];
 
   onTap(int index) {

@@ -1,4 +1,4 @@
-import 'package:fltter_e_commerce_app/controllers/auth_controller.dart';
+import 'package:fltter_e_commerce_app/controllers/AuthController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +10,7 @@ class AuthScreen extends GetWidget<AuthController> {
       length: controller.authScreens.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('E-Commerce'),
+          title: Text('Mesh Amazon'),
           bottom: TabBar(
             onTap: controller.onTap,
             tabs: [
