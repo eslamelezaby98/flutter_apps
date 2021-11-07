@@ -1,17 +1,18 @@
+import 'package:fltter_e_commerce_app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends GetWidget<AuthController> {
   @override
   Widget build(BuildContext context) {
-    late TabController _tabController;
     return DefaultTabController(
-      initialIndex: 0,
-      length: 2,
+      initialIndex: controller.cureentIndexOfTab,
+      length: controller.authScreens.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text('E-Commerce'),
           bottom: TabBar(
-            indicatorPadding: EdgeInsets.all(20),
+            onTap: controller.onTap,
             tabs: [
               Text(
                 'Register',
@@ -24,10 +25,11 @@ class AuthScreen extends StatelessWidget {
             ],
           ),
         ),
-        // TabBarView
-        // body: TabBarView(
-        //   controller: _tabController,
-        // ),
+        body: GetBuilder<AuthController>(
+          init: AuthController(),
+          builder: (controller) =>
+              controller.authScreens.elementAt(controller.cureentIndexOfTab),
+        ),
       ),
     );
   }

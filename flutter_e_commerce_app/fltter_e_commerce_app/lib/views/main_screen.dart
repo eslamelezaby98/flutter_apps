@@ -1,7 +1,7 @@
+import 'package:fltter_e_commerce_app/views/cart_screen.dart';
+import 'package:fltter_e_commerce_app/views/home_screen.dart';
+import 'package:fltter_e_commerce_app/views/user_profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:fltter_e_commerce_app/screens/cart_screen.dart';
-import 'package:fltter_e_commerce_app/screens/home_screen.dart';
-import 'package:fltter_e_commerce_app/screens/user_profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override

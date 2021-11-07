@@ -1,5 +1,5 @@
 import 'package:fltter_e_commerce_app/helpers/constants.dart';
-import 'package:fltter_e_commerce_app/screens/payment_screen.dart';
+import 'package:fltter_e_commerce_app/views/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
