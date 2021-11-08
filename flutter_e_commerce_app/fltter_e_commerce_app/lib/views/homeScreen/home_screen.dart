@@ -1,5 +1,5 @@
-import 'package:fltter_e_commerce_app/views/homeScreen/listOfCategories.dart';
-import 'package:fltter_e_commerce_app/views/homeScreen/listOfTrendingProducts.dart';
+import 'package:fltter_e_commerce_app/views/homeScreen/list_of_categories.dart';
+import 'package:fltter_e_commerce_app/views/homeScreen/list_of_products.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget{
@@ -17,10 +17,11 @@ class HomeScreen extends StatelessWidget{
           ),
         ],
       ),
-      body: ListView(
+      body: Stack(
         children: [
+          ListOfProducts(),
           ListOfCategories(),
-          ListOfTrendingProducts(),
+          
         ],
       ),
     );

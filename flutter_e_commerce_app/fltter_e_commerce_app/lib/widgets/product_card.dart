@@ -64,32 +64,32 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
-class ProductCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        width: size.width / 2,
-        height: size.height / 2,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(
-            color: kSecondColor,
-          ),
-        ),
-        child: Column(
-          children: [
-            // product image
-            Image(
-              image: AssetImage('assets/products/product.png'),
-            ),
+// class ProductCard extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     var size = MediaQuery.of(context).size;
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: Container(
+//         width: size.width / 2,
+//         height: size.height /2,
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           border: Border.all(
+//             color: kSecondColor,
+//           ),
+//         ),
+//         child: Column(
+//           children: [
+//             // product image
+//             Image(
+//               image: AssetImage('assets/products/product.png'),
+//             ),
              
-            // products details
-          ],
-        ),
-      ),
-    );
-  }
-}
+//             // products details
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
