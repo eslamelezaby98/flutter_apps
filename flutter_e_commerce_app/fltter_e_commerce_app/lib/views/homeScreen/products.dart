@@ -1,8 +1,8 @@
 import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 
-class ListOfProducts extends StatelessWidget {
-  const ListOfProducts({
+class ProductsList extends StatelessWidget {
+  const ProductsList({
     Key? key,
   }) : super(key: key);
 
@@ -10,31 +10,19 @@ class ListOfProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Positioned(
-      
       child: Container(
-        height: size.height /1 ,
+        height: size.height / 1,
         width: size.width,
-        child: ListView(
-          children: [
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-            ProductCard(),
-          ],
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ProductCard();
+          },
         ),
       ),
     );
   }
 }
-
 
 class ProductCard extends StatelessWidget {
   @override
@@ -44,7 +32,7 @@ class ProductCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: size.width / 2,
-        height: size.height /2,
+        height: size.height / 2,
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
@@ -57,7 +45,7 @@ class ProductCard extends StatelessWidget {
             Image(
               image: AssetImage('assets/products/product.png'),
             ),
-             
+
             // products details
           ],
         ),

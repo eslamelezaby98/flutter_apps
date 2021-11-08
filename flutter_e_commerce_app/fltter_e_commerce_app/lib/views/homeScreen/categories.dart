@@ -13,10 +13,10 @@ class ListOfCategories extends GetWidget<HomeScreenController> {
           height: size.height / 15,
           color: Colors.white,
           child: ListView.builder(
-            itemCount: controller.listOfCategoriesNames.length,
+            itemCount: controller.categoriesNames.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CategoriesCard(title: '${controller.listOfCategoriesNames[index]}');
+              return CategoriesCard(title: '${controller.categoriesNames[index]}');
             },
           )
           ),

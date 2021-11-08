@@ -1,8 +1,8 @@
-import 'package:fltter_e_commerce_app/views/homeScreen/list_of_categories.dart';
-import 'package:fltter_e_commerce_app/views/homeScreen/list_of_products.dart';
+import 'package:fltter_e_commerce_app/views/homeScreen/categories.dart';
+import 'package:fltter_e_commerce_app/views/homeScreen/products.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +19,8 @@ class HomeScreen extends StatelessWidget{
       ),
       body: Stack(
         children: [
-          ListOfProducts(),
+          ProductsList(),
           ListOfCategories(),
-          
         ],
       ),
     );

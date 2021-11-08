@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class HomeScreenController extends GetxController {
-  List<String> listOfCategoriesNames = [
+  List<String> categoriesNames = [
     'Top Deals',
     'Mobiles',
      'Home',
@@ -9,6 +9,8 @@ class HomeScreenController extends GetxController {
      'Computers',
      'COVID-19',
   ];
+
+  
 
   
 }
