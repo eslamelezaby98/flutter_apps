@@ -1,5 +1,6 @@
-import 'package:fltter_e_commerce_app/views/AuthScreens/login_screen.dart';
-import 'package:fltter_e_commerce_app/views/AuthScreens/register_screen.dart';
+
+import 'package:fltter_e_commerce_app/views/auth_screens/login_screen.dart';
+import 'package:fltter_e_commerce_app/views/auth_screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

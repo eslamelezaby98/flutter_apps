@@ -1,8 +1,8 @@
 
-import 'package:fltter_e_commerce_app/views/AuthScreens/social_auth_button.dart';
+import 'package:fltter_e_commerce_app/views/auth_screens/social_auth_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -22,17 +22,17 @@ class LoginScreen extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Welcome Back',
+            'Create a new account now..',
             style: Theme.of(context).textTheme.bodyText1,
           ),
           SocialAuthButton(
             size: size,
-            title: 'Continue With Google',
+            title: 'Sign In With Google',
             imagePath: 'assets/logos/google_logo.png',
           ),
           SocialAuthButton(
             size: size,
-            title: 'Continue With Facebook',
+            title: 'Sign In With Facebook',
             imagePath: 'assets/logos/facebook_logo.png',
           ),
         ],

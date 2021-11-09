@@ -166,13 +166,14 @@ class ProductRating extends StatelessWidget {
 }
 
 class PriceAndAddToCart extends StatelessWidget {
-  const PriceAndAddToCart({
+  PriceAndAddToCart({
     required this.size,
     required this.productsModel,
   });
 
   final Size size;
   final ProductsModel productsModel;
+  final ProductController productController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +190,8 @@ class PriceAndAddToCart extends StatelessWidget {
                   Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 24),
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await productController.addProductToCart(productsModel);
                 Get.to(() => CartScreen());
               },
               child: Container(

@@ -1,5 +1,5 @@
 import 'package:fltter_e_commerce_app/helpers/binding.dart';
-import 'package:fltter_e_commerce_app/views/AuthScreens/auth_screen.dart';
+import 'package:fltter_e_commerce_app/views/auth_screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

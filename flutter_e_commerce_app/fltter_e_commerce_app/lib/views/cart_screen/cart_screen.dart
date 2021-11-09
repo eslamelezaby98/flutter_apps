@@ -1,27 +1,42 @@
 import 'package:fltter_e_commerce_app/controllers/product_controller.dart';
+import 'package:fltter_e_commerce_app/models/product_model.dart';
+import 'package:fltter_e_commerce_app/views/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartScreen extends StatelessWidget {
-  final ProductController productController = Get.put(ProductController());
+  final ProductController productController = Get.find();
   final String numOFCartProducts = '4';
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: InkWell(
+        onTap: () {
+          Get.to(() => PaymentScreen());
+        },
+        child: Container(
+          height: 50,
+          width: 150,
+          decoration: BoxDecoration(
+            color: Colors.red.shade500,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Center(
+            child: Text(
+              'Checkout: 100 \$',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .copyWith(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           'MY CART',
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.payment,
-            color: Colors.black,
-          ),
         ),
         actions: [
           IconButton(
@@ -35,23 +50,14 @@ class CartScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Stack(
-        children: [
-          ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return ProductCart(size: size);
-            },
-          ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              height: size.height / 10,
-              width: size.width,
-              color: Colors.red,
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: productController.productsCart.length,
+        itemBuilder: (context, index) {
+          return ProductCart(
+            size: size,
+            productsModel: productController.productsCart.keys.toList()[index],
+          );
+        },
       ),
     );
   }
@@ -61,9 +67,11 @@ class ProductCart extends StatelessWidget {
   const ProductCart({
     Key? key,
     required this.size,
+    required this.productsModel,
   }) : super(key: key);
 
   final Size size;
+  final ProductsModel productsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +100,7 @@ class ProductCart extends StatelessWidget {
                     ),
                     child: Image(
                       image: NetworkImage(
-                        'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+                        productsModel.image,
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -106,7 +114,7 @@ class ProductCart extends StatelessWidget {
                     Container(
                       width: size.width / 2,
                       child: Text(
-                        'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+                        productsModel.title,
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
@@ -128,7 +136,7 @@ class ProductCart extends StatelessWidget {
                             size: 15,
                           ),
                           Text(
-                            '3.2',
+                            '${productsModel.rating.rate}',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1!
@@ -137,10 +145,9 @@ class ProductCart extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     // Price
                     Text(
-                      '${115} \$',
+                      '${productsModel.price} \$',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1!

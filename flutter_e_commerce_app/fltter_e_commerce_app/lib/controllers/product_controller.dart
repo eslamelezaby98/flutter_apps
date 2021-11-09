@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class ProductController extends GetxController {
   var productsList = <ProductsModel>[].obs;
   var isLoading = true.obs;
-  var productInCart = 0.obs;
+  var _productsCart = {}.obs;
 
   @override
   void onInit() {
@@ -25,13 +25,14 @@ class ProductController extends GetxController {
     }
   }
 
-  addtoCart() {
-    productInCart++;
+  addProductToCart(ProductsModel productsModel) {
+    if (_productsCart.containsKey(productsModel)) {
+      _productsCart[productsModel] += 1;
+    } else {
+      _productsCart[productsModel] = 1;
+    }
     update();
   }
 
-  removeFromCart() {
-    productInCart--;
-    update();
-  }
+  get productsCart => _productsCart;
 }
