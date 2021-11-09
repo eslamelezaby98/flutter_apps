@@ -1,7 +1,7 @@
 import 'package:fltter_e_commerce_app/controllers/product_controller.dart';
 import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:fltter_e_commerce_app/models/product_model.dart';
-import 'package:fltter_e_commerce_app/views/CartScreen/cart_screen.dart';
+import 'package:fltter_e_commerce_app/views/cart_screen/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -103,7 +103,7 @@ class ProductCard extends StatelessWidget {
                         maxLines: 1,
                       ),
                       SizedBox(height: 10),
-                      Rating(productsModel: productsModel),
+                      ProductRating(productsModel: productsModel),
                       PriceAndAddToCart(
                         size: size,
                         productsModel: productsModel,
@@ -128,8 +128,8 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-class Rating extends StatelessWidget {
-  const Rating({
+class ProductRating extends StatelessWidget {
+  const ProductRating({
     required this.productsModel,
   });
 
