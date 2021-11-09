@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 class ProductController extends GetxController {
   var productsList = <ProductsModel>[].obs;
   var isLoading = true.obs;
+  var productInCart = 0.obs;
 
   @override
   void onInit() {
@@ -22,5 +23,15 @@ class ProductController extends GetxController {
     } finally {
       isLoading(false);
     }
+  }
+
+  addtoCart() {
+    productInCart++;
+    update();
+  }
+
+  removeFromCart() {
+    productInCart--;
+    update();
   }
 }
