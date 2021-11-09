@@ -8,19 +8,17 @@ class ListOfCategories extends GetWidget<HomeScreenController> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Positioned(
-      child: Container(
-          height: size.height / 15,
-          color: Colors.white,
-          child: ListView.builder(
-            itemCount: controller.categoriesNames.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return CategoriesCard(title: '${controller.categoriesNames[index]}');
-            },
-          )
-          ),
-    );
+    return Container(
+        height: size.height / 20,
+        color: Colors.white,
+        child: ListView.builder(
+          itemCount: controller.categoriesNames.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return CategoriesCard(title: '${controller.categoriesNames[index]}');
+          },
+        )
+        );
   }
 }
 
