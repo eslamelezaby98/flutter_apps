@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app_strapi/models/categories_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 class ArticleDetialsScreen extends StatelessWidget {
   final Article article;
   const ArticleDetialsScreen({this.article});
