@@ -25,7 +25,7 @@ class CartScreen extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              'Checkout: 100 \$',
+              'Checkout: ${productController.productsCart.keys.toList()} \$',
               style: Theme.of(context)
                   .textTheme
                   .bodyText1!

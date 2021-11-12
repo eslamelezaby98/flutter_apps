@@ -92,7 +92,7 @@ class ProductCard extends StatelessWidget {
               width: size.width,
               child: Container(
                 height: 120,
-                color: Colors.red.shade100,
+                color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(

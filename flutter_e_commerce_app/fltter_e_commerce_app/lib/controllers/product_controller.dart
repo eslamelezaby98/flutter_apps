@@ -6,6 +6,7 @@ class ProductController extends GetxController {
   var productsList = <ProductsModel>[].obs;
   var isLoading = true.obs;
   var _productsCart = {}.obs;
+  var price = 0;
 
   @override
   void onInit() {
@@ -35,4 +36,8 @@ class ProductController extends GetxController {
   }
 
   get productsCart => _productsCart;
+
+  clacSubTotalPrice() {
+    
+  }
 }
