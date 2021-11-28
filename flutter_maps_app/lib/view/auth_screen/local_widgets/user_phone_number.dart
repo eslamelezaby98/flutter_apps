@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maps_app/controller/auth_screen_controller.dart';
+import 'package:flutter_maps_app/controller/auth_controller.dart';
 import 'package:get/get.dart';
 
 class UserPhoneNumberWidget extends StatelessWidget {
@@ -9,8 +9,8 @@ class UserPhoneNumberWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthScreenController>(
-      init: AuthScreenController(),
+    return GetBuilder<AuthController>(
+      init: AuthController(),
       builder: (controller) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -37,14 +37,13 @@ class UserPhoneNumberWidget extends StatelessWidget {
             SizedBox(
               width: 200,
               child: TextFormField(
+                controller: controller.phoneNumberController,
                 cursorColor: Colors.black,
                 autofocus: true,
                 keyboardType: TextInputType.phone,
+                textAlign: TextAlign.center,
                 decoration: const InputDecoration(
                   hintText: '01xx xxxx xxx',
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 0.0),
-                  ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.black,
