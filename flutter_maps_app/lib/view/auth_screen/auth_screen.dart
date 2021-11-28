@@ -42,3 +42,11 @@ class AuthScreen extends GetWidget<AuthController> {
     );
   }
 }
+
+//todo
+  // sent phone number to firebse to sent code to user
+  //process
+  // user input his phone number
+  // validation TextForm
+  // if phone number is valid , make loading
+  // move to otp_screen.
