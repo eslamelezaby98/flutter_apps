@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: Binding(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
       home:const AuthScreen(),
     );
   }
