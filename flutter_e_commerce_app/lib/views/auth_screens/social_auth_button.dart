@@ -25,6 +25,7 @@ class SocialAuthButton extends StatelessWidget {
           width: size.width,
           height: 50,
           decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.red),
           ),
@@ -35,7 +36,10 @@ class SocialAuthButton extends StatelessWidget {
                 image: AssetImage(imagePath),
                 height: 40,
               ),
-              Text(title),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
             ],
           ),
         ),

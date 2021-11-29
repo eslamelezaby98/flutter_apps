@@ -1,5 +1,3 @@
-
-
 import 'package:fltter_e_commerce_app/views/auth_screens/social_auth_button.dart';
 import 'package:flutter/material.dart';
 
@@ -19,12 +17,12 @@ class LoginScreen extends StatelessWidget {
           ),
           Text(
             'Welcome to Mesh Amazon',
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
           SizedBox(height: 10),
           Text(
             'Welcome Back',
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyText2,
           ),
           SocialAuthButton(
             size: size,

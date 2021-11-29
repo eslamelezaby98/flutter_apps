@@ -31,7 +31,7 @@ dependencies:
   provider: ^6.0.1
   get: ^4.3.8
   shared_preferences:
-  google_fonts: ^2.1.0
+  # google_fonts: ^2.1.0
   http: ^0.13.4
 
 dev_dependencies:
@@ -70,10 +70,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

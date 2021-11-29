@@ -1,6 +1,5 @@
 import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserProfile extends StatelessWidget {
   const UserProfile({Key? key}) : super(key: key);
@@ -74,10 +73,10 @@ class AccountScreenCard extends StatelessWidget {
               SizedBox(width: 10),
               Text(
                 title,
-                style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
+                // style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
               ),
             ],
-          ),
+          )
         ),
       ),
     );

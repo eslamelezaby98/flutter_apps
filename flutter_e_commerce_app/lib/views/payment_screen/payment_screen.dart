@@ -1,7 +1,7 @@
 import 'package:fltter_e_commerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -17,10 +17,6 @@ class PaymentScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           'Payment',
-          style: GoogleFonts.openSans(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
         ),
         leading: IconButton(
           onPressed: () {
@@ -44,10 +40,6 @@ class PaymentScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   'Select a payment method:',
-                  style: GoogleFonts.openSans(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
                 ),
               ),
               SizedBox(height: 10),
@@ -93,10 +85,6 @@ class PromotionalCardsWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Gift Cards Or Promotional Cards',
-                style: GoogleFonts.openSans(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
               ),
             ),
             TextField(
@@ -124,10 +112,6 @@ class PromotionalCardsWidget extends StatelessWidget {
                   child: Center(
                       child: Text(
                     'SUBMIT',
-                    style: GoogleFonts.openSans(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
                   )),
                 ),
               ),
@@ -159,19 +143,14 @@ class PaymentMethodWidget extends StatelessWidget {
         height: 100,
         width: size.width,
         decoration: BoxDecoration(
-          color: Color(0xff0B1423),
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(20),
-          // border: Border.all(color: Colors.black),
+          border: Border.all(color: Colors.red),
         ),
         child: Center(
           child: Text(
             title,
-            style: GoogleFonts.openSans(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.white,
-              decoration: TextDecoration.underline,
-            ),
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
       ),

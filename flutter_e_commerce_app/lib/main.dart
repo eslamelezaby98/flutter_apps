@@ -2,7 +2,6 @@ import 'package:fltter_e_commerce_app/helpers/binding.dart';
 import 'package:fltter_e_commerce_app/views/auth_screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'helpers/constants.dart';
 
@@ -18,14 +17,11 @@ class MyApp extends StatelessWidget {
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'OpenSans',
         appBarTheme: AppBarTheme(
           elevation: 0.0,
           centerTitle: true,
           color: Colors.white,
-          titleTextStyle: GoogleFonts.openSans(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
           actionsIconTheme: IconThemeData(
             color: kSecondColor,
           ),
@@ -38,14 +34,15 @@ class MyApp extends StatelessWidget {
         indicatorColor: Colors.red,
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
-          bodyText1: GoogleFonts.openSans(
-            color: Colors.black,
-          ),
-          bodyText2: GoogleFonts.openSans(
+          bodyText1: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
+          bodyText2: TextStyle(
+            color: Colors.black,
+          ),
         ),
+       primaryColor: Colors.white,
       ),
       home: AuthScreen(),
     );

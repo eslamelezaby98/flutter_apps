@@ -18,17 +18,10 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: Icon(
-              Icons.search,
+           Icons.favorite_border,
             ),
           ),
         ],
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.favorite_border,
-            color: Colors.red,
-          ),
-        ),
       ),
       body: Obx(
         () {

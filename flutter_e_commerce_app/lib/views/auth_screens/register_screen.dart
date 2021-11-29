@@ -18,12 +18,12 @@ class RegisterScreen extends StatelessWidget {
           ),
           Text(
             'Welcome to Mesh Amazon',
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
           SizedBox(height: 10),
           Text(
             'Create a new account now..',
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyText2,
           ),
           SocialAuthButton(
             size: size,

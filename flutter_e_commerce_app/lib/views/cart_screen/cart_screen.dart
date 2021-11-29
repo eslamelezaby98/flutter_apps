@@ -1,6 +1,6 @@
 import 'package:fltter_e_commerce_app/controllers/product_controller.dart';
 import 'package:fltter_e_commerce_app/models/product_model.dart';
-import 'package:fltter_e_commerce_app/views/payment_screen.dart';
+import 'package:fltter_e_commerce_app/views/payment_screen/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
