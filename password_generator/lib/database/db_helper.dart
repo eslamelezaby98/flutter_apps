@@ -43,10 +43,10 @@ class DbHelper {
   }
 
 // get all site
-Stream<dynamic>  getSites() async* {
+  getSites() async{
     Database db = await this.db;
     final List<Map<String, dynamic>> result = await db.query(kTableName);
-    yield result;
+    return result;
   }
 
   Future<List<Site>> getSiteList() async {

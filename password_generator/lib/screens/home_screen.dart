@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:password_generator/constants/constants.dart';
 import 'package:password_generator/controllar/controllar.dart';
 import 'package:password_generator/screens/site_preview.dart';
-import 'package:password_generator/screens/user_info_screen.dart';
+import 'package:password_generator/screens/generated_password_screen.dart';
 
 class HomeScreen extends GetWidget<MyControllar> {
   @override
@@ -12,14 +12,7 @@ class HomeScreen extends GetWidget<MyControllar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Password Generator'),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.person_outline_sharp,
-            ),
-            onPressed: () {},
-          ),
-        ],
+        leading: SizedBox(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -30,8 +23,8 @@ class HomeScreen extends GetWidget<MyControllar> {
           Icons.add,
         ),
       ),
-      body: StreamBuilder(
-        stream: controller.dbHelper.getSites(),
+      body: FutureBuilder(
+        future: controller.dbHelper.getSites(),
         builder: (context, snapshot) => !snapshot.hasData
             ? Center(
                 child: Text(
@@ -57,7 +50,7 @@ class HomeScreen extends GetWidget<MyControllar> {
         child: Container(
           height: 100,
           decoration: BoxDecoration(
-            color: Color(0xff30475e),
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: ListTile(
@@ -88,7 +81,7 @@ class HomeScreen extends GetWidget<MyControllar> {
         ),
       ),
       onTap: () {
-        Get.to(() => SitePreview());
+        Get.to(() => SitePreview(index));
 
         // showBottomSheet(
         //   context: context,

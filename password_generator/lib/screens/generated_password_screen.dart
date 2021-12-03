@@ -22,9 +22,7 @@ class UserInfoScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        title: Text(
-          'Generate Password'
-        ),
+        title: Text('Generate Password'),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_sharp,
@@ -35,8 +33,8 @@ class UserInfoScreen extends StatelessWidget {
           },
         ),
       ),
-      body: StreamBuilder(
-        stream: controllar.dbHelper.getSites(),
+      body: FutureBuilder(
+        future: controllar.dbHelper.getSites(),
         builder: (context, snapshot) => !snapshot.hasData
             ? Text('snapshot not has data')
             : ListView(
@@ -164,7 +162,7 @@ class UserInfoScreen extends StatelessWidget {
                                         controllar.lettersController.clear();
                                         controllar.symbolsController.clear();
                                         controllar.numbersController.clear();
-                                        Get.to(()=> HomeScreen());
+                                        Get.to(() => HomeScreen());
                                         // Navigator.pushNamed(
                                         //   context,
                                         //   HomeScreen.screen_route,

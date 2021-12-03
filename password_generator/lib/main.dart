@@ -18,6 +18,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.black,
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            color: Colors.black,
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+          headline2: TextStyle(
+            color: Colors.black,
+            fontSize: 30,
+          ),
+        ),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.black,
           elevation: 0.0,
