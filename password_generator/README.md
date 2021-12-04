@@ -1,4 +1,11 @@
-# password_generator
+### Password Generator
 
-![password generator app cover 2](https://user-images.githubusercontent.com/85620139/129021226-03350778-94c6-416d-8d26-35d59ded304a.png)
+you can generate your strong password and choice how many number and symbol and character
 
+**State Management:** **Getx**
+
+**Database**: Local Database using SQflite
+
+**Design Pattern:** MVC
+
+https://user-images.githubusercontent.com/85620139/144721050-b50028cc-9798-4b19-97fe-3bfd8b68b4a3.mp4
