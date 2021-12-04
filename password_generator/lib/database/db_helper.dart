@@ -60,5 +60,11 @@ class DbHelper {
     return db.delete(kTableName, where: 'id = ?', whereArgs: [id]);
   }
 
+  // Future<int> update(Map<String, dynamic> row) async {
+  //   Database db = await this.db;
+  //   int id = row[kId];
+  //   return await db.update(kTableName, row, where: '$kId = ?', whereArgs: [id]);
+  // }
+
  
 }

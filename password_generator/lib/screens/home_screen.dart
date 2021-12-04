@@ -17,7 +17,7 @@ class HomeScreen extends GetWidget<MyControllar> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           controller.updateData();
-          Get.to(() => UserInfoScreen());
+          Get.to(() => GeneratedPasswordScreen());
         },
         child: Icon(
           Icons.add,

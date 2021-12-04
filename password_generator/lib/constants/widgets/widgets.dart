@@ -43,27 +43,30 @@ class BuildInputText extends StatelessWidget {
   final TextEditingController textEditingController;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: textEditingController,
-      autofocus: false,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
-          borderRadius: BorderRadius.circular(15),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        controller: textEditingController,
+        autofocus: false,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black, width: 1.0),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: Colors.white, width: 1.0),
+          ),
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 13,
+          ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: Colors.white, width: 1.0),
-        ),
-        filled: true,
-        hintText: hintText,
-        hintStyle: TextStyle(
-          color: Colors.black,
-          fontSize: 13,
-        ),
+        onChanged: onChange,
       ),
-      onChanged: onChange,
     );
   }
 }
