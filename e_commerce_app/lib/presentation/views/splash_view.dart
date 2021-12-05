@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:e_commerce_app/presentation/app_manager/asseet_maanger.dart';
+import 'package:e_commerce_app/presentation/app_manager/assets_maanger.dart';
 import 'package:e_commerce_app/presentation/app_manager/color_manager.dart';
 import 'package:e_commerce_app/presentation/app_manager/routes_manager.dart';
 import 'package:flutter/material.dart';
