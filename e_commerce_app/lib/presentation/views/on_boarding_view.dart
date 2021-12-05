@@ -99,7 +99,13 @@ class _OnBoradingViewState extends State<OnBoradingView> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            _pageController.animateToPage(
+              _getPreviousIndex(),
+              duration: const Duration(milliseconds: DurationApp.d300),
+              curve: Curves.bounceInOut,
+            );
+          },
           icon: const Icon(
             Icons.arrow_back_ios,
           ),
@@ -114,7 +120,13 @@ class _OnBoradingViewState extends State<OnBoradingView> {
           ],
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            _pageController.animateToPage(
+              _getNextIndex(),
+              duration: const Duration(milliseconds: DurationApp.d300),
+              curve: Curves.bounceInOut,
+            );
+          },
           icon: const Icon(
             Icons.arrow_forward_ios_outlined,
           ),
@@ -133,6 +145,22 @@ class _OnBoradingViewState extends State<OnBoradingView> {
         Icons.circle_outlined,
       );
     }
+  }
+
+  int _getPreviousIndex() {
+    int previousIndex = _currentIndex--;
+    if (previousIndex == -1) {
+      _currentIndex = _list.length - 1;
+    }
+    return _currentIndex;
+  }
+
+  int _getNextIndex() {
+    int previousIndex = _currentIndex++;
+    if (previousIndex >= _list.length) {
+      _currentIndex = 0;
+    }
+    return _currentIndex;
   }
 }
 
