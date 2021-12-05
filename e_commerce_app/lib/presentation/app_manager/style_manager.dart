@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/presentation/font_manager.dart';
+import 'package:e_commerce_app/presentation/app_manager/font_manager.dart';
 import 'package:flutter/cupertino.dart';
 
 class TextStyleManager {

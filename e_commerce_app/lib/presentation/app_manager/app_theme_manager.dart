@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/presentation/color_manager.dart';
-import 'package:e_commerce_app/presentation/font_manager.dart';
-import 'package:e_commerce_app/presentation/style_manager.dart';
-import 'package:e_commerce_app/presentation/value_manager.dart';
+import 'package:e_commerce_app/presentation/app_manager/color_manager.dart';
+import 'package:e_commerce_app/presentation/app_manager/font_manager.dart';
+import 'package:e_commerce_app/presentation/app_manager/style_manager.dart';
+import 'package:e_commerce_app/presentation/app_manager/value_manager.dart';
 import 'package:flutter/material.dart';
 
 class AppThemeManager {
