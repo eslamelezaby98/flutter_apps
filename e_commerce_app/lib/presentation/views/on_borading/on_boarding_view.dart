@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/domain/slider_model.dart';
 import 'package:e_commerce_app/presentation/app_manager/assets_maanger.dart';
 import 'package:e_commerce_app/presentation/app_manager/color_manager.dart';
 import 'package:e_commerce_app/presentation/app_manager/strings_manager.dart';
@@ -14,34 +15,9 @@ class OnBoradingView extends StatefulWidget {
 }
 
 class _OnBoradingViewState extends State<OnBoradingView> {
-  late final List<SliderObject> _list = _getSliderObject();
   final PageController _pageController = PageController(initialPage: 0);
-  int _currentIndex = 0;
 
-  List<SliderObject> _getSliderObject() {
-    return [
-      SliderObject(
-        title: StringsManager.onBoardingTitle1,
-        subTitle: StringsManager.onBoardingSubTitle1,
-        image: ImageAsset.onboardingLogo1,
-      ),
-      SliderObject(
-        title: StringsManager.onBoardingTitle2,
-        subTitle: StringsManager.onBoardingSubTitle2,
-        image: ImageAsset.onboardingLogo2,
-      ),
-      SliderObject(
-        title: StringsManager.onBoardingTitle3,
-        subTitle: StringsManager.onBoardingSubTitle3,
-        image: ImageAsset.onboardingLogo3,
-      ),
-      SliderObject(
-        title: StringsManager.onBoardingTitle4,
-        subTitle: StringsManager.onBoardingSubTitle4,
-        image: ImageAsset.onboardingLogo4,
-      ),
-    ];
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -164,14 +140,7 @@ class _OnBoradingViewState extends State<OnBoradingView> {
   }
 }
 
-class SliderObject {
-  String title;
-  String subTitle;
-  String image;
 
-  SliderObject(
-      {required this.title, required this.subTitle, required this.image});
-}
 
 class OnBoradingPage extends StatelessWidget {
   final SliderObject sliderObject;

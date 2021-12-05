@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/presentation/app_manager/strings_manager.dart';
 import 'package:e_commerce_app/presentation/views/login_view.dart';
 import 'package:e_commerce_app/presentation/views/main_view.dart';
-import 'package:e_commerce_app/presentation/views/on_boarding_view.dart';
+import 'package:e_commerce_app/presentation/views/on_borading/on_boarding_view.dart';
 import 'package:e_commerce_app/presentation/views/register_view.dart';
 import 'package:e_commerce_app/presentation/views/splash_view.dart';
 import 'package:e_commerce_app/presentation/views/store_details_view.dart';
