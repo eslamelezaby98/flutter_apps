@@ -24,18 +24,27 @@ class OnBoradingViewModel extends BaseViewModel
   }
 
   @override
-  void goNext() {
-    // TODO: implement goNext
+  int goNext() {
+    int previousIndex = _currentIndex--;
+    if (previousIndex == -1) {
+      _currentIndex = _list.length - 1;
+    }
+    return _currentIndex;
   }
 
   @override
-  void goPrevious() {
-    // TODO: implement goPrevious
+  int goPrevious() {
+    int previousIndex = _currentIndex++;
+    if (previousIndex >= _list.length) {
+      _currentIndex = 0;
+    }
+    return _currentIndex;
   }
 
   @override
   void onPageChanged(int index) {
-    // TODO: implement onPageChanged
+    _currentIndex = index;
+    _postDataToView();
   }
 
   @override
@@ -44,6 +53,7 @@ class OnBoradingViewModel extends BaseViewModel
   @override
   Stream<SliderViewObject> get outputSliderViewObject =>
       _streamController.stream.map((sliderViewObject) => sliderViewObject);
+
 
   List<SliderObject> _getSliderObject() {
     return [
@@ -66,7 +76,7 @@ class OnBoradingViewModel extends BaseViewModel
         title: StringsManager.onBoardingTitle4,
         subTitle: StringsManager.onBoardingSubTitle4,
         image: ImageAsset.onboardingLogo4,
-      ),
+      )
     ];
   }
 
