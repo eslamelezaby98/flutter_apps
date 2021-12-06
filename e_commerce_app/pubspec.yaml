@@ -39,6 +39,8 @@ dependencies:
   analyzer: ^2.8.0
   dio: ^4.0.4
   json_serializable: ^6.1.1
+  shared_preferences: ^2.0.9
+  device_info: ^2.0.3
 
 dev_dependencies:
   flutter_test:
