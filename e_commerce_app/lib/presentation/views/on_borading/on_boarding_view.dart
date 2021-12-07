@@ -33,6 +33,7 @@ class _OnBoradingViewState extends State<OnBoradingView> {
   Widget build(BuildContext context) {
     return StreamBuilder<SliderViewObject>(
       stream: _onBoradingViewModel.outputSliderViewObject,
+      // initialData:,
       builder: (context, snapshot) {
         return _getContentWidget(snapshot.data);
       },
@@ -75,7 +76,7 @@ class _OnBoradingViewState extends State<OnBoradingView> {
           },
         ),
         bottomSheet: Container(
-          height: AppSize.s100,
+          height: AppSize.s200,
           color: ColorManager.white,
           child: Column(
             children: [

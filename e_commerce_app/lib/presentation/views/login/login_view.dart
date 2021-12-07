@@ -33,52 +33,123 @@ class _LoginViewState extends State<LoginView> {
   }
 
   @override
+  void dispose() {
+    _loginViewModel.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SizedBox(
-          child: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  // image
-                  // SvgPicture.asset(AssetManager.login),
-                  StreamBuilder<bool>(
-                    stream: _loginViewModel.isUserEmailValid,
-                    builder: (context, snapshot) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                          left: AppSize.s8,
-                          right: AppSize.s8,
-                          top: AppSize.s12,
-                        ),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                          decoration: InputDecoration(
-                            hintText: StringsManager.userEmail,
-                            labelText: StringsManager.userEmail,
-                            errorText: (snapshot.data ?? true)
-                                ? null
-                                : StringsManager.userEmailError,
+        body: Padding(
+          padding: const EdgeInsets.only(
+            top: AppSize.s12,
+          ),
+          child: SizedBox(
+            child: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    // image
+                    SvgPicture.asset(AssetManager.onboardingLogo1),
+                    StreamBuilder<bool>(
+                      stream: _loginViewModel.isUserEmailValid,
+                      initialData: false,
+                      builder: (context, snapshot) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            left: AppSize.s8,
+                            right: AppSize.s8,
+                            top: AppSize.s12,
+                          ),
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              hintText: StringsManager.userEmail,
+                              labelText: StringsManager.userEmail,
+                              errorText: (snapshot.data ?? true)
+                                  ? null
+                                  : StringsManager.userEmailError,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    StreamBuilder<bool>(
+                      stream: _loginViewModel.isUserPasswordValid,
+                      initialData: false,
+                      builder: (context, snapshot) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            left: AppSize.s8,
+                            right: AppSize.s8,
+                            top: AppSize.s12,
+                          ),
+                          child: TextFormField(
+                            obscureText: true,
+                            keyboardType: TextInputType.visiblePassword,
+                            controller: _passwordController,
+                            decoration: InputDecoration(
+                              hintText: StringsManager.userPassword,
+                              labelText: StringsManager.userPassword,
+                              errorText: (snapshot.data ?? true)
+                                  ? null
+                                  : StringsManager.userPasswordError,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    StreamBuilder(
+                      // stream: ,
+                      // initialData: ,
+                      builder: (context, snapshot) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            top: AppSize.s60,
+                            bottom: AppSize.s60,
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Login'),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize:
+                                  const Size(AppSize.s200, AppSize.s40),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            StringsManager.forgetPassword,
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                         ),
-                      );
-                    },
-                  )
-                ],
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            StringsManager.notAMemeber,
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _loginViewModel.dispose();
-    super.dispose();
   }
 }

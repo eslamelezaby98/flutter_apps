@@ -15,4 +15,9 @@ class StringsManager {
   static const String skip = 'Skip';
   static const String userEmail = "Typing your email";
   static const String userEmailError = "Unvaild Email";
+  static const String userPassword = "Typing your password";
+  static const String userPasswordError = "Unvaild Password";
+  static const String forgetPassword = 'Forget Password';
+    static const String notAMemeber = 'Not a memeber, Sign up!';
+
 }
