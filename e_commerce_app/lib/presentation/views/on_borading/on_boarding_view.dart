@@ -30,12 +30,6 @@ class _OnBoradingViewState extends State<OnBoradingView> {
   }
 
   @override
-  void dispose() {
-    _onBoradingViewModel.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return StreamBuilder<SliderViewObject>(
       stream: _onBoradingViewModel.outputSliderViewObject,
@@ -43,6 +37,12 @@ class _OnBoradingViewState extends State<OnBoradingView> {
         return _getContentWidget(snapshot.data);
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _onBoradingViewModel.dispose();
+    super.dispose();
   }
 
   Scaffold _getContentWidget(SliderViewObject? sliderViewObject) {

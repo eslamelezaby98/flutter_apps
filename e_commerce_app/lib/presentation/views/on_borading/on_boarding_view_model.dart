@@ -54,28 +54,27 @@ class OnBoradingViewModel extends BaseViewModel
   Stream<SliderViewObject> get outputSliderViewObject =>
       _streamController.stream.map((sliderViewObject) => sliderViewObject);
 
-
   List<SliderObject> _getSliderObject() {
     return [
       SliderObject(
         title: StringsManager.onBoardingTitle1,
         subTitle: StringsManager.onBoardingSubTitle1,
-        image: ImageAsset.onboardingLogo1,
+        image: AssetManager.onboardingLogo1,
       ),
       SliderObject(
         title: StringsManager.onBoardingTitle2,
         subTitle: StringsManager.onBoardingSubTitle2,
-        image: ImageAsset.onboardingLogo2,
+        image: AssetManager.onboardingLogo2,
       ),
       SliderObject(
         title: StringsManager.onBoardingTitle3,
         subTitle: StringsManager.onBoardingSubTitle3,
-        image: ImageAsset.onboardingLogo3,
+        image: AssetManager.onboardingLogo3,
       ),
       SliderObject(
         title: StringsManager.onBoardingTitle4,
         subTitle: StringsManager.onBoardingSubTitle4,
-        image: ImageAsset.onboardingLogo4,
+        image: AssetManager.onboardingLogo4,
       )
     ];
   }

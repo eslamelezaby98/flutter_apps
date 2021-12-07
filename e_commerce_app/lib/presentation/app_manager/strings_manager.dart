@@ -13,4 +13,6 @@ class StringsManager {
   static const String onBoardingSubTitle4 =
       "Tut app is an awesome flutter application using clean architecture #4";
   static const String skip = 'Skip';
+  static const String userEmail = "Typing your email";
+  static const String userEmailError = "Unvaild Email";
 }

@@ -8,6 +8,7 @@ class AppThemeManager {
   static ThemeData getAppTheme() {
     return ThemeData(
       // main color
+      scaffoldBackgroundColor: ColorManager.white,
       primaryColor: ColorManager.primary,
       primaryColorLight: ColorManager.primaryOpacity70,
       primaryColorDark: ColorManager.darkGrey,
