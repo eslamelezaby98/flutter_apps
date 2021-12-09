@@ -1,4 +1,5 @@
-import 'package:news_app/help/constants_manager.dart';
+
+import 'package:news_app/app_manager/constants_manager.dart';
 
 class Article {
   final String title;
