@@ -1,0 +1,27 @@
+import 'package:news_app/app_manager/keys/my_key.dart';
+
+class ContantsManager {
+  static const String kTitle = 'title';
+  static const String kAuthor = 'author';
+  static const String kDescription = 'description';
+  static const String kUrl = 'url';
+  static const String kUrlToImage = 'urlToImage';
+  static const String kPublishedAt = 'publishedAt';
+  static const String kConent = 'conent';
+
+//API
+
+  static const String topHeadlinesUrl =
+      'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=$apiKey';
+  static String headlinesFor(String country) {
+    return 'https://newsapi.org/v2/top-headlines?country=$country&category=business&apiKey=$apiKey';
+  }
+
+  static const Map<String, String> countries = {
+    "United States of America": "us",
+    "India": "in",
+    "Korea": "kr",
+    "China": "ch",
+    "Egypt": "eg"
+  };
+}
