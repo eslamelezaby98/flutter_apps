@@ -7,12 +7,13 @@ class ContantsManager {
   static const String kUrl = 'url';
   static const String kUrlToImage = 'urlToImage';
   static const String kPublishedAt = 'publishedAt';
-  static const String kConent = 'conent';
+  static const String kConent = 'content';
+  static const String kArticles = 'articles';
 
 //API
-
-  static const String topHeadlinesUrl =
+  static const topHeadlinesUrl =
       'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=$apiKey';
+
   static String headlinesFor(String country) {
     return 'https://newsapi.org/v2/top-headlines?country=$country&category=business&apiKey=$apiKey';
   }
@@ -24,4 +25,13 @@ class ContantsManager {
     "China": "ch",
     "Egypt": "eg"
   };
+
+  static const List<String> countriesNames = [
+    "Trends",
+    "United States of America",
+    "Egypt",
+    "India",
+    "Korea",
+    "China"
+  ];
 }
