@@ -45,4 +45,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-my_key.dart
+news_app/lib/app_manager/keys/my_key.dart
