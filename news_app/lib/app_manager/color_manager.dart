@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ColorManager {
   static Color primary =  Colors.white;
   static Color black = Colors.black;
-  static Color grey = const Color(0xff737477);
+  static Color blue = const Color(0xff1A8CD8);
   static Color lightGrey = const Color(0xff9E9E9E);
   // ignore: use_full_hex_values_for_flutter_colors
   static Color primaryOpacity70 = const Color(0xffb3ed9728);

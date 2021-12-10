@@ -14,11 +14,11 @@ class AppThemeManager {
       primaryColorDark: ColorManager.black,
       disabledColor: ColorManager.grey1,
       colorScheme: ColorScheme.fromSwatch().copyWith(
-        secondary: ColorManager.grey,
+        secondary: ColorManager.blue,
       ),
       cardTheme: CardTheme(
         color: ColorManager.white,
-        shadowColor: ColorManager.grey,
+        shadowColor: ColorManager.blue,
         elevation: AppSize.s4,
       ),
       appBarTheme: AppBarTheme(
@@ -47,28 +47,33 @@ class AppThemeManager {
             )),
       ),
       textTheme: TextTheme(
-        headline1: TextStyleManager().getSuemiBoldStyle(
-          color: ColorManager.black,
-          fontSize: FontSizeManager.s40,
+        headline1: TextStyle(
+          fontSize: 30,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
-        headline2: TextStyleManager().getSuemiBoldStyle(
-          color: ColorManager.black,
-          fontSize: FontSizeManager.s30,
+        headline2: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
         ),
         subtitle1: TextStyleManager().getMediumStyle(
           color: ColorManager.lightGrey,
           fontSize: FontSizeManager.s14,
         ),
-        caption: TextStyleManager().getRegularStyle(
-          color: ColorManager.grey1,
+        caption: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          backgroundColor: Colors.black
         ),
-        bodyText1: TextStyleManager().getBoldStyle(
-          color: ColorManager.black,
-        
+        bodyText1: TextStyle(
+          color: ColorManager.white,
+          backgroundColor: Colors.black,
         ),
-        bodyText2: TextStyleManager().getRegularStyle(
-          color: ColorManager.lightGrey,
-        
+        bodyText2: TextStyle(
+          color: ColorManager.white,
+          backgroundColor: Colors.black38,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -81,7 +86,7 @@ class AppThemeManager {
             TextStyleManager().getRegularStyle(color: ColorManager.error),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorManager.grey,
+            color: ColorManager.blue,
             width: AppSize.s1_5,
           ),
           borderRadius: const BorderRadius.all(

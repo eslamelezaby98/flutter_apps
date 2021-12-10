@@ -9,12 +9,12 @@ class ArticlesListViewModel extends ChangeNotifier {
   List<Article> get articlList => _articlList;
   List<Article> get articlesByCountry => _articlesByCountry;
 
-  Future<void> fetchHeadlines() async {
+  fetchHeadlines() async {
     _articlList = await WebService().fetchHeadline();
     notifyListeners();
   }
 
-  Future<void> fetchHeadlinesByCountry(String country) async {
+  fetchHeadlinesByCountry(String country) async {
     _articlesByCountry = await WebService().fetchHeadlineByCountry(country);
     notifyListeners();
   }

@@ -19,15 +19,17 @@ class Article {
     required this.content,
   });
 
+  static Map<String, String> nullValue = {'null': 'null'};
+
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
-      author: json[ContantsManager.kAuthor] ?? json[ContantsManager.kTitle],
+      author: json[ContantsManager.kAuthor] ?? "No author found",
       title: json[ContantsManager.kTitle],
       description: json[ContantsManager.kDescription],
       url: json[ContantsManager.kUrl],
       urlToImage: json[ContantsManager.kUrlToImage],
       publishedAt: json[ContantsManager.kPublishedAt],
-      content: json["content"] ?? json[ContantsManager.kDescription],
+      content: json[ContantsManager.kConent] ?? "No content found",
     );
   }
 }
