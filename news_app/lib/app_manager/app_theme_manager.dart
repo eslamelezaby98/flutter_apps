@@ -47,23 +47,20 @@ class AppThemeManager {
             )),
       ),
       textTheme: TextTheme(
-        headline1: TextStyle(
+        headline1: const TextStyle(
           fontSize: 30,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
-        headline2: TextStyle(
+        headline2: const TextStyle(
           color: Colors.black,
           fontSize: 20,
         ),
-        subtitle1: TextStyleManager().getMediumStyle(
-          color: ColorManager.lightGrey,
-          fontSize: FontSizeManager.s14,
+        subtitle1: const TextStyle(
+          color: Colors.red,
         ),
         caption: const TextStyle(
           color: Colors.white,
-          fontWeight: FontWeight.bold,
-          backgroundColor: Colors.black
         ),
         bodyText1: TextStyle(
           color: ColorManager.white,
