@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/app_manager/color_manager.dart';
 import 'package:news_app/models/country_model.dart';
-import 'package:news_app/views_model/country_model_view.dart';
 import 'package:provider/provider.dart';
 
 class CountryScreen extends StatefulWidget {

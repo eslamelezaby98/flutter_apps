@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/app_manager/color_manager.dart';
+import 'package:news_app/app_manager/strings_manager.dart';
 import 'package:news_app/views/category_screen.dart';
 import 'package:news_app/views/country_screen.dart';
 import 'package:news_app/views/setting_screen.dart';
@@ -85,14 +86,14 @@ class _TrendingScreenState extends State<TrendingScreen> {
           floating: true,
           snap: false,
           expandedHeight: 200,
-          backgroundColor: ColorManager.blue,
+          backgroundColor: Theme.of(context).primaryColor,
+          title: Text(
+            StringsManager.trend,
+            style: Theme.of(context).textTheme.headline1,
+          ),
           flexibleSpace: FlexibleSpaceBar(
-            title: Text(
-              'Trending',
-              style: Theme.of(context).textTheme.headline1,
-            ),
             background: Image.network(
-              provider.articlList[0].urlToImage,
+              provider.articlList[10].urlToImage,
               fit: BoxFit.cover,
             ),
           ),

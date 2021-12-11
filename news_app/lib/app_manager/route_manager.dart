@@ -5,10 +5,12 @@ import 'package:news_app/views/article_detials_screen.dart';
 import 'package:news_app/views/category_screen.dart';
 import 'package:news_app/views/country_screen.dart';
 import 'package:news_app/views/home_screen.dart';
+import 'package:news_app/views/main_screen.dart';
 import 'package:news_app/views/setting_screen.dart';
 
 class Routes {
-  static const String homeScreen = '/';
+  static const String homeScreen = 'homeScreen';
+  static const String mainScreen = '/';
   static const String articleDetialsScreen = 'articleDetialsScreen';
   static const String categoriesScreen = 'categoriesScreen';
   static const String countryScreen = 'countryScreen';
@@ -18,6 +20,10 @@ class Routes {
 class RoutesGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
+      case Routes.mainScreen:
+        return MaterialPageRoute(
+          builder: (_) => const MainScreen(),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),

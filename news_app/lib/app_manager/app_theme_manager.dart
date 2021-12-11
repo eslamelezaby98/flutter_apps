@@ -16,6 +16,10 @@ class AppThemeManager {
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: ColorManager.blue,
       ),
+      tabBarTheme: TabBarTheme(
+        unselectedLabelColor: ColorManager.black,
+        labelColor: ColorManager.darkPrimary,
+      ),
       cardTheme: CardTheme(
         color: ColorManager.white,
         shadowColor: ColorManager.blue,
@@ -24,13 +28,15 @@ class AppThemeManager {
       appBarTheme: AppBarTheme(
         centerTitle: true,
         color: ColorManager.primary,
-        elevation: AppSize.s0,
+        elevation: AppSize.s1_5,
         shadowColor: ColorManager.primaryOpacity70,
-        titleTextStyle: TextStyleManager().getRegularStyle(
-          color: ColorManager.white,
+        titleTextStyle: TextStyle(
+          color: ColorManager.black,
           fontSize: FontSizeManager.s20,
+          fontWeight: FontWeight.bold,
         ),
       ),
+
       buttonTheme: ButtonThemeData(
         shape: const StadiumBorder(),
         disabledColor: ColorManager.grey1,
@@ -47,11 +53,11 @@ class AppThemeManager {
             )),
       ),
       textTheme: TextTheme(
-        headline1: const TextStyle(
-          fontSize: 30,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-         
+        headline1: TextStyle(
+          fontSize: AppSize.s20,
+          color: ColorManager.primary,
+          fontWeight: FontWeightManager.regular,
+          backgroundColor: ColorManager.lightBlack,
         ),
         headline2: const TextStyle(
           color: Colors.black,
@@ -60,19 +66,18 @@ class AppThemeManager {
         subtitle1: const TextStyle(
           color: Colors.red,
         ),
-        caption: const TextStyle(
-          color: Colors.white,
+        caption:  TextStyle(
+          color: ColorManager.lightBlack,
         ),
         bodyText1: TextStyle(
-          color: ColorManager.white,
-          backgroundColor: Colors.black38,
-          fontSize: 50,
+          color: ColorManager.black,
+          fontSize: AppSize.s25,
+          fontWeight: FontWeightManager.regular,
         ),
         bodyText2: TextStyle(
-          color: ColorManager.white,
-          backgroundColor: Colors.black38,
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
+          color: ColorManager.black,
+          fontWeight: FontWeightManager.regular,
+          fontSize: AppSize.s14,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(

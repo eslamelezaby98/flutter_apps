@@ -1,4 +1,4 @@
-import 'package:news_app/app_manager/keys/my_key.dart';
+import 'package:news_app/keys/my_key.dart';
 
 class ContantsManager {
   static const String kTitle = 'title';
