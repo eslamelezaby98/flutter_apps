@@ -19,8 +19,6 @@ class Article {
     required this.content,
   });
 
-  static Map<String, String> nullValue = {'null': 'null'};
-
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
       author: json[ContantsManager.kAuthor] ?? "No author found",
