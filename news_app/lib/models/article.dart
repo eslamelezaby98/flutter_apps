@@ -24,11 +24,11 @@ class Article {
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
       author: json[ContantsManager.kAuthor] ?? "No author found",
-      title: json[ContantsManager.kTitle],
-      description: json[ContantsManager.kDescription],
-      url: json[ContantsManager.kUrl],
-      urlToImage: json[ContantsManager.kUrlToImage],
-      publishedAt: json[ContantsManager.kPublishedAt],
+      title: json[ContantsManager.kTitle] ?? "No title found",
+      description: json[ContantsManager.kDescription] ?? "No description found",
+      url: json[ContantsManager.kUrl] ?? "No url found",
+      urlToImage: json[ContantsManager.kUrlToImage] ?? "https://www.ecpgr.cgiar.org/fileadmin/templates/ecpgr.org/Assets/images/No_Image_Available.jpg",
+      publishedAt: json[ContantsManager.kPublishedAt] ?? "No data found",
       content: json[ContantsManager.kConent] ?? "No content found",
     );
   }

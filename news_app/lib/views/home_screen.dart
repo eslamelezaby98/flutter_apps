@@ -133,11 +133,11 @@ class _TrendingScreenState extends State<TrendingScreen> {
                           children: [
                             Text(
                               provider.articlList[index].publishedAt,
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: Theme.of(context).textTheme.headline2,
                             ),
                             Text(
                               'By Author : ${provider.articlList[index].author}',
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: Theme.of(context).textTheme.headline2,
                             ),
                           ],
                         ),

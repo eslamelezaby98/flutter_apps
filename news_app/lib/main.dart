@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/app_manager/route_manager.dart';
 import 'package:news_app/app_manager/app_theme_manager.dart';
+import 'package:news_app/models/country_model.dart';
 import 'package:news_app/views_model/article_list_view_model.dart';
+import 'package:news_app/views_model/country_model_view.dart';
 import 'package:news_app/views_model/home_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +23,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<HomeViewModel>(
           create: (context) => HomeViewModel(),
+        ),
+        ChangeNotifierProvider<CountryModel>(
+          create: (context) => CountryModel(),
         ),
       ],
       child: MaterialApp(

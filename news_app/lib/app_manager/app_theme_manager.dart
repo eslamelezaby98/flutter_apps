@@ -51,6 +51,7 @@ class AppThemeManager {
           fontSize: 30,
           color: Colors.white,
           fontWeight: FontWeight.bold,
+         
         ),
         headline2: const TextStyle(
           color: Colors.black,
@@ -64,7 +65,8 @@ class AppThemeManager {
         ),
         bodyText1: TextStyle(
           color: ColorManager.white,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.black38,
+          fontSize: 50,
         ),
         bodyText2: TextStyle(
           color: ColorManager.white,

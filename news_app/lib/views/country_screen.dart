@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/app_manager/color_manager.dart';
+import 'package:news_app/models/country_model.dart';
+import 'package:news_app/views_model/country_model_view.dart';
+import 'package:provider/provider.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({Key? key}) : super(key: key);
@@ -10,52 +13,57 @@ class CountryScreen extends StatefulWidget {
 
 class _CountryScreenState extends State<CountryScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<CountryModel>(context);
     return CustomScrollView(
       slivers: [
         SliverAppBar(
-          toolbarHeight: 200,
+          pinned: true,
+          floating: true,
+          snap: false,
+          expandedHeight: 200,
           backgroundColor: ColorManager.blue,
-          flexibleSpace: const FlexibleSpaceBar(
-            title: Text("Countries"),
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              'Trending',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            background: Image.network(
+              "https://www.state.gov/wp-content/uploads/2019/04/Egypt-2109x1406.jpg",
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 300.0,
-            mainAxisSpacing: 100,
-            crossAxisSpacing: 10,
-          mainAxisExtent: 2,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (context, index) => Padding(
+        SliverList(
+          delegate: SliverChildBuilderDelegate((context, index) {
+            return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 200,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            'https://thirdeyetraveller.com/wp-content/uploads/IMG_3619-2-689x861.jpg',
-                          ),
-                        ),
-                      ),
+              child: Container(
+                height: 250,
+                width: double.infinity,
+                child: Center(
+                  child: Text(
+                    provider.countriesList[index]['name'],
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      provider.countriesList[index]['urlImage'],
                     ),
-                    Text(
-                      'Egypt',
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
-            ),
-            childCount: 4,
-          ),
-        ),
+            );
+          }, childCount: 4),
+        )
       ],
     );
   }
