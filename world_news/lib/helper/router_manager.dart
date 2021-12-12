@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:world_news/business_logic/cubit/article_cubit.dart';
+import 'package:world_news/data/repos/article_repos.dart';
+import 'package:world_news/data/web_services/web_services.dart';
 import 'package:world_news/presentation/screens/home_screen.dart';
 import 'package:world_news/presentation/screens/main_screen.dart';
 
@@ -9,10 +12,23 @@ class Routes {
 }
 
 class RoutesGenerator {
-  static Route<dynamic>? generateRoutes(RouteSettings routeSettings) {
+  late ArticleRepos articleRepos;
+  late ArticleCubit articleCubit;
+
+  RoutesGenerator() {
+    articleRepos = ArticleRepos(articelWebServices: ArticelWebServices());
+    articleCubit = ArticleCubit(articleRepos);
+  }
+
+  Route? generateRoutes(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.mainSreen:
-        return MaterialPageRoute(builder: (_) => const MainScreen());
+        return MaterialPageRoute(
+          builder: (_)=> BlocProvider(
+            create: (context) =>articleCubit,
+            child: const MainScreen(),
+          ),
+        );
       case Routes.trendingScreen:
         return MaterialPageRoute(builder: (_) => const TrendingScreen());
       default:

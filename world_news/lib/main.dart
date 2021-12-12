@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:world_news/helper/router_manager.dart';
+import 'package:world_news/helper/theme_app_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
     debugShowCheckedModeBanner: false,
-    onGenerateRoute: RoutesGenerator.generateRoutes,
+    theme:  ThemeAppManager.getAppTheme(),
+    onGenerateRoute: RoutesGenerator().generateRoutes,
     initialRoute: Routes.mainSreen,
     );
   }
