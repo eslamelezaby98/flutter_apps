@@ -30,14 +30,8 @@ class _TrendingScreenState extends State<TrendingScreen> {
             articleModel: articles,
           );
         } else {
-          return const SizedBox(
-            height: 50,
-            width: 50,
-            child: CircularProgressIndicator(
-              color: ColorsManager.seletedColor,
-              // strokeWidth: 50,
-              backgroundColor: Colors.white24,
-            ),
+          return const CircleAvatar(
+            backgroundImage: AssetImage('assets/images/loading.gif'),
           );
         }
       },
@@ -89,15 +83,91 @@ class TrendingArticleWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return SuggectArticleCard(articleModel: articleModel[index]);
-            },
-            childCount: articleModel.length,
-          ),
-        ),
+        ArticleListWidget(articleModel: articleModel),
       ],
+    );
+  }
+}
+
+class ArticleListWidget extends StatelessWidget {
+  const ArticleListWidget({
+    Key? key,
+    required this.articleModel,
+  }) : super(key: key);
+
+  final List<ArticleModel> articleModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 170,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: ColorsManager.primaryDark2,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 160,
+                      width: 150,
+                      child: articleModel[index].urlToImage.isNotEmpty
+                          ? FadeInImage.assetNetwork(
+                              fit: BoxFit.cover,
+                              placeholder: 'assets/images/loading.gif',
+                              image: articleModel[index].urlToImage)
+                          : Image.asset('assets/images/loading.gif'),
+                      decoration: BoxDecoration(
+                        color: ColorsManager.primaryDark2,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 200,
+                          height: 100,
+                          child: Text(
+                            articleModel[index].title,
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              articleModel[index].author,
+                              style: Theme.of(context).textTheme.headline3,
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                  Icons.bookmark_border_outlined),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+        childCount: articleModel.length,
+      ),
     );
   }
 }
@@ -123,15 +193,12 @@ class SuggectArticleCard extends StatelessWidget {
           width: 300,
           child: Stack(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(articleModel.urlToImage),
-                  ),
-                ),
+              FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                placeholder: 'assets/images/loading.gif',
+                image: articleModel.urlToImage,
+                height: 250,
+                width: 300,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

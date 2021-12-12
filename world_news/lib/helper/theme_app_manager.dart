@@ -4,7 +4,7 @@ import 'package:world_news/helper/colors_manager.dart';
 import 'package:world_news/helper/value_manager.dart';
 
 class ThemeAppManager {
- static bool small = true ;
+  static bool small = true;
 
   static ThemeData getAppTheme() {
     return ThemeData(
@@ -29,9 +29,22 @@ class ThemeAppManager {
         headline1: TextStyle(
           color: ColorsManager.white,
           fontSize: 14,
-          backgroundColor: ColorsManager.seletedColor,
-          fontWeight: FontWeight.w500,
+          // backgroundColor: ColorsManager.seletedColor,
+          fontWeight: FontWeight.bold,
           overflow: TextOverflow.ellipsis,
+        ),
+        headline2: TextStyle(
+          color: ColorsManager.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          textBaseline: TextBaseline.alphabetic,
+          wordSpacing: 2,
+          // overflow: TextOverflow.ellipsis,
+        ),
+        headline3: TextStyle(
+          color: ColorsManager.white,
+          fontSize: 15,
+          fontWeight: FontWeight.w300,
         ),
         caption: TextStyle(
           color: ColorsManager.white,
@@ -39,7 +52,7 @@ class ThemeAppManager {
           backgroundColor: ColorsManager.seletedColor,
           fontWeight: FontWeight.w300,
         ),
-        bodyText1:TextStyle(
+        bodyText1: TextStyle(
           color: ColorsManager.white,
           fontSize: 30,
           fontWeight: FontWeight.bold,
