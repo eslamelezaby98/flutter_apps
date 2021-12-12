@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
+import 'package:world_news/helper/value_manager.dart';
 
 class TrendingScreen extends StatefulWidget {
   const TrendingScreen({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
           );
         } else {
           return const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/loading.gif'),
+            backgroundImage: AssetImage(AssetsManager.loadImage2),
           );
         }
       },
@@ -119,12 +120,10 @@ class ArticleListWidget extends StatelessWidget {
                     child: Container(
                       height: 160,
                       width: 150,
-                      child: articleModel[index].urlToImage.isNotEmpty
-                          ? FadeInImage.assetNetwork(
-                              fit: BoxFit.cover,
-                              placeholder: 'assets/images/loading.gif',
-                              image: articleModel[index].urlToImage)
-                          : Image.asset('assets/images/loading.gif'),
+                      child: FadeInImage.assetNetwork(
+                          fit: BoxFit.cover,
+                          placeholder: AssetsManager.loadImage2,
+                          image: articleModel[index].urlToImage),
                       decoration: BoxDecoration(
                         color: ColorsManager.primaryDark2,
                         borderRadius: BorderRadius.circular(20),
@@ -153,8 +152,7 @@ class ArticleListWidget extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: const Icon(
-                                  Icons.bookmark_border_outlined),
+                              icon: const Icon(Icons.bookmark_border_outlined),
                             ),
                           ],
                         ),
@@ -195,7 +193,7 @@ class SuggectArticleCard extends StatelessWidget {
             children: [
               FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
-                placeholder: 'assets/images/loading.gif',
+                placeholder: AssetsManager.loadImage2,
                 image: articleModel.urlToImage,
                 height: 250,
                 width: 300,
