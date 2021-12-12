@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:world_news/helper/colors_manager.dart';
 import 'package:world_news/helper/value_manager.dart';
 
@@ -23,6 +24,26 @@ class ThemeAppManager {
       ),
       iconTheme: const IconThemeData(
         color: ColorsManager.seletedColor,
+      ),
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+          color: ColorsManager.white,
+          fontSize: 14,
+          backgroundColor: ColorsManager.seletedColor,
+          fontWeight: FontWeight.w500,
+          overflow: TextOverflow.ellipsis,
+        ),
+        caption: TextStyle(
+          color: ColorsManager.white,
+          fontSize: 15,
+          backgroundColor: ColorsManager.seletedColor,
+          fontWeight: FontWeight.w300,
+        ),
+        bodyText1:TextStyle(
+          color: ColorsManager.white,
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

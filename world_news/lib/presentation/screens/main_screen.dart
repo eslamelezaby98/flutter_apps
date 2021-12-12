@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
 import 'package:world_news/helper/string_manager.dart';
+import 'package:world_news/presentation/screens/trending_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -13,12 +11,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
-  late List<ArticleModel> articles = [];
+  // late List<ArticleModel> articles = [];
   late TabController tabController;
   @override
   void initState() {
     super.initState();
-    articles = BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
+    //  BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
     tabController = TabController(length: 6, vsync: this);
   }
 
@@ -51,9 +49,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   ];
 
   final List<Widget> _screens = const [
-    Center(
-      child: Text("It's cloudy here"),
-    ),
+    TrendingScreen(),
     Center(
       child: Text("It's rainy here"),
     ),

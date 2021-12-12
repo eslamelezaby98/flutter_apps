@@ -22,13 +22,13 @@ class ArticleModel {
 //Remmber if value is null ?? new_value
   factory ArticleModel.fromJsom(Map<String, dynamic> json) {
     return ArticleModel(
-      author: json[ConstantsManager.author],
-      title: json[ConstantsManager.title],
-      description: json[ConstantsManager.description],
-      url: json[ConstantsManager.url],
-      urlToImage: json[ConstantsManager.urlToImage],
-      publishedAt: json[ConstantsManager.publishedAt],
-      content: json[ConstantsManager.content],
+      author: json[ConstantsManager.author] ?? 'error',
+      title: json[ConstantsManager.title] ?? 'error',
+      description: json[ConstantsManager.description] ?? 'error',
+      url: json[ConstantsManager.url] ?? 'error',
+      urlToImage: json[ConstantsManager.urlToImage] ?? 'error',
+      publishedAt: json[ConstantsManager.publishedAt] ?? 'error',
+      content: json[ConstantsManager.content] ?? 'error',
     );
   }
 }

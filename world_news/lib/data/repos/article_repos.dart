@@ -6,10 +6,10 @@ class ArticleRepos {
 
   ArticleRepos({required this.articelWebServices});
 
-  Future<List<ArticleModel>> fetchTrendingArticles() async {
-    final artcile = await articelWebServices.fetchTrendingArticles();
-    var articles =
-        artcile.map((article) => ArticleModel.fromJsom(article)).toList();
-    return articles;
+  Future<List<ArticleModel>> fetchTrendingArticles()  async{
+    final artcile =await  articelWebServices.fetchTrendingArticles();
+    // var articles =
+    //     artcile.map((article) => ArticleModel.fromJsom(article)).toList();
+    return artcile;
   }
 }
