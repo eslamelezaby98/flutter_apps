@@ -3,6 +3,8 @@ import 'package:world_news/helper/colors_manager.dart';
 import 'package:world_news/helper/value_manager.dart';
 
 class ThemeAppManager {
+ static bool small = true ;
+
   static ThemeData getAppTheme() {
     return ThemeData(
       //colors

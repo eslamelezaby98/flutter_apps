@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
+import 'package:world_news/helper/string_manager.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,8 +19,57 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     articles = BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
-    tabController = TabController(length: 5, vsync: this);
+    tabController = TabController(length: 6, vsync: this);
   }
+
+  final List<Tab> _tab = const [
+    Tab(text: StringManager.trend),
+    Tab(text: StringManager.business),
+    Tab(text: StringManager.sports),
+    Tab(text: StringManager.entertainment),
+    Tab(text: StringManager.science),
+    Tab(text: StringManager.technology),
+  ];
+
+  final List<BottomNavigationBarItem> _navBottomBar = const [
+    BottomNavigationBarItem(
+      label: '',
+      icon: Icon(Icons.home),
+    ),
+    BottomNavigationBarItem(
+      label: '',
+      icon: Icon(Icons.search),
+    ),
+    BottomNavigationBarItem(
+      label: '',
+      icon: Icon(Icons.location_city_outlined),
+    ),
+    BottomNavigationBarItem(
+      label: '',
+      icon: Icon(Icons.settings),
+    ),
+  ];
+
+  final List<Widget> _screens = const [
+    Center(
+      child: Text("It's cloudy here"),
+    ),
+    Center(
+      child: Text("It's rainy here"),
+    ),
+    Center(
+      child: Text("It's sunny here"),
+    ),
+    Center(
+      child: Text("It's sunny here"),
+    ),
+    Center(
+      child: Text("It's sunny here"),
+    ),
+    Center(
+      child: Text("It's sunny here"),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,63 +79,29 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
         bottom: TabBar(
           indicatorColor: ColorsManager.seletedColor,
           controller: tabController,
-          tabs: const [
-            Tab(text: 'Trend'),
-            Tab(text: 'Business'),
-            Tab(text: 'Politics'),
-            Tab(text: 'Tech'),
-            Tab(text: 'Scinses'),
-          ],
+          indicatorSize: TabBarIndicatorSize.label,
+          isScrollable: true,
+          tabs: _tab,
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // move to bookmarks screen.
+            },
             icon: Icon(
-              Icons.bookmark_border_rounded,
+              Icons.bookmark,
               color: Theme.of(context).iconTheme.color,
             ),
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.search),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.location_city_outlined),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.settings),
-          ),
-        ],
+        items: _navBottomBar,
+        // onTap: (value) => print(object),
       ),
       body: TabBarView(
         controller: tabController,
-        children: const [
-          Center(
-            child: Text("It's cloudy here"),
-          ),
-          Center(
-            child: Text("It's rainy here"),
-          ),
-          Center(
-            child: Text("It's sunny here"),
-          ),
-          Center(
-            child: Text("It's sunny here"),
-          ),
-          Center(
-            child: Text("It's sunny here"),
-          ),
-        ],
+        children: _screens,
       ),
     );
   }
