@@ -26,7 +26,7 @@ class ArticleModel {
       title: json[ConstantsManager.title] ?? 'error',
       description: json[ConstantsManager.description] ?? 'error',
       url: json[ConstantsManager.url] ?? 'error',
-      urlToImage: json[ConstantsManager.urlToImage] ?? 'error',
+      urlToImage: json[ConstantsManager.urlToImage] ?? 'https://www.generationsforpeace.org/wp-content/uploads/2018/07/empty.jpg',
       publishedAt: json[ConstantsManager.publishedAt] ?? 'error',
       content: json[ConstantsManager.content] ?? 'error',
     );

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:world_news/business_logic/cubit/article_cubit.dart';
+import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
+import 'package:world_news/helper/constants.dart';
 import 'package:world_news/helper/string_manager.dart';
 import 'package:world_news/presentation/screens/trending_screen.dart';
 
@@ -12,20 +16,22 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   late TabController tabController;
+  List<ArticleModel> articles = [];
+
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 6, vsync: this);
+    tabController =
+        TabController(length: ConstantsManager.categories.length, vsync: this);
+    BlocProvider.of<ArticleCubit>(context)
+        .fetchArticleByCategory(ConstantsManager.categories[1]);
   }
 
-  final List<Tab> _tab = const [
-    Tab(text: StringManager.trend),
-    Tab(text: StringManager.business),
-    Tab(text: StringManager.sports),
-    Tab(text: StringManager.entertainment),
-    Tab(text: StringManager.science),
-    Tab(text: StringManager.technology),
-  ];
+  getTab(int index) {
+    return Tab(
+      text: ConstantsManager.categories[index].toUpperCase(),
+    );
+  }
 
   final List<BottomNavigationBarItem> _navBottomBar = const [
     BottomNavigationBarItem(
@@ -46,23 +52,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     ),
   ];
 
-  final List<Widget> _screens = const [
-    TrendingScreen(),
-    TrendingScreen(),
-    Center(
-      child: Text("It's sunny here"),
-    ),
-    Center(
-      child: Text("It's sunny here"),
-    ),
-    Center(
-      child: Text("It's sunny here"),
-    ),
-    Center(
-      child: Text("It's sunny here"),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +62,10 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
           controller: tabController,
           indicatorSize: TabBarIndicatorSize.label,
           isScrollable: true,
-          tabs: _tab,
+          tabs: [
+            for (int i = 0; i < ConstantsManager.categories.length; i++)
+              getTab(i),
+          ],
         ),
         actions: [
           IconButton(
@@ -93,7 +85,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: tabController,
-        children: _screens,
+        children: [
+          for (var i = 0; i < ConstantsManager.categories.length; i++)
+            TrendingScreen(
+              index: i,
+              title: ConstantsManager.categories[i].toUpperCase(),
+            ),
+        ],
       ),
     );
   }

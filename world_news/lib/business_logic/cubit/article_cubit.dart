@@ -8,11 +8,20 @@ part 'article_state.dart';
 class ArticleCubit extends Cubit<ArticleState> {
   final ArticleRepos articleRepos;
   late List<ArticleModel> articles = [];
+  late List<ArticleModel> articlesByCategory = [];
 
   ArticleCubit(this.articleRepos) : super(ArticleInitial());
 
-  List<ArticleModel> fetchHeadlines() {
-    articleRepos.fetchTrendingArticles().then((articles) {
+  // List<ArticleModel> fetchHeadlines() {
+  //   articleRepos.fetchTrendingArticles().then((articles) {
+  //     emit(ArticelLoaded(articles));
+  //     this.articles = articles;
+  //   });
+  //   return articles;
+  // }
+
+  List<ArticleModel> fetchArticleByCategory(String category) {
+    articleRepos.fetchArticlesByCategory(category).then((articles) {
       emit(ArticelLoaded(articles));
       this.articles = articles;
     });

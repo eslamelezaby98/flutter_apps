@@ -9,11 +9,14 @@ import 'package:world_news/presentation/screens/main_screen.dart';
 class Routes {
   static const String mainSreen = '/';
   static const String trendingScreen = '/trendingScreen';
+  static const String buisnessScreen = '/buisnessScreen';
 }
 
 class RoutesGenerator {
   late ArticleRepos articleRepos;
   late ArticleCubit articleCubit;
+  late int index;
+  late String title;
 
   RoutesGenerator() {
     articleRepos = ArticleRepos(articelWebServices: ArticelWebServices());
@@ -24,13 +27,18 @@ class RoutesGenerator {
     switch (routeSettings.name) {
       case Routes.mainSreen:
         return MaterialPageRoute(
-          builder: (_)=> BlocProvider(
-            create: (context) =>articleCubit,
+          builder: (_) => BlocProvider(
+            create: (context) => articleCubit,
             child: const MainScreen(),
           ),
         );
       case Routes.trendingScreen:
-        return MaterialPageRoute(builder: (_) => const TrendingScreen());
+        return MaterialPageRoute(
+          builder: (_) => TrendingScreen(
+            index: index,
+            title: title,
+          ),
+        );
       default:
         unDefindRoute();
     }

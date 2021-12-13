@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/string_manager.dart';
+import 'package:world_news/helper/constants.dart';
 import 'package:world_news/helper/value_manager.dart';
 
 class TrendingScreen extends StatefulWidget {
-  const TrendingScreen({Key? key}) : super(key: key);
+  final int index;
+  final String title;
+
+  const TrendingScreen({
+    Key? key,
+    required this.index,
+    required this.title,
+  }) : super(key: key);
 
   @override
   State<TrendingScreen> createState() => _TrendingScreenState();
@@ -17,12 +25,6 @@ class _TrendingScreenState extends State<TrendingScreen> {
   List<ArticleModel> articles = [];
 
   @override
-  void initState() {
-    articles = BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<ArticleCubit, ArticleState>(
       builder: (context, state) {
@@ -30,6 +32,8 @@ class _TrendingScreenState extends State<TrendingScreen> {
           articles = (state).articles;
           return TrendingArticleWidget(
             articleModel: articles,
+            title: widget.title,
+            index: widget.index,
           );
         } else {
           return const CircleAvatar(
@@ -42,11 +46,30 @@ class _TrendingScreenState extends State<TrendingScreen> {
   }
 }
 
-class TrendingArticleWidget extends StatelessWidget {
+class TrendingArticleWidget extends StatefulWidget {
   final List<ArticleModel> articleModel;
+  final String title;
+  final int index;
 
-  const TrendingArticleWidget({Key? key, required this.articleModel})
-      : super(key: key);
+  const TrendingArticleWidget({
+    Key? key,
+    required this.articleModel,
+    required this.title,
+    required this.index,
+  }) : super(key: key);
+
+  @override
+  State<TrendingArticleWidget> createState() => _TrendingArticleWidgetState();
+}
+
+class _TrendingArticleWidgetState extends State<TrendingArticleWidget> {
+  @override
+  void initState() {
+    super.initState();
+    // BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
+    BlocProvider.of<ArticleCubit>(context)
+        .fetchArticleByCategory(ConstantsManager.categories[widget.index]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +82,11 @@ class TrendingArticleWidget extends StatelessWidget {
           centerTitle: false,
           backgroundColor: ColorsManager.primaryDark,
           title: Text(
-            StringManager.trend,
+            widget.title,
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
-        ArticleListWidget(articleModel: articleModel),
+        ArticleListWidget(articleModel: widget.articleModel),
       ],
     );
   }

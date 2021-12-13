@@ -15,13 +15,32 @@ class ArticelWebServices {
     dio = Dio(baseOptions);
   }
 
-  Future<List<ArticleModel>> fetchTrendingArticles() async {
+  // Future<List<ArticleModel>> fetchTrendingArticles() async {
+  //   try {
+  //     Response response = await dio.get(ConstantsManager.baseUrl);
+  //     if (response.statusCode == 200) {
+  //       final result = response.data;
+  //       Iterable articles = result['articles'];
+  //       return articles
+  //           .map((article) => ArticleModel.fromJsom(article))
+  //           .toList();
+  //     } else {
+  //       return [];
+  //     }
+  //   } catch (e) {
+  //     return [];
+  //   }
+  // }
+
+  Future<List<ArticleModel>> fetchArticlesByCategory(
+      String category) async {
     try {
-      Response response = await dio.get(ConstantsManager.baseUrl);
+      Response response =
+          await dio.get(ConstantsManager.getCategoryUrl(category));
       if (response.statusCode == 200) {
         final result = response.data;
-        Iterable articles = result['articles'];
-        return articles
+        Iterable articlesByCategory = result['articles'];
+        return articlesByCategory
             .map((article) => ArticleModel.fromJsom(article))
             .toList();
       } else {
