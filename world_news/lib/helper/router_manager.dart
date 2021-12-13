@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/repos/article_repos.dart';
 import 'package:world_news/data/web_services/web_services.dart';
-import 'package:world_news/presentation/screens/trending_screen.dart';
+import 'package:world_news/presentation/screens/category_screen.dart';
 import 'package:world_news/presentation/screens/main_screen.dart';
 
 class Routes {
@@ -34,7 +34,7 @@ class RoutesGenerator {
         );
       case Routes.trendingScreen:
         return MaterialPageRoute(
-          builder: (_) => TrendingScreen(
+          builder: (_) => CategoryScreen(
             index: index,
             title: title,
           ),

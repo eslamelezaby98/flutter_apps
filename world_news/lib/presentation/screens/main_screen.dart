@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/colors_manager.dart';
 import 'package:world_news/helper/constants.dart';
-import 'package:world_news/helper/string_manager.dart';
-import 'package:world_news/presentation/screens/trending_screen.dart';
+import 'package:world_news/presentation/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -15,23 +13,29 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
-  late TabController tabController;
   List<ArticleModel> articles = [];
 
   @override
   void initState() {
     super.initState();
-    tabController =
-        TabController(length: ConstantsManager.categories.length, vsync: this);
     BlocProvider.of<ArticleCubit>(context)
         .fetchArticleByCategory(ConstantsManager.categories[1]);
   }
 
-  getTab(int index) {
-    return Tab(
-      text: ConstantsManager.categories[index].toUpperCase(),
-    );
-  }
+  int _currentIndex = 0;
+
+  final screen = [
+    const HomeScreen(),
+    const Center(
+      child: Text('trend screen'),
+    ),
+    const Center(
+      child: Text('bookmark'),
+    ),
+    const Center(
+      child: Text('setting'),
+    ),
+  ];
 
   final List<BottomNavigationBarItem> _navBottomBar = const [
     BottomNavigationBarItem(
@@ -40,11 +44,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     ),
     BottomNavigationBarItem(
       label: '',
-      icon: Icon(Icons.search),
+      icon: Icon(Icons.golf_course_sharp),
     ),
     BottomNavigationBarItem(
       label: '',
-      icon: Icon(Icons.location_city_outlined),
+      icon: Icon(Icons.bookmark),
     ),
     BottomNavigationBarItem(
       label: '',
@@ -55,44 +59,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(StringManager.title),
-        bottom: TabBar(
-          indicatorColor: ColorsManager.seletedColor,
-          controller: tabController,
-          indicatorSize: TabBarIndicatorSize.label,
-          isScrollable: true,
-          tabs: [
-            for (int i = 0; i < ConstantsManager.categories.length; i++)
-              getTab(i),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // move to bookmarks screen.
-            },
-            icon: Icon(
-              Icons.bookmark,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-        ],
-      ),
       bottomNavigationBar: BottomNavigationBar(
         items: _navBottomBar,
-        // onTap: (value) => print(object),
+        currentIndex: _currentIndex,
+        onTap: (value) {
+          setState(() {
+            _currentIndex = value;
+          });
+        },
       ),
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          for (var i = 0; i < ConstantsManager.categories.length; i++)
-            TrendingScreen(
-              index: i,
-              title: ConstantsManager.categories[i].toUpperCase(),
-            ),
-        ],
-      ),
+      body: screen.elementAt(_currentIndex),
     );
   }
 }
