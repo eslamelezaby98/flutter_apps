@@ -11,12 +11,10 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
-  // late List<ArticleModel> articles = [];
   late TabController tabController;
   @override
   void initState() {
     super.initState();
-    //  BlocProvider.of<ArticleCubit>(context).fetchHeadlines();
     tabController = TabController(length: 6, vsync: this);
   }
 
@@ -50,9 +48,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   final List<Widget> _screens = const [
     TrendingScreen(),
-    Center(
-      child: Text("It's rainy here"),
-    ),
+    TrendingScreen(),
     Center(
       child: Text("It's sunny here"),
     ),
@@ -71,7 +67,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('World News'),
+        title: const Text(StringManager.title),
         bottom: TabBar(
           indicatorColor: ColorsManager.seletedColor,
           controller: tabController,

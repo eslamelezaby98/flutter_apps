@@ -47,9 +47,9 @@ class ThemeAppManager {
           fontWeight: FontWeight.w300,
         ),
         caption: TextStyle(
-          color: ColorsManager.white,
+          color: ColorsManager.seletedColor,
           fontSize: 15,
-          backgroundColor: ColorsManager.seletedColor,
+          // backgroundColor: ColorsManager.seletedColor,
           fontWeight: FontWeight.w300,
         ),
         bodyText1: TextStyle(

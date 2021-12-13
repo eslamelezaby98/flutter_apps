@@ -6,4 +6,6 @@ class StringManager {
   static const String science = 'Science';
   static const String sports = 'Sports';
   static const String technology = 'Technology';
+  static const String title = 'World News';
+
 }
