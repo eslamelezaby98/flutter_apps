@@ -43,17 +43,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               getTab(i),
           ],
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // move to bookmarks screen.
-            },
-            icon: Icon(
-              Icons.search,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-        ],
       ),
       body: TabBarView(
         controller: tabController,

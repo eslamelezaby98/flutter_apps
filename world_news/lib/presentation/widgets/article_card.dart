@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/colors_manager.dart';
+import 'package:world_news/helper/router_manager.dart';
 import 'package:world_news/helper/value_manager.dart';
 
 class ArticleCard extends StatelessWidget {
@@ -23,7 +24,9 @@ class ArticleCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(Routes.bookmarksScreen,arguments: articleModel[index]);
+                    },
                     icon: const Icon(Icons.bookmark_border),
                   ),
                 ),

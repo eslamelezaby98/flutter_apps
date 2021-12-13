@@ -12,13 +12,13 @@ class ArticleCubit extends Cubit<ArticleState> {
 
   ArticleCubit(this.articleRepos) : super(ArticleInitial());
 
-  // List<ArticleModel> fetchHeadlines() {
-  //   articleRepos.fetchTrendingArticles().then((articles) {
-  //     emit(ArticelLoaded(articles));
-  //     this.articles = articles;
-  //   });
-  //   return articles;
-  // }
+  List<ArticleModel> fetchHeadlines() {
+    articleRepos.fetchTrendingArticles().then((articles) {
+      emit(ArticelLoaded(articles));
+      this.articles = articles;
+    });
+    return articles;
+  }
 
   List<ArticleModel> fetchArticleByCategory(String category) {
     articleRepos.fetchArticlesByCategory(category).then((articles) {

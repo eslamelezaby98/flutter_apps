@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:world_news/business_logic/cubit/article_cubit.dart';
 import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/constants.dart';
+import 'package:world_news/presentation/screens/bookmarks_screen.dart';
 import 'package:world_news/presentation/screens/home_screen.dart';
+import 'package:world_news/presentation/screens/trending_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -26,12 +28,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   final screen = [
     const HomeScreen(),
-    const Center(
-      child: Text('trend screen'),
-    ),
-    const Center(
-      child: Text('bookmark'),
-    ),
+    const TrendingScreen(),
+    const BookmarksScreen(),
     const Center(
       child: Text('setting'),
     ),
