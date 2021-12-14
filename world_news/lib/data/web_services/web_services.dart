@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/constants.dart';
+import '../models/article.dart';
+import '../../helper/constants.dart';
 
 class ArticelWebServices {
   late Dio dio;

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/data/repos/article_repos.dart';
+import '../../data/models/article.dart';
+import '../../data/repos/article_repos.dart';
 
 part 'article_state.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/constants.dart';
-import 'package:world_news/helper/string_manager.dart';
-import 'package:world_news/presentation/screens/category_screen.dart';
+import '../../helper/colors_manager.dart';
+import '../../helper/constants.dart';
+import '../../helper/string_manager.dart';
+import 'category_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({

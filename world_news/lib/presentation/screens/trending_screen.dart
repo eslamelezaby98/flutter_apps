@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/string_manager.dart';
-import 'package:world_news/helper/value_manager.dart';
-import 'package:world_news/presentation/widgets/article_card.dart';
+import '../../business_logic/cubit/article_cubit.dart';
+import '../../data/models/article.dart';
+import '../../helper/string_manager.dart';
+import '../../helper/value_manager.dart';
+import '../widgets/article_card.dart';
 
 class TrendingScreen extends StatefulWidget {
   const TrendingScreen({
@@ -69,12 +68,13 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
     return TextField(
       controller: searchTextController,
       cursorColor: Colors.white,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         hintText: 'Find a character...',
         border: InputBorder.none,
-        hintStyle: TextStyle(color: ColorsManager.white, fontSize: 18),
+        hintStyle:
+            TextStyle(color: Theme.of(context).primaryColorDark, fontSize: 18),
       ),
-      style: const TextStyle(color: ColorsManager.white, fontSize: 18),
+      style: TextStyle(color: Theme.of(context).primaryColorDark, fontSize: 18),
       onChanged: (searchedCharacter) {
         addSearchedFOrItemsToSearchedList(searchedCharacter);
       },
@@ -98,16 +98,16 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
             clearSearch();
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.clear, color: ColorsManager.white),
+          icon: Icon(Icons.clear, color: Theme.of(context).primaryColorDark),
         ),
       ];
     } else {
       return [
         IconButton(
           onPressed: startSearch,
-          icon: const Icon(
+          icon: Icon(
             Icons.search,
-            color: ColorsManager.white,
+            color: Theme.of(context).primaryColorDark,
           ),
         ),
       ];
@@ -144,10 +144,10 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
           snap: true,
           pinned: false,
           centerTitle: false,
-          backgroundColor: ColorsManager.primaryDark,
+          backgroundColor: Theme.of(context).primaryColor,
           leading: isSearch
-              ? const BackButton(
-                  color: Colors.white,
+              ? BackButton(
+                  color: Theme.of(context).primaryColorDark,
                 )
               : Container(),
           actions: appBarItems(),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:world_news/controllers/theme_controller.dart';
-import 'package:world_news/helper/router_manager.dart';
-import 'package:world_news/helper/theme_app_manager.dart';
+import 'controllers/theme_controller.dart';
+import 'helper/router_manager.dart';
+import 'helper/theme_app_manager.dart';
 
 void main() {
   runApp(const MyApp());

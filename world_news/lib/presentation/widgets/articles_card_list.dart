@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/constants.dart';
-import 'package:world_news/presentation/widgets/article_card.dart';
+import '../../business_logic/cubit/article_cubit.dart';
+import '../../data/models/article.dart';
+import '../../helper/colors_manager.dart';
+import '../../helper/constants.dart';
+import 'article_card.dart';
 
 
 class ArticlesCardList extends StatefulWidget {

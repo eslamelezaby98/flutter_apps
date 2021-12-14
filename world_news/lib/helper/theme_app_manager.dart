@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/value_manager.dart';
+import 'colors_manager.dart';
+import 'value_manager.dart';
 
 class ThemeAppManager {
   static bool small = true;

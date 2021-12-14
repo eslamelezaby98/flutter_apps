@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/data/repos/article_repos.dart';
-import 'package:world_news/data/web_services/web_services.dart';
-import 'package:world_news/presentation/screens/article_detials_screen.dart';
-import 'package:world_news/presentation/screens/bookmarks_screen.dart';
-import 'package:world_news/presentation/screens/category_screen.dart';
-import 'package:world_news/presentation/screens/main_screen.dart';
+import '../business_logic/cubit/article_cubit.dart';
+import '../data/models/article.dart';
+import '../data/repos/article_repos.dart';
+import '../data/web_services/web_services.dart';
+import '../presentation/screens/article_detials_screen.dart';
+import '../presentation/screens/bookmarks_screen.dart';
+import '../presentation/screens/category_screen.dart';
+import '../presentation/screens/main_screen.dart';
 
 class Routes {
   static const String mainSreen = '/';

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/colors_manager.dart';
-import 'package:world_news/helper/constants.dart';
-import 'package:world_news/helper/value_manager.dart';
-import 'package:world_news/presentation/widgets/article_card.dart';
+import '../../business_logic/cubit/article_cubit.dart';
+import '../../data/models/article.dart';
+import '../../helper/constants.dart';
+import '../../helper/value_manager.dart';
+import '../widgets/article_card.dart';
 
 class CategoryScreen extends StatefulWidget {
   final int index;

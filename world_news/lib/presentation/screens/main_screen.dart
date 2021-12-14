@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:world_news/business_logic/cubit/article_cubit.dart';
-import 'package:world_news/data/models/article.dart';
-import 'package:world_news/helper/constants.dart';
-import 'package:world_news/presentation/screens/bookmarks_screen.dart';
-import 'package:world_news/presentation/screens/home_screen.dart';
-import 'package:world_news/presentation/screens/setting_screen.dart';
-import 'package:world_news/presentation/screens/trending_screen.dart';
+import 'package:flutter_offline/flutter_offline.dart';
+import '../../business_logic/cubit/article_cubit.dart';
+import '../../data/models/article.dart';
+import '../../helper/constants.dart';
+import 'home_screen.dart';
+import 'setting_screen.dart';
+import 'trending_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -52,17 +52,73 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: _navBottomBar,
-        currentIndex: _currentIndex,
-        onTap: (value) {
-          setState(() {
-            _currentIndex = value;
-          });
-        },
+    return OfflineBuilder(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const <Widget>[
+          Text(
+            'There are no bottons to push :)',
+          ),
+          Text(
+            'Just turn off your internet.',
+          ),
+        ],
       ),
-      body: screen.elementAt(_currentIndex),
+      connectivityBuilder: (
+        context,
+        ConnectivityResult connectivity,
+        Widget child,
+      ) {
+        final bool connected = connectivity != ConnectivityResult.none;
+
+        if (connected) {
+          return Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              items: _navBottomBar,
+              currentIndex: _currentIndex,
+              onTap: (value) {
+                setState(() {
+                  _currentIndex = value;
+                });
+              },
+            ),
+            body: screen.elementAt(_currentIndex),
+          );
+        } else {
+          return SafeArea(
+            child: Scaffold(
+              body: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Positioned(
+                    height: 24.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      color: connected
+                          ? const Color(0xFF00EE44)
+                          : const Color(0xFFEE4400),
+                      child: Center(
+                        child: connected
+                            ? const Text('ONLINE')
+                            : const Text('OFFLINE'),
+                      ),
+                    ),
+                  ),
+                  const Center(
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        'assets/images/offline.gif',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }

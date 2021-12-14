@@ -1,16 +1,17 @@
-# world_news
+# World News App
 
-A new Flutter project.
+## Know what's happening in the world without leaving your room.
 
-## Getting Started
+### API: [News API](https://newsapi.org/)
 
-This project is a starting point for a Flutter application.
+### State Management: Bloc
 
-A few resources to get you started if this is your first Flutter project:
+### Dark and light mode.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Searching and Filter
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Discover by category and know trends.
+
+### Such as clean architecture 🦄
+
+[https://user-images.githubusercontent.com/85620139/146068094-81f78bc5-779e-4a95-89d3-6ce35bb5cb4e.mp4](https://user-images.githubusercontent.com/85620139/146068094-81f78bc5-779e-4a95-89d3-6ce35bb5cb4e.mp4)

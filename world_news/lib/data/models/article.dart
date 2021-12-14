@@ -1,4 +1,4 @@
-import 'package:world_news/helper/constants.dart';
+import '../../helper/constants.dart';
 
 class ArticleModel {
   late String author;
