@@ -1,6 +1,5 @@
 class ConstantsManager {
-  //TODO: remmber to remove my key.
-  static const String myKey = 'c6d6f7b94b9b4ef1be2768001d1db29d';
+  static const String myKey = 'YUOR KEY';
   static const String baseUrl =
       'https://newsapi.org/v2/top-headlines?country=us&apiKey=$myKey';
   static const String author = 'author';
