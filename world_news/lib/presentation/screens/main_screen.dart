@@ -15,7 +15,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
-  List<ArticleModel> articles = [];
+  // List<ArticleModel> articles = [];
 
   @override
   void initState() {
@@ -25,11 +25,12 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   }
 
   int _currentIndex = 0;
+  late final ArticleModel article ;
 
   final screen = [
     const HomeScreen(),
     const TrendingScreen(),
-    const BookmarksScreen(),
+   const  BookmarksScreen(),
     const Center(
       child: Text('setting'),
     ),

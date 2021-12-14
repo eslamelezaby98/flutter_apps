@@ -22,13 +22,14 @@ class ArticleModel {
 //Remmber if value is null ?? new_value
   factory ArticleModel.fromJsom(Map<String, dynamic> json) {
     return ArticleModel(
-      author: json[ConstantsManager.author] ?? 'error',
-      title: json[ConstantsManager.title] ?? 'error',
-      description: json[ConstantsManager.description] ?? 'error',
-      url: json[ConstantsManager.url] ?? 'error',
-      urlToImage: json[ConstantsManager.urlToImage] ?? 'https://www.generationsforpeace.org/wp-content/uploads/2018/07/empty.jpg',
-      publishedAt: json[ConstantsManager.publishedAt] ?? 'error',
-      content: json[ConstantsManager.content] ?? 'error',
+      author: json[ConstantsManager.author] ?? 'No author',
+      title: json[ConstantsManager.title] ?? 'No title.',
+      description: json[ConstantsManager.description] ?? 'No description fot this article..',
+      url: json[ConstantsManager.url] ?? 'No url fot this article..',
+      urlToImage: json[ConstantsManager.urlToImage] ??
+          'https://www.generationsforpeace.org/wp-content/uploads/2018/07/empty.jpg',
+      publishedAt: json[ConstantsManager.publishedAt] ?? 'No data fot this article..',
+      content: json[ConstantsManager.content] ?? 'No content',
     );
   }
 }

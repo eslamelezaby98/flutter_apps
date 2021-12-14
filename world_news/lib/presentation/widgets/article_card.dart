@@ -17,55 +17,60 @@ class ArticleCard extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(PaddingManager.p10),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(Routes.bookmarksScreen,arguments: articleModel[index]);
-                    },
-                    icon: const Icon(Icons.bookmark_border),
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.articleDetialsScreen, arguments: articleModel[index]);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(PaddingManager.p10),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      onPressed: () {
+                        // Navigator.of(context).pushNamed(Routes.bookmarksScreen,arguments: articleModel[index]);
+                      },
+                      icon: const Icon(Icons.bookmark_border),
+                    ),
                   ),
-                ),
-                Container(
-                  height: AppSize.s200,
-                  width: AppSize.infintyWidth,
-                  child: FadeInImage.assetNetwork(
-                    placeholder: AssetsManager.loadImage2,
-                    image: articleModel[index].urlToImage,
-                    fit: BoxFit.cover,
+                  Container(
                     height: AppSize.s200,
                     width: AppSize.infintyWidth,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: ColorsManager.primaryDark2,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(RaduisManager.w10),
-                      topRight: Radius.circular(RaduisManager.w10),
+                    child: FadeInImage.assetNetwork(
+                      placeholder: AssetsManager.loadImage2,
+                      image: articleModel[index].urlToImage,
+                      fit: BoxFit.cover,
+                      height: AppSize.s200,
+                      width: AppSize.infintyWidth,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: ColorsManager.primaryDark2,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(RaduisManager.w10),
+                        topRight: Radius.circular(RaduisManager.w10),
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  height: AppSize.s70,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: ColorsManager.primaryDark2,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(RaduisManager.w10),
-                      bottomRight: Radius.circular(RaduisManager.w10),
+                  Container(
+                    height: AppSize.s70,
+                    width: double.infinity,
+                    decoration:  BoxDecoration(
+                      color: Theme.of(context).primaryColorDark,
+                      borderRadius:const BorderRadius.only(
+                        bottomLeft: Radius.circular(RaduisManager.w10),
+                        bottomRight: Radius.circular(RaduisManager.w10),
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        articleModel[index].title,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
                     ),
                   ),
-                  child: Center(
-                    child: Text(
-                      articleModel[index].title,
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },

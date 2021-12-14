@@ -108,16 +108,19 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
             clearSearch();
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.clear, color: ColorsManager.white),
+          icon: Icon(
+            Icons.clear,
+            color: Theme.of(context).primaryColorDark,
+          ),
         ),
       ];
     } else {
       return [
         IconButton(
           onPressed: startSearch,
-          icon: const Icon(
+          icon: Icon(
             Icons.search,
-            color: ColorsManager.white,
+            color: Theme.of(context).primaryColorDark,
           ),
         ),
       ];
@@ -154,10 +157,10 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
           snap: true,
           pinned: false,
           centerTitle: false,
-          backgroundColor: ColorsManager.primaryDark,
+          backgroundColor: Theme.of(context).primaryColor,
           leading: isSearch
-              ? const BackButton(
-                  color: Colors.white,
+              ? BackButton(
+                  color: Theme.of(context).primaryColorDark,
                 )
               : Container(),
           actions: appBarItems(),
