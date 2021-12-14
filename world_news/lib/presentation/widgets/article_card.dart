@@ -25,15 +25,6 @@ class ArticleCard extends StatelessWidget {
               padding: const EdgeInsets.all(PaddingManager.p10),
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      onPressed: () {
-                        // Navigator.of(context).pushNamed(Routes.bookmarksScreen,arguments: articleModel[index]);
-                      },
-                      icon: const Icon(Icons.bookmark_border),
-                    ),
-                  ),
                   Container(
                     height: AppSize.s200,
                     width: AppSize.infintyWidth,
@@ -56,7 +47,8 @@ class ArticleCard extends StatelessWidget {
                     height: AppSize.s70,
                     width: double.infinity,
                     decoration:  BoxDecoration(
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).primaryColor,
+                      border: Border.all(color: Theme.of(context).primaryColorLight),
                       borderRadius:const BorderRadius.only(
                         bottomLeft: Radius.circular(RaduisManager.w10),
                         bottomRight: Radius.circular(RaduisManager.w10),

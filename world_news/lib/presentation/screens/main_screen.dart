@@ -5,6 +5,7 @@ import 'package:world_news/data/models/article.dart';
 import 'package:world_news/helper/constants.dart';
 import 'package:world_news/presentation/screens/bookmarks_screen.dart';
 import 'package:world_news/presentation/screens/home_screen.dart';
+import 'package:world_news/presentation/screens/setting_screen.dart';
 import 'package:world_news/presentation/screens/trending_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -25,15 +26,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   }
 
   int _currentIndex = 0;
-  late final ArticleModel article ;
+  late final ArticleModel article;
 
   final screen = [
     const HomeScreen(),
     const TrendingScreen(),
-   const  BookmarksScreen(),
-    const Center(
-      child: Text('setting'),
-    ),
+    //  const  BookmarksScreen(),
+    const SettingScreen(),
   ];
 
   final List<BottomNavigationBarItem> _navBottomBar = const [
@@ -44,10 +43,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     BottomNavigationBarItem(
       label: '',
       icon: Icon(Icons.golf_course_sharp),
-    ),
-    BottomNavigationBarItem(
-      label: '',
-      icon: Icon(Icons.bookmark),
     ),
     BottomNavigationBarItem(
       label: '',

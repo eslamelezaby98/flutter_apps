@@ -72,8 +72,9 @@ class ThemeAppManager {
     return ThemeData(
       //colors
       primaryColor: ColorsManager.white,
-      primaryColorDark: ColorsManager.primaryDark2,
+      primaryColorDark: ColorsManager.seletedColor,
       scaffoldBackgroundColor: ColorsManager.white,
+      highlightColor: ColorsManager.black,
       appBarTheme: const AppBarTheme(
         backgroundColor: ColorsManager.white,
         elevation: AppSize.s0,
@@ -85,9 +86,9 @@ class ThemeAppManager {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: ColorsManager.primaryDark2,
+        backgroundColor: ColorsManager.white,
         selectedItemColor: ColorsManager.seletedColor,
-        unselectedItemColor: ColorsManager.white,
+        unselectedItemColor: ColorsManager.primaryDark,
       ),
       iconTheme: const IconThemeData(
         color: ColorsManager.seletedColor,
@@ -96,22 +97,20 @@ class ThemeAppManager {
         headline1: TextStyle(
           color: ColorsManager.white,
           fontSize: 14,
-          // backgroundColor: ColorsManager.seletedColor,
-          fontWeight: FontWeight.bold,
           overflow: TextOverflow.ellipsis,
         ),
         headline2: TextStyle(
-          color: ColorsManager.white,
+          color: ColorsManager.black,
           fontSize: 20,
           textBaseline: TextBaseline.alphabetic,
         ),
         headline3: TextStyle(
-          color: ColorsManager.white,
+          color: ColorsManager.black,
           fontSize: 20,
           fontWeight: FontWeight.w300,
         ),
         headline4: TextStyle(
-          color: ColorsManager.white,
+          color: ColorsManager.black,
           fontSize: 15,
           fontWeight: FontWeight.w300,
           wordSpacing: 3,
@@ -124,8 +123,8 @@ class ThemeAppManager {
           fontWeight: FontWeight.w300,
         ),
         bodyText1: TextStyle(
-          color: ColorsManager.white,
-          fontSize: 30,
+          color: ColorsManager.black,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),

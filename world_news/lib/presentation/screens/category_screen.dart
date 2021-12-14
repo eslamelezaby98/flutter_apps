@@ -78,13 +78,14 @@ class _ArticlesCardListState extends State<ArticlesCardList> {
   searchField() {
     return TextField(
       controller: searchTextController,
-      cursorColor: Colors.white,
-      decoration: const InputDecoration(
+      cursorColor: Theme.of(context).primaryColorDark,
+      decoration: InputDecoration(
         hintText: 'Find a character...',
         border: InputBorder.none,
-        hintStyle: TextStyle(color: ColorsManager.white, fontSize: 18),
+        hintStyle:
+            TextStyle(color: Theme.of(context).primaryColorDark, fontSize: 18),
       ),
-      style: const TextStyle(color: ColorsManager.white, fontSize: 18),
+      style: TextStyle(color: Theme.of(context).primaryColorDark, fontSize: 18),
       onChanged: (searchedCharacter) {
         addSearchedFOrItemsToSearchedList(searchedCharacter);
       },

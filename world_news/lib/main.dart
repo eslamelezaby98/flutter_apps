@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:world_news/controllers/theme_controller.dart';
 import 'package:world_news/helper/router_manager.dart';
 import 'package:world_news/helper/theme_app_manager.dart';
 
@@ -7,15 +9,27 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme:  ThemeAppManager.getLightTheme(),
-    onGenerateRoute: RoutesGenerator().generateRoutes,
-    initialRoute: Routes.mainSreen,
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => ThemeController(),
+          ),
+        ],
+        builder: (context, child) {
+          var provider = Provider.of<ThemeController>(context);
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: provider.isDark
+                ? ThemeAppManager.getAppTheme()
+                : ThemeAppManager.getLightTheme(),
+            // themeMode: ThemeMode.dark,
+            onGenerateRoute: RoutesGenerator().generateRoutes,
+            initialRoute: Routes.mainSreen,
+          );
+        });
   }
 }
