@@ -4,7 +4,7 @@ class AuthButton extends StatelessWidget {
   final Size size;
   final String title;
   final String imagePath;
-  final Function onTap;
+  final Function()? onTap;
   const AuthButton({
     Key? key,
     required this.size,
@@ -16,7 +16,7 @@ class AuthButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap(),
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(

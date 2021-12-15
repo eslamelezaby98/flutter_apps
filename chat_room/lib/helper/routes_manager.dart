@@ -1,6 +1,7 @@
 import 'package:chat_room/helper/strings_manager.dart';
 import 'package:chat_room/views/auth_screens/register_screen.dart';
 import 'package:chat_room/views/auth_screens/sign_in_screen.dart';
+import 'package:chat_room/views/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -17,11 +18,15 @@ class RoutesGenerator {
     switch (settings.name) {
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (context) => const RegisterScreen(),
+          builder: (context) =>  RegisterScreen(),
         );
       case Routes.signInScreen:
         return MaterialPageRoute(
           builder: (context) => const SignInScreen(),
+        );
+        case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         );
       default:
         undefindRoute();

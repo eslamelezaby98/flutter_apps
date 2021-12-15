@@ -26,7 +26,7 @@ class ThemeManager {
           fontSize: 60,
         ),
         headline2: TextStyle(
-          color: ColorsManager.white,
+          color: ColorsManager.primaryDark,
           fontWeight: FontWeight.bold,
           fontSize: 20,
         ),
