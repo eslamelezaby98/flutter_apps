@@ -9,9 +9,8 @@ import 'package:chat_room/helper/values_managers.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
-  RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
-  final GlobalKey _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     var authViewModelProvider =
@@ -68,12 +67,14 @@ class RegisterScreen extends StatelessWidget {
               hintLabel: StringsManager.eamilHintLabel,
               isObcure: false,
               onChange: authViewModelProvider.onEmailChange,
+              validator: authViewModelProvider.valiatorEmail,
               textEditingController: authViewModelProvider.emailTextController,
             ),
             TextFiledInput(
               hintLabel: StringsManager.passwordHintLabel,
               isObcure: true,
               onChange: authViewModelProvider.onPasswordChange,
+              validator: authViewModelProvider.valiatorpassword,
               textEditingController:
                   authViewModelProvider.passwordTextController,
             ),
@@ -81,12 +82,8 @@ class RegisterScreen extends StatelessWidget {
             FloatingActionButton(
               backgroundColor: Theme.of(context).highlightColor,
               onPressed: () {
-                var result =
-                    authViewModelProvider.createUserWithEmailAndPassword();
-                if (result == null) {
-                } else {
-                  Navigator.pushNamed(context, Routes.signInScreen);
-                }
+                authViewModelProvider.createUserWithEmailAndPassword;
+                Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
               },
               child: const Icon(
                 Icons.arrow_right_alt,

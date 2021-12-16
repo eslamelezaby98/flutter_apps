@@ -7,7 +7,6 @@ class AuthModelView extends ChangeNotifier {
   TextEditingController passwordTextController = TextEditingController();
   AuthService authService = AuthService();
   final formKey = GlobalKey<FormState>();
-  bool isLoading = false;
 
   onEmailChange(String value) {
     value = emailTextController.text;
@@ -21,17 +20,30 @@ class AuthModelView extends ChangeNotifier {
 
   createUserWithEmailAndPassword() {
     if (formKey.currentState!.validate()) {
-      isLoading = true;
       authService.createUserWithEmailAndPassword(
         emailTextController.text,
         passwordTextController.text,
       );
-    } else {
-      return null;
     }
   }
 
   Future<UserCredential> signInWithGoogle() {
     return authService.signInWithGoogle();
+  }
+
+  String error = 'Email is empty!';
+
+  String? valiatorEmail(value) {
+    if (value.isEmpty) {
+      return 'Required';
+    }
+  }
+
+  String? valiatorpassword(value) {
+    if (value.isEmpty) {
+      return 'Required';
+    } else if (value.length <= 6) {
+      return 'Password must be at least 6 elements';
+    }
   }
 }

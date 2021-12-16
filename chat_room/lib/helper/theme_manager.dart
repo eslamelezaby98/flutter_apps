@@ -53,7 +53,7 @@ class ThemeManager {
           borderSide: const BorderSide(
             color: ColorsManager.red,
             style: BorderStyle.solid,
-            width: 10,
+            width: 2,
           ),
         ),
         enabledBorder: OutlineInputBorder(
