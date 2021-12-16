@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Form(
-        key: authViewModelProvider.formKey,
+        key: authViewModelProvider.formRegisterScreenKey,
         child: ListView(
           children: [
             // headline1
@@ -81,9 +81,37 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(height: 10),
             FloatingActionButton(
               backgroundColor: Theme.of(context).highlightColor,
-              onPressed: () {
-                authViewModelProvider.createUserWithEmailAndPassword;
-                Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
+              onPressed: () async {
+                try {
+                  var user = await authViewModelProvider
+                      .createUserWithEmailAndPassword();
+                  if (user != null) {
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => const AlertDialog(
+                        title: Text('Loading'),
+                        content: CircularProgressIndicator(
+                          color: Colors.black,
+                        ),
+                      ),
+                    );
+                    Navigator.pushReplacementNamed(context, Routes.homeScreen);
+                  } else {
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => const AlertDialog(
+                        title: Text('User is null'),
+                      ),
+                    );
+                  }
+                } catch (e) {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: Text(e.toString()),
+                    ),
+                  );
+                }
               },
               child: const Icon(
                 Icons.arrow_right_alt,
@@ -91,7 +119,9 @@ class RegisterScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.signInScreen);
+              },
               child: Text(
                 StringsManager.arleadyHaveAnAccount,
                 style: Theme.of(context).textTheme.headline3,

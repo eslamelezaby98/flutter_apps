@@ -18,13 +18,13 @@ class RoutesGenerator {
     switch (settings.name) {
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (context) =>  RegisterScreen(),
+          builder: (context) =>const  RegisterScreen(),
         );
       case Routes.signInScreen:
         return MaterialPageRoute(
           builder: (context) => const SignInScreen(),
         );
-        case Routes.homeScreen:
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
         );

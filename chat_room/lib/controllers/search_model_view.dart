@@ -30,6 +30,6 @@ class SearchModelView extends ChangeNotifier {
   }
 
   buildAppBarwidget() {
-    return 
+    // return 
   }
 }
