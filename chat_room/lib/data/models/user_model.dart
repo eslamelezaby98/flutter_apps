@@ -1,8 +1,5 @@
+class UserModel {
+  final String name;
 
-// class UserModel {
-//   final String _eamil;
-//   final String _password;
-//   final String _name;
-
- 
-// }
+  UserModel(this.name);
+}

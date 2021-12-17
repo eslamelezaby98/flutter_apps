@@ -1,6 +1,7 @@
 import 'package:chat_room/helper/strings_manager.dart';
 import 'package:chat_room/views/auth_screens/register_screen.dart';
 import 'package:chat_room/views/auth_screens/sign_in_screen.dart';
+import 'package:chat_room/views/chat_screen/chat_screen.dart';
 import 'package:chat_room/views/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,10 @@ class RoutesGenerator {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
+        );
+        case Routes.chatScreen:
+        return MaterialPageRoute(
+          builder: (context) => const ChatScreen(),
         );
       default:
         undefindRoute();

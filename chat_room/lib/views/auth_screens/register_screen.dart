@@ -95,6 +95,8 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ),
                     );
+                    authViewModelProvider.emailTextController.clear();
+                    authViewModelProvider.passwordTextController.clear();
                     Navigator.pushReplacementNamed(context, Routes.homeScreen);
                   } else {
                     showDialog<String>(

@@ -72,23 +72,23 @@ class SignInScreen extends StatelessWidget {
             FloatingActionButton(
               backgroundColor: Theme.of(context).highlightColor,
               onPressed: () async {
-                
                 try {
                   var user =
-                    await authViewModelProvider.signInWithEmailAndPassword();
+                      await authViewModelProvider.signInWithEmailAndPassword();
                   if (user != null) {
-                     showDialog<String>(
+                    showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => const AlertDialog(
                         title: Text('Loading'),
                         content: CircleAvatar(
-                          
                           child: CircularProgressIndicator(
                             color: Colors.black,
                           ),
                         ),
                       ),
                     );
+                    authViewModelProvider.emailTextController.clear();
+                    authViewModelProvider.passwordTextController.clear();
                     Navigator.pushReplacementNamed(context, Routes.homeScreen);
                   } else {
                     showDialog<String>(
@@ -113,7 +113,7 @@ class SignInScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             TextButton(
-              onPressed: (){},
+              onPressed: () {},
               child: Text(
                 StringsManager.forgetMyPassword,
                 style: Theme.of(context).textTheme.headline3,

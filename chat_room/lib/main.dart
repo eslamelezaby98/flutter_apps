@@ -1,4 +1,6 @@
 import 'package:chat_room/controllers/auth_model_view.dart';
+import 'package:chat_room/controllers/firestore_model_view.dart';
+import 'package:chat_room/controllers/message_db_controller.dart';
 import 'package:chat_room/data/web_services/auth_service.dart';
 import 'package:chat_room/helper/routes_manager.dart';
 import 'package:chat_room/helper/theme_manager.dart';
@@ -19,9 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(
-        //   create: (context) => AuthService(),
-        // ),
+        ChangeNotifierProvider(
+          create: (context) => MessageController(),
+        ),
         ChangeNotifierProvider(
           create: (context) => AuthModelView(),
         ),
