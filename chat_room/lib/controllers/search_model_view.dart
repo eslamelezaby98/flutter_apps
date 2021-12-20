@@ -14,22 +14,19 @@ class SearchModelView extends ChangeNotifier {
   }
 
   buildSearchBarWidget() {
-    return  TextField(
-        cursorColor: Colors.white,
-        decoration: const InputDecoration(
-          hintText: 'Search...',
-          border: InputBorder.none,
-          hintStyle:
-            TextStyle(color: Colors.black, fontSize: 18),
+    return TextField(
+      cursorColor: Colors.white,
+      decoration: const InputDecoration(
+        hintText: 'Search...',
+        border: InputBorder.none,
+        hintStyle: TextStyle(color: Colors.black, fontSize: 18),
       ),
       style: const TextStyle(color: Colors.black, fontSize: 18),
-        onChanged: (value) {
-          //TODO: 
-        },
+      onChanged: (value) {},
     );
   }
 
   buildAppBarwidget() {
-    // return 
+    // return
   }
 }

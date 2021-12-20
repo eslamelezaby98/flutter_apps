@@ -1,14 +1,10 @@
-import 'package:chat_room/controllers/auth_model_view.dart';
-import 'package:chat_room/controllers/firestore_model_view.dart';
-import 'package:chat_room/helper/routes_manager.dart';
-import 'package:chat_room/helper/theme_manager.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/helper/routes_manager.dart';
+import 'package:chat_app/helper/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const MyApp());
 }
 
@@ -20,10 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => MessageController(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => AuthModelView(),
+          create: (context) => AuthController(),
         ),
       ],
       child: MaterialApp(

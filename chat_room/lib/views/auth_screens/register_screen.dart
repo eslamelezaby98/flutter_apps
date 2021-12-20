@@ -23,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
           children: [
             // headline1
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 50, bottom: 10),
+              padding: const EdgeInsets.only(left: 20, top: 50, bottom: 0),
               child: SizedBox(
                 height: size.height / 4,
                 width: size.width,
