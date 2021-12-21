@@ -59,7 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
     var dbProvider = Provider.of<DBController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Screen'),
+        title:  Text(loggedUser.email.toString()),
         leading: IconButton(
           onPressed: getMessageStream,
           icon: const Icon(Icons.cached),
@@ -80,7 +80,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   final messages = message.data() as Map<String, dynamic>;
                   final text = messages[ConstantsManager.text];
                   final sender = messages[ConstantsManager.sender];
-                  ChatMessage(
+                  ChatBubble(
                     text: text,
                     isSameUser: sender == loggedUser.email,
                   );
@@ -88,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Text('message is : $text , from sender $sender');
                   textWidgets.add(messagewidget);
                   messagesWidgets.add(
-                    ChatMessage(
+                    ChatBubble(
                       text: text,
                       isSameUser: sender == loggedUser.email,
                     ),
@@ -96,6 +96,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 }
                 return Expanded(
                   child: ListView(
+                    reverse: true,
                     children: messagesWidgets,
                   ),
                 );
@@ -140,6 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ConstantsManager.text: message,
                     ConstantsManager.sender: loggedUser.email
                   });
+                  dbProvider.messageController.clear();
                 },
                 icon: const Icon(
                   Icons.send,
@@ -154,8 +156,8 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-class ChatMessage extends StatelessWidget {
-  const ChatMessage({
+class ChatBubble extends StatelessWidget {
+  const ChatBubble({
     Key? key,
     required this.text,
     required this.isSameUser,
@@ -168,45 +170,62 @@ class ChatMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 30,
-        width: double.infinity,
-        child: Align(
-          alignment: Alignment.topLeft,
-          child: Row(
-            children: [
-              Text(
-                '3:36 PM',
-                style: Theme.of(context).textTheme.caption,
-              ),
-              const SizedBox(width: 5),
-              Text(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Material(
+            color: isSameUser ? Colors.teal : Colors.blueAccent,
+            borderRadius: BorderRadius.circular(20),
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
                 text,
-                style: const TextStyle(
-                  color: Colors.black87,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  textBaseline: TextBaseline.alphabetic,
-                ),
               ),
-            ],
+            ),
           ),
-        ),
-        decoration: BoxDecoration(
-          color:isSameUser ? Colors.teal : Colors.white,
-          borderRadius: isSameUser
-              ? const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                  bottomLeft: Radius.circular(10),
-                )
-              : const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-        ),
+        ],
       ),
+
+      //  Container(
+      //   height: 30,
+      //   width: double.infinity,
+      //   child: Align(
+      //     alignment: Alignment.topLeft,
+      //     child: Row(
+      //       children: [
+      //         Text(
+      //           '3:36 PM',
+      //           style: Theme.of(context).textTheme.caption,
+      //         ),
+      //         const SizedBox(width: 5),
+      //         Text(
+      //           text,
+      //           style: const TextStyle(
+      //             color: Colors.black87,
+      //             fontSize: 15,
+      //             fontWeight: FontWeight.w500,
+      //             textBaseline: TextBaseline.alphabetic,
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      //   decoration: BoxDecoration(
+      //     color:isSameUser ? Colors.teal : Colors.white,
+      //     borderRadius: isSameUser
+      //         ? const BorderRadius.only(
+      //             topLeft: Radius.circular(10),
+      //             topRight: Radius.circular(10),
+      //             bottomLeft: Radius.circular(10),
+      //           )
+      //         : const BorderRadius.only(
+      //             topLeft: Radius.circular(10),
+      //             topRight: Radius.circular(10),
+      //             bottomRight: Radius.circular(10),
+      //           ),
+      //   ),
+      // ),
     );
   }
 }
