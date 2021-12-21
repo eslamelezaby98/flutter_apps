@@ -32,22 +32,48 @@ class RegisterScreen extends StatelessWidget {
               TextFiledInput(
                 hintLabel: 'Enter your email',
                 isObcure: false,
-                onChange: (p0) {},
+                onChange: authProvider.onEmailChange,
                 textEditingController: authProvider.emailController,
-                validator: (p0) {},
+                validator: authProvider.valiatorEmail,
               ),
               TextFiledInput(
                 hintLabel: 'Enter your email',
-                isObcure: false,
-                onChange: (p0) {},
+                isObcure: true,
+                onChange: authProvider.onPasswordChange,
                 textEditingController: authProvider.passwordController,
-                validator: (p0) {},
+                validator: authProvider.valiatorpassword,
               ),
               FloatingActionButton(
-                onPressed: () {
-                  //1# validation
-                  // 2# register
-                  // 3# go to chat screen.
+                onPressed: () async {
+                  try {
+                    var user =
+                        await authProvider.createUserWithEmailAndPassword();
+                    if (user != null) {
+                      showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => const AlertDialog(
+                          title: Text('Loading'),
+                        ),
+                      );
+                      authProvider.emailController.clear();
+                      authProvider.passwordController.clear();
+                      Navigator.pushNamed(context, Routes.chatScreen);
+                    } else {
+                      showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => const AlertDialog(
+                          title: Text('Try Again'),
+                        ),
+                      );
+                    }
+                  } catch (e) {
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => const AlertDialog(
+                        title: Text('Try Again'),
+                      ),
+                    );
+                  }
                 },
                 child: const Icon(Icons.arrow_forward),
               ),

@@ -31,19 +31,20 @@ class SignInScreen extends StatelessWidget {
               TextFiledInput(
                 hintLabel: 'Enter your email',
                 isObcure: false,
-                onChange: (p0) {},
+                onChange: authProvider.onEmailChange,
                 textEditingController: authProvider.emailController,
-                validator: (p0) {},
+                validator: authProvider.valiatorEmail,
               ),
               TextFiledInput(
                 hintLabel: 'Enter your email',
                 isObcure: false,
-                onChange: (p0) {},
+                onChange: authProvider.onPasswordChange,
                 textEditingController: authProvider.passwordController,
-                validator: (p0) {},
+                validator: authProvider.valiatorpassword,
               ),
               FloatingActionButton(
                 onPressed: () {
+                  //TODO: 
                   //1# validation
                   // 2# register
                   // 3# go to chat screen.
