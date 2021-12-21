@@ -1,4 +1,5 @@
 import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/views/auth_screen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,11 +44,8 @@ class SignInScreen extends StatelessWidget {
                 validator: authProvider.valiatorpassword,
               ),
               FloatingActionButton(
-                onPressed: () {
-                  //TODO: 
-                  //1# validation
-                  // 2# register
-                  // 3# go to chat screen.
+                onPressed: () async {
+                  await signIn(authProvider, context);
                 },
                 child: const Icon(Icons.arrow_forward),
               ),
@@ -64,5 +62,36 @@ class SignInScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> signIn(AuthController authProvider, BuildContext context) async {
+    try {
+      var user = await authProvider.signInWithEmailAndPassword();
+      if (user != null) {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => const AlertDialog(
+            title: Text('Loading'),
+          ),
+        );
+        authProvider.emailController.clear();
+        authProvider.passwordController.clear();
+        Navigator.pushNamed(context, Routes.chatScreen);
+      } else {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => const AlertDialog(
+            title: Text('Try Again'),
+          ),
+        );
+      }
+    } catch (e) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => const AlertDialog(
+          title: Text('Try Again'),
+        ),
+      );
+    }
   }
 }

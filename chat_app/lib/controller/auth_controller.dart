@@ -25,6 +25,7 @@ class AuthController extends ChangeNotifier {
     passwordController.dispose();
   }
 
+ 
   String? valiatorEmail(value) {
     if (value.isEmpty) {
       return 'Required';

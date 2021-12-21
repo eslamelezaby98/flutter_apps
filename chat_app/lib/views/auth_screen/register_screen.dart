@@ -45,35 +45,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               FloatingActionButton(
                 onPressed: () async {
-                  try {
-                    var user =
-                        await authProvider.createUserWithEmailAndPassword();
-                    if (user != null) {
-                      showDialog<String>(
-                        context: context,
-                        builder: (BuildContext context) => const AlertDialog(
-                          title: Text('Loading'),
-                        ),
-                      );
-                      authProvider.emailController.clear();
-                      authProvider.passwordController.clear();
-                      Navigator.pushNamed(context, Routes.chatScreen);
-                    } else {
-                      showDialog<String>(
-                        context: context,
-                        builder: (BuildContext context) => const AlertDialog(
-                          title: Text('Try Again'),
-                        ),
-                      );
-                    }
-                  } catch (e) {
-                    showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => const AlertDialog(
-                        title: Text('Try Again'),
-                      ),
-                    );
-                  }
+                  await register(authProvider, context);
                 },
                 child: const Icon(Icons.arrow_forward),
               ),
@@ -90,5 +62,37 @@ class RegisterScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> register(AuthController authProvider, BuildContext context) async {
+    try {
+      var user =
+          await authProvider.createUserWithEmailAndPassword();
+      if (user != null) {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => const AlertDialog(
+            title: Text('Loading'),
+          ),
+        );
+        authProvider.emailController.clear();
+        authProvider.passwordController.clear();
+        Navigator.pushNamed(context, Routes.chatScreen);
+      } else {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => const AlertDialog(
+            title: Text('Try Again'),
+          ),
+        );
+      }
+    } catch (e) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => const AlertDialog(
+          title: Text('Try Again'),
+        ),
+      );
+    }
   }
 }

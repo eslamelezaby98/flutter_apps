@@ -1,4 +1,5 @@
 import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/controller/db_controller.dart';
 import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/helper/theme_manager.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AuthController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DBController(),
         ),
       ],
       child: MaterialApp(
