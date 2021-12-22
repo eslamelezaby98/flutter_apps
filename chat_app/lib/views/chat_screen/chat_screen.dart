@@ -59,7 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
     var dbProvider = Provider.of<DBController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title:  Text(loggedUser.email.toString()),
+        title: Text(loggedUser.email.toString()),
         leading: IconButton(
           onPressed: getMessageStream,
           icon: const Icon(Icons.cached),
@@ -73,7 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
             stream: firestore.collection(ConstantsManager.messages).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final messagesSnapshots = snapshot.data!.docs;
+                final messagesSnapshots = snapshot.data!.docs.reversed;
                 List<Text> textWidgets = [];
                 List<Widget> messagesWidgets = [];
                 for (var message in messagesSnapshots) {
@@ -97,6 +97,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 return Expanded(
                   child: ListView(
                     reverse: true,
+                    
                     children: messagesWidgets,
                   ),
                 );
@@ -171,9 +172,12 @@ class ChatBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+
+        crossAxisAlignment:
+            isSameUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Material(
+
             color: isSameUser ? Colors.teal : Colors.blueAccent,
             borderRadius: BorderRadius.circular(20),
             elevation: 5,
