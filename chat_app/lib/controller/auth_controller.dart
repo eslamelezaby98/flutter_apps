@@ -1,15 +1,23 @@
 import 'package:chat_app/data/services/auth_services.dart';
+import 'package:chat_app/data/services/database_services.dart';
 import 'package:flutter/cupertino.dart';
 
 class AuthController extends ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   final registerFormKey = GlobalKey<FormState>();
   final signInFormKey = GlobalKey<FormState>();
   AuthServices authServices = AuthServices();
+  DBServices dbServices = DBServices();
 
   onEmailChange(String value) {
     value = emailController.text;
+    notifyListeners();
+  }
+
+  onUserNameChange(String value) {
+    value = userNameController.text;
     notifyListeners();
   }
 
@@ -25,8 +33,13 @@ class AuthController extends ChangeNotifier {
     passwordController.dispose();
   }
 
- 
   String? valiatorEmail(value) {
+    if (value.isEmpty) {
+      return 'Required';
+    }
+  }
+
+  String? valiatorUserName(value) {
     if (value.isEmpty) {
       return 'Required';
     }
@@ -49,6 +62,10 @@ class AuthController extends ChangeNotifier {
     } else {
       return null;
     }
+  }
+
+  uploadUserInfo(Map<String, String> userData)  {
+     dbServices.uploadUserInfo(userData);
   }
 
   signInWithEmailAndPassword() async {

@@ -39,14 +39,14 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  getMessageStream() async {
-    await for (var snapshot
-        in firestore.collection(ConstantsManager.messages).snapshots()) {
-      for (var message in snapshot.docs) {
-        print(message.data());
-      }
-    }
-  }
+  // getMessageStream() async {
+  //   await for (var snapshot
+  //       in firestore.collection(ConstantsManager.messages).snapshots()) {
+  //     for (var message in snapshot.docs) {
+  //       print(message.data());
+  //     }
+  //   }
+  // }
 
   @override
   void initState() {
@@ -60,10 +60,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(loggedUser.email.toString()),
-        leading: IconButton(
-          onPressed: getMessageStream,
-          icon: const Icon(Icons.cached),
-        ),
+        // leading: IconButton(
+        //   onPressed: getMessageStream,
+        //   icon: const Icon(Icons.cached),
+        // ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

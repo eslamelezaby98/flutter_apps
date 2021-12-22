@@ -7,6 +7,10 @@ class DBServices {
   late User? loggedUser;
   final firestore = FirebaseFirestore.instance;
 
+  uploadUserInfo(Map<String, String> userData) {
+    firestore.collection(ConstantsManager.users).add(userData);
+  }
+
   getCureentUser() {
     try {
       final user = _auth.currentUser;
@@ -18,6 +22,13 @@ class DBServices {
     } catch (e) {
       return null;
     }
+  }
+
+  getUserByUserName(String userName) async {
+    return await firestore
+        .collection(ConstantsManager.users)
+        .where(ConstantsManager.userName, isEqualTo: userName)
+        .get();
   }
 
   addMessage(String message) async {

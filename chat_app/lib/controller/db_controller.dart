@@ -9,8 +9,12 @@ class DBController extends ChangeNotifier {
     dbServices.getCureentUser();
   }
 
+  
+
+  
+
   onChanage(String message) {
-     message = messageController.text;
+    message = messageController.text;
     notifyListeners();
   }
 

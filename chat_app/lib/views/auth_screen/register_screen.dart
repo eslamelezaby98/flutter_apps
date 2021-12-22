@@ -1,4 +1,5 @@
 import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/helper/constants_manager.dart';
 import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/views/auth_screen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,13 @@ class RegisterScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1,
               ),
               TextFiledInput(
+                hintLabel: 'Enter your name',
+                isObcure: false,
+                onChange: authProvider.onUserNameChange,
+                textEditingController: authProvider.userNameController,
+                validator: authProvider.valiatorUserName,
+              ),
+              TextFiledInput(
                 hintLabel: 'Enter your email',
                 isObcure: false,
                 onChange: authProvider.onEmailChange,
@@ -37,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
                 validator: authProvider.valiatorEmail,
               ),
               TextFiledInput(
-                hintLabel: 'Enter your email',
+                hintLabel: 'Enter your password',
                 isObcure: true,
                 onChange: authProvider.onPasswordChange,
                 textEditingController: authProvider.passwordController,
@@ -64,10 +72,11 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
-  Future<void> register(AuthController authProvider, BuildContext context) async {
+  Future<void> register(
+      AuthController authProvider, BuildContext context) async {
     try {
-      var user =
-          await authProvider.createUserWithEmailAndPassword();
+      var user = await authProvider.createUserWithEmailAndPassword();
+
       if (user != null) {
         showDialog<String>(
           context: context,
@@ -75,9 +84,14 @@ class RegisterScreen extends StatelessWidget {
             title: Text('Loading'),
           ),
         );
+
+        authProvider.uploadUserInfo({
+          ConstantsManager.userName: authProvider.userNameController.text,
+          ConstantsManager.userEmail: authProvider.emailController.text
+        });
+        Navigator.pushNamed(context, Routes.homeScreen);
         authProvider.emailController.clear();
         authProvider.passwordController.clear();
-        Navigator.pushNamed(context, Routes.chatScreen);
       } else {
         showDialog<String>(
           context: context,
