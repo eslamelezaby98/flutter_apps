@@ -1,5 +1,6 @@
 import 'package:chat_app/data/services/database_services.dart';
 import 'package:chat_app/helper/constants_manager.dart';
+import 'package:chat_app/helper/routes_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -32,20 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  getUserByUserName(String searchUser) async {
-    var userData = await firestore
-        .collection(ConstantsManager.users)
-        .where(ConstantsManager.userName, isEqualTo: searchUser)
-        .get();
-    // return userData;
-  }
+  // getUserByUserName(String searchUser) async {
+  //   var userData = await firestore
+  //       .collection(ConstantsManager.users)
+  //       .where(ConstantsManager.userName, isEqualTo: searchUser)
+  //       .get();
+  //   // return userData;
+  // }
 
   appBarActions(BuildContext context) {
     if (isSearch) {
       return [
         IconButton(
           onPressed: () {
-            getUserByUserName;
+            // getUserByUserName;
           },
           icon: const Icon(
             Icons.clear,
@@ -105,21 +106,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         final items = item.data() as Map<String, dynamic>;
                         final userName = items[ConstantsManager.userName];
                         final userEmail = items[ConstantsManager.userEmail];
-                        UserCard(
-                          userName: userName,
-                          userEmail: userEmail,
-                          onTap: () {},
-                        );
+                        // UserCard(
+                        //   userName: userName,
+                        //   userEmail: userEmail,
+                        //   onTap: () {
+
+                        //   },
+                        // );
                         usersCatdsList.add(
                           UserCard(
                             userName: userName,
                             userEmail: userEmail,
                             onTap: () {
+                              Navigator.pushNamed(context, Routes.chatScreen);
+                              // firestore.collection('chat_room').add()
                               // dbServices.createChatRoom(, [loggedUser.email,userName]);
                             },
                           ),
                         );
-                        print('user name : $userName , userEmail : $userEmail');
+                        // print('user name : $userName , userEmail : $userEmail');
                       }
                       return Column(
                         children: usersCatdsList,
@@ -139,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class UserCard extends StatelessWidget {
   final String userName;
   final String userEmail;
-  final Function onTap;
+  final Function() onTap;
 
   const UserCard({
     Key? key,
@@ -156,9 +161,7 @@ class UserCard extends StatelessWidget {
         color: Colors.teal,
         borderRadius: BorderRadius.circular(15),
         child: ListTile(
-          onTap: () {
-            onTap;
-          },
+          onTap: onTap,
           title: Text(
             userName,
           ),

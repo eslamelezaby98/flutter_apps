@@ -32,12 +32,12 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  addMessage(String message) {
-    firestore.collection(ConstantsManager.messages).add({
-      ConstantsManager.text: message,
-      ConstantsManager.sender: loggedUser.email
-    });
-  }
+  // addMessage(String message) {
+  //   firestore.collection(ConstantsManager.messages).add({
+  //     ConstantsManager.text: message,
+  //     ConstantsManager.sender: loggedUser.email
+  //   });
+  // }
 
   @override
   void initState() {
@@ -57,16 +57,17 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           // chat messsage list
           StreamBuilder<QuerySnapshot>(
-            stream: firestore.collection(ConstantsManager.messages).snapshots(),
+            stream: firestore.collection(ConstantsManager.chatRoom).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final messagesSnapshots = snapshot.data!.docs.reversed;
-                // List<Text> textWidgets = [];
                 List<Widget> messagesWidgets = [];
                 for (var message in messagesSnapshots) {
                   final messages = message.data() as Map<String, dynamic>;
                   final text = messages[ConstantsManager.text];
                   final sender = messages[ConstantsManager.sender];
+                  final userName = messages[ConstantsManager.userName];
+                  print('text $text , sender $sender , user_name $userName');
                   ChatBubble(
                     text: text,
                     isSameUser: sender == loggedUser.email,
@@ -75,6 +76,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ChatBubble(
                       text: text,
                       isSameUser: sender == loggedUser.email,
+                    
                     ),
                   );
                 }
@@ -106,9 +108,10 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
               IconButton(
                 onPressed: () {
-                  firestore.collection(ConstantsManager.messages).add({
+                  firestore.collection(ConstantsManager.chatRoom).add({
                     ConstantsManager.text: message,
-                    ConstantsManager.sender: loggedUser.email
+                    ConstantsManager.sender: loggedUser.email,
+                    ConstantsManager.userName: 'ahmed',
                   });
                   dbProvider.messageController.clear();
                 },

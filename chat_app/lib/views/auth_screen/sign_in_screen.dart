@@ -1,11 +1,19 @@
 import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/data/services/shared_pref.dart';
 import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/views/auth_screen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  DBHelper dbHelper = DBHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +45,8 @@ class SignInScreen extends StatelessWidget {
                 validator: authProvider.valiatorEmail,
               ),
               TextFiledInput(
-                hintLabel: 'Enter your email',
-                isObcure: false,
+                hintLabel: 'Enter your password',
+                isObcure: true,
                 onChange: authProvider.onPasswordChange,
                 textEditingController: authProvider.passwordController,
                 validator: authProvider.valiatorpassword,
@@ -74,6 +82,9 @@ class SignInScreen extends StatelessWidget {
             title: Text('Loading'),
           ),
         );
+        dbHelper.setUserName(authProvider.userNameController.text);
+        dbHelper.setUserEmail(authProvider.emailController.text);
+        dbHelper.isUserLoggedIn(true);
         authProvider.emailController.clear();
         authProvider.passwordController.clear();
         Navigator.pushNamed(context, Routes.homeScreen);

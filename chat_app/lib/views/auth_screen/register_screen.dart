@@ -1,12 +1,20 @@
 import 'package:chat_app/controller/auth_controller.dart';
+import 'package:chat_app/data/services/shared_pref.dart';
 import 'package:chat_app/helper/constants_manager.dart';
 import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/views/auth_screen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  DBHelper dbHelper = DBHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +97,9 @@ class RegisterScreen extends StatelessWidget {
           ConstantsManager.userName: authProvider.userNameController.text,
           ConstantsManager.userEmail: authProvider.emailController.text
         });
+        dbHelper.setUserName(authProvider.userNameController.text);
+        dbHelper.setUserEmail(authProvider.emailController.text);
+        dbHelper.isUserLoggedIn(true);
         Navigator.pushReplacementNamed(context, Routes.homeScreen);
         authProvider.emailController.clear();
         authProvider.passwordController.clear();
