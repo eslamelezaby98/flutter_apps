@@ -89,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
           ConstantsManager.userName: authProvider.userNameController.text,
           ConstantsManager.userEmail: authProvider.emailController.text
         });
-        Navigator.pushNamed(context, Routes.homeScreen);
+        Navigator.pushReplacementNamed(context, Routes.homeScreen);
         authProvider.emailController.clear();
         authProvider.passwordController.clear();
       } else {

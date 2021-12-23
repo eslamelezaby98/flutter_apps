@@ -39,15 +39,6 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  // getMessageStream() async {
-  //   await for (var snapshot
-  //       in firestore.collection(ConstantsManager.messages).snapshots()) {
-  //     for (var message in snapshot.docs) {
-  //       print(message.data());
-  //     }
-  //   }
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -60,10 +51,6 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(loggedUser.email.toString()),
-        // leading: IconButton(
-        //   onPressed: getMessageStream,
-        //   icon: const Icon(Icons.cached),
-        // ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +61,7 @@ class _ChatScreenState extends State<ChatScreen> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final messagesSnapshots = snapshot.data!.docs.reversed;
-                List<Text> textWidgets = [];
+                // List<Text> textWidgets = [];
                 List<Widget> messagesWidgets = [];
                 for (var message in messagesSnapshots) {
                   final messages = message.data() as Map<String, dynamic>;
@@ -84,9 +71,6 @@ class _ChatScreenState extends State<ChatScreen> {
                     text: text,
                     isSameUser: sender == loggedUser.email,
                   );
-                  final messagewidget =
-                      Text('message is : $text , from sender $sender');
-                  textWidgets.add(messagewidget);
                   messagesWidgets.add(
                     ChatBubble(
                       text: text,
@@ -97,30 +81,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 return Expanded(
                   child: ListView(
                     reverse: true,
-                    
                     children: messagesWidgets,
                   ),
                 );
-
-                // List<Text> textWidgets = [];
-                // for (var message in messagesSnapshots) {
-                //   final messages = message.data() as Map<String, dynamic>;
-                //   final text = messages[ConstantsManager.text];
-                //   final sender = messages[ConstantsManager.sender];
-                //   final messagewidget =
-                //       Text('message is : $text , from sender $sender');
-                //   textWidgets.add(messagewidget);
-                // }
-                // return Column(
-                //   children: textWidgets,
-                // );
               } else {
                 return Container();
               }
             },
           ),
-
-          // textfield and send button
           Row(
             children: [
               Expanded(
@@ -172,12 +140,10 @@ class ChatBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-
         crossAxisAlignment:
             isSameUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Material(
-
             color: isSameUser ? Colors.teal : Colors.blueAccent,
             borderRadius: BorderRadius.circular(20),
             elevation: 5,
@@ -190,46 +156,6 @@ class ChatBubble extends StatelessWidget {
           ),
         ],
       ),
-
-      //  Container(
-      //   height: 30,
-      //   width: double.infinity,
-      //   child: Align(
-      //     alignment: Alignment.topLeft,
-      //     child: Row(
-      //       children: [
-      //         Text(
-      //           '3:36 PM',
-      //           style: Theme.of(context).textTheme.caption,
-      //         ),
-      //         const SizedBox(width: 5),
-      //         Text(
-      //           text,
-      //           style: const TextStyle(
-      //             color: Colors.black87,
-      //             fontSize: 15,
-      //             fontWeight: FontWeight.w500,
-      //             textBaseline: TextBaseline.alphabetic,
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      //   decoration: BoxDecoration(
-      //     color:isSameUser ? Colors.teal : Colors.white,
-      //     borderRadius: isSameUser
-      //         ? const BorderRadius.only(
-      //             topLeft: Radius.circular(10),
-      //             topRight: Radius.circular(10),
-      //             bottomLeft: Radius.circular(10),
-      //           )
-      //         : const BorderRadius.only(
-      //             topLeft: Radius.circular(10),
-      //             topRight: Radius.circular(10),
-      //             bottomRight: Radius.circular(10),
-      //           ),
-      //   ),
-      // ),
     );
   }
 }

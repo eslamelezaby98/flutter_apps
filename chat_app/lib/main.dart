@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeManager.getDarkTheme(),
         onGenerateRoute: RoutesGenerator.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.registerScreen,
       ),
     );
   }

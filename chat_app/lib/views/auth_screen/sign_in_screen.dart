@@ -76,7 +76,7 @@ class SignInScreen extends StatelessWidget {
         );
         authProvider.emailController.clear();
         authProvider.passwordController.clear();
-        Navigator.pushNamed(context, Routes.chatScreen);
+        Navigator.pushNamed(context, Routes.homeScreen);
       } else {
         showDialog<String>(
           context: context,

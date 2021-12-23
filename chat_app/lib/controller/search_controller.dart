@@ -6,7 +6,7 @@ class SearchController extends ChangeNotifier {
   bool isSearch = false;
   final TextEditingController searchController = TextEditingController();
   late List<String> userSearchFound;
-  late List<String> UsersList;
+  late List<String> usersList;
   final firestore = FirebaseFirestore.instance;
 
   getUserByUserName(String userName) async {

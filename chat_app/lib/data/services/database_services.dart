@@ -31,6 +31,10 @@ class DBServices {
         .get();
   }
 
+  createChatRoom(String chatRoomId,  chatRoomData) {
+    return firestore.collection(chatRoomId).doc(chatRoomData);
+  }
+
   addMessage(String message) async {
     await firestore.collection(ConstantsManager.messages).add({
       ConstantsManager.text: message,
