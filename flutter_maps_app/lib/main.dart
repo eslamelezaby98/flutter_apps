@@ -1,12 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_maps_app/controller/auth_controller.dart';
 import 'package:flutter_maps_app/helper/routes_manager.dart';
 import 'package:provider/provider.dart';
 
+late String initialRoute;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FirebaseAuth.instance.authStateChanges().listen((user) {
+    if (user == null) {
+      initialRoute = Routes.authScreen;
+    } else {
+      initialRoute = Routes.mapScreen;
+    }
+  });
   runApp(const MyApp());
 }
 
@@ -26,7 +35,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.authScreen,
+        initialRoute: initialRoute,
         onGenerateRoute: GenerateRoutes().generateRoutes,
       ),
     );
