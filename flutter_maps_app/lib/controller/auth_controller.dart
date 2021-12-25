@@ -39,10 +39,8 @@ class AuthController extends ChangeNotifier {
       );
       return user;
     } catch (e) {
-      print(e);
+      throw AssertionError(e);
     }
-
-    print(phoneNumberController.text);
   }
 
   verificationCompleted(PhoneAuthCredential credential) async {
@@ -52,13 +50,12 @@ class AuthController extends ChangeNotifier {
 
   verificationFailed(FirebaseAuthException e) {
     if (e.code == 'invalid-phone-number') {
-      print('The provided phone number is not valid.');
+      throw AssertionError(e);
     }
     notifyListeners();
   }
 
   codeSent(String verificationId, int? resendToken) async {
-    print(resendToken);
     this.verificationId = verificationId;
     notifyListeners();
   }
