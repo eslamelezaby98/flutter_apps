@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maps_app/controller/auth_controller.dart';
+import 'package:flutter_maps_app/helper/routes_manager.dart';
 import 'package:flutter_maps_app/view/auth_screen/local_widgets/local_widget.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({Key? key}) : super(key: key);
@@ -13,9 +15,7 @@ class OTPScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0.0,
           leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
+            onPressed: () {},
             icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
@@ -61,9 +61,9 @@ class OTPScreen extends StatelessWidget {
   InkWell _addAction(String title) {
     return InkWell(
       onTap: () {},
-      child:  Text(
+      child: Text(
         title,
-        style:const TextStyle(
+        style: const TextStyle(
           color: Colors.blue,
           fontSize: 12,
           decoration: TextDecoration.underline,
@@ -80,6 +80,7 @@ class TopSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AuthController>(context);
     return Column(
       children: [
         LocalWidget.buildHeaderText('Verfiy your phone number?'),
@@ -88,8 +89,7 @@ class TopSection extends StatelessWidget {
           text: const TextSpan(
             children: [
               TextSpan(
-                text:
-                    'Enter your 6 digits code numbers sent to you at ',
+                text: 'Enter your 6 digits code numbers sent to you at ',
                 style: TextStyle(color: Colors.black, fontSize: 14),
               ),
               TextSpan(
@@ -104,7 +104,7 @@ class TopSection extends StatelessWidget {
           child: SizedBox(
             width: 100,
             child: TextFormField(
-              // controller: controller.phoneNumberController,
+              controller: provider.codeController,
               cursorColor: Colors.black,
               autofocus: true,
               keyboardType: TextInputType.phone,
@@ -120,7 +120,7 @@ class TopSection extends StatelessWidget {
                   color: Colors.black38,
                 ),
               ),
-              // onSaved: controller.onSave,
+              onChanged: provider.onCodeChange,
               validator: (value) {
                 if (value!.isEmpty) {
                   return "Please enter your phone number";
@@ -136,13 +136,37 @@ class TopSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 50),
-        Center(
-          child: LocalWidget.buildCustomButton(
-            () => Get.to(const OTPScreen()),
-            'Verfiy',
-          ),
-        ),
+        // custom button.
+        FloatingActionButton(
+          onPressed: () async {
+            await provider.submitCode();
+            showProgressIndicaator(context);
+            Navigator.pushNamed(context, Routes.mapScreen);
+          },
+          child: const Icon(Icons.forward),
+        )
       ],
+    );
+  }
+
+  showProgressIndicaator(BuildContext context) {
+    AlertDialog alertDialog = const AlertDialog(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      content: Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Colors.black),
+        ),
+      ),
+    );
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.white,
+      builder: (context) {
+        return alertDialog;
+      },
     );
   }
 }

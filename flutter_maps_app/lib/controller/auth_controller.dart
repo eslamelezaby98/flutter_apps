@@ -1,19 +1,82 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class AuthController extends GetxController {
+class AuthController extends ChangeNotifier {
   String dropdownValue = 'Egypt';
   List<String> conturies = ['Egypt', 'US', 'England'];
   String phoneNumber = '';
-  TextEditingController phoneNumberController = TextEditingController();  
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController codeController = TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
+  late String verificationId;
 
-  onChange(String? newValue) {
+  onCountryChange(String? newValue) {
     dropdownValue = newValue!;
-    update();
+    notifyListeners();
   }
 
-  onSave(String? value) {
-    phoneNumber = value!;
-    update();
+  onPhoneChange(String value) {
+    value = phoneNumberController.text;
+    notifyListeners();
+  }
+
+  onCodeChange(String value) {
+    value = codeController.text;
+    notifyListeners();
+  }
+
+  verifyPhoneNumber() async {
+    try {
+      var user = await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: phoneNumberController.text,
+        verificationCompleted: verificationCompleted,
+        verificationFailed: verificationFailed,
+        codeSent: codeSent,
+        timeout: const Duration(seconds: 40),
+        codeAutoRetrievalTimeout: (String verificationId) {
+          // print(verificationId);
+        },
+      );
+      return user;
+    } catch (e) {
+      print(e);
+    }
+
+    print(phoneNumberController.text);
+  }
+
+  verificationCompleted(PhoneAuthCredential credential) async {
+    await auth.signInWithCredential(credential);
+    notifyListeners();
+  }
+
+  verificationFailed(FirebaseAuthException e) {
+    if (e.code == 'invalid-phone-number') {
+      print('The provided phone number is not valid.');
+    }
+    notifyListeners();
+  }
+
+  codeSent(String verificationId, int? resendToken) async {
+    print(resendToken);
+    this.verificationId = verificationId;
+    notifyListeners();
+  }
+
+  submitCode() async {
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId, smsCode: codeController.text);
+
+    await auth.signInWithCredential(credential);
+    notifyListeners();
+  }
+
+  logout() {
+    auth.signOut();
+    notifyListeners();
+  }
+
+  getCurrentUser() {
+    return auth.currentUser!;
   }
 }
