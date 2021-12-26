@@ -11,7 +11,7 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseAuth.instance.authStateChanges().listen((user) {
     if (user == null) {
-      initialRoute = Routes.authScreen;
+      initialRoute = Routes.mapScreen;
     } else {
       initialRoute = Routes.mapScreen;
     }
