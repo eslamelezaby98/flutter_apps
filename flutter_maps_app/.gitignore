@@ -46,3 +46,4 @@ app.*.map.json
 /android/app/release
 
 /lib/helper/constants_manager.dart
+/android/app/src/main/AndroidManifest.xml
