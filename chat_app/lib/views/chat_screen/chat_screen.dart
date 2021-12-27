@@ -66,8 +66,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   final messages = message.data() as Map<String, dynamic>;
                   final text = messages[ConstantsManager.text];
                   final sender = messages[ConstantsManager.sender];
-                  final userName = messages[ConstantsManager.userName];
-                  print('text $text , sender $sender , user_name $userName');
+                  // final userName = messages[ConstantsManager.userName];
+                  // print('text $text , sender $sender , user_name $userName');
                   ChatBubble(
                     text: text,
                     isSameUser: sender == loggedUser.email,

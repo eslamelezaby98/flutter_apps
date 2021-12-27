@@ -1,7 +1,5 @@
 import 'package:chat_app/controller/auth_controller.dart';
 import 'package:chat_app/controller/db_controller.dart';
-import 'package:chat_app/data/services/shared_pref.dart';
-import 'package:chat_app/helper/constants_manager.dart';
 import 'package:chat_app/helper/routes_manager.dart';
 import 'package:chat_app/helper/theme_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,7 +14,7 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseAuth.instance.authStateChanges().listen((user) {
     if (user == null) {
-      initialRoute = Routes.registerScreen;
+      initialRoute = Routes.splashScreen;
     } else {
       initialRoute = Routes.homeScreen;
     }

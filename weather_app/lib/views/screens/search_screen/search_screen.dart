@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/helper/color_manager.dart';
+import 'package:weather_app/helper/routes_manager.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -39,15 +40,18 @@ class SearchScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
+                  //! make sure the vaidation in done
                   //! move to country which you searhed about.
+                  Navigator.pushNamed(context, Routes.countryScreen);
                 },
-                child: const Text(
+                child: Text(
                   'Search',
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
                 color: ColorManager.buttonColor,
                 minWidth: 150,
                 shape: BeveledRectangleBorder(
-                 borderRadius: BorderRadius.circular(5), 
+                  borderRadius: BorderRadius.circular(5),
                 ),
               ),
             ],

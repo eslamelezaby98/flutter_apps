@@ -3,6 +3,7 @@ import 'package:chat_app/views/auth_screen/register_screen.dart';
 import 'package:chat_app/views/auth_screen/sign_in_screen.dart';
 import 'package:chat_app/views/chat_screen/chat_screen.dart';
 import 'package:chat_app/views/home_screen/home_screen.dart';
+import 'package:chat_app/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -32,6 +33,10 @@ class RoutesGenerator {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
+        );
+      case Routes.splashScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
         );
       default:
         undefindRoute();

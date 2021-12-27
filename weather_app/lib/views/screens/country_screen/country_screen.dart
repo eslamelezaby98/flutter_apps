@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CountryScreen extends StatelessWidget {
-  const CountryScreen({ Key? key }) : super(key: key);
+  const CountryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Landon',
+        ),
+      ),
     );
   }
 }
