@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/data/data_provider.dart';
 import 'package:weather_app/helper/color_manager.dart';
 import 'package:weather_app/helper/routes_manager.dart';
 
@@ -7,10 +9,11 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var searchProvider = Provider.of<SearchController>(context, listen: false);
     return SafeArea(
       child: Scaffold(
         body: Form(
-          //! add key for from
+          key: searchProvider.searchHomeKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,9 +25,9 @@ class SearchScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  //! add controller
-                  //! add on change method.
-                  //! add validation => queen pub*
+                  controller: searchProvider.searchController,
+                  onChanged: searchProvider.onSearchChange,
+                  validator: searchProvider.validationSearch,
                   decoration: const InputDecoration(
                     hintText: 'Searching....',
                     prefixIcon: Icon(
@@ -40,13 +43,14 @@ class SearchScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  //! make sure the vaidation in done
-                  //! move to country which you searhed about.
-                  Navigator.pushNamed(context, Routes.countryScreen);
+                  Navigator.pushNamed(
+                    context,
+                    Routes.countryScreen,
+                    arguments: searchProvider.fetchWeatherBuCountry(),
+                  );
                 },
                 child: const Text(
                   'Search',
-                
                 ),
                 color: ColorManager.buttonColor,
                 minWidth: 150,
