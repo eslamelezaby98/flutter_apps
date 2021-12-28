@@ -7,6 +7,16 @@ class ThemeManager {
       //color
       scaffoldBackgroundColor: ColorManager.primaryColor,
       primaryColor: ColorManager.primaryColor,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: ColorManager.primaryColor,
+        centerTitle: true,
+        elevation: 0.0,
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),
+      ),
       // text field
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: const TextStyle(color: ColorManager.white),
@@ -33,6 +43,28 @@ class ThemeManager {
         bodyText1: TextStyle(
           color: Colors.white,
           fontSize: 30,
+        ),
+        headline1: TextStyle(
+          color: Colors.white,
+          fontSize: 50,
+          fontWeight: FontWeight.bold,
+        ),
+        headline2: TextStyle(
+          color: Colors.white,
+          fontSize: 50,
+          fontWeight: FontWeight.bold,
+        ),
+         caption: TextStyle(
+          color: Colors.white,
+          fontSize: 50,
+        ),
+        subtitle1: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+         headline3: TextStyle(
+          color: Colors.white,
+          fontSize: 15,
         ),
       ),
     );

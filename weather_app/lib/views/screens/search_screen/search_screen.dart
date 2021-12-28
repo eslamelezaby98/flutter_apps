@@ -44,9 +44,9 @@ class SearchScreen extends StatelessWidget {
                   //! move to country which you searhed about.
                   Navigator.pushNamed(context, Routes.countryScreen);
                 },
-                child: Text(
+                child: const Text(
                   'Search',
-                  style: Theme.of(context).textTheme.bodyText1,
+                
                 ),
                 color: ColorManager.buttonColor,
                 minWidth: 150,
