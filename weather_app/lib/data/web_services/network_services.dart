@@ -23,7 +23,7 @@ class NetworkServices {
         final result = response.data;
         // print(result);
         var weatherOfCountry = Country.fromJson(result);
-        print(weatherOfCountry.location.country);
+        // print(weatherOfCountry.location.country);
         return weatherOfCountry;
       } else {
         // print('Error and return null else');

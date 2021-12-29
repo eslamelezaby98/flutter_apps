@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/helper/constants_manager.dart';
+import 'package:weather_app/data/models/country_model.dart';
+import 'package:weather_app/data/repos/repos.dart';
 
 class SearchController extends ChangeNotifier {
   TextEditingController searchController = TextEditingController();
   final searchHomeKey = GlobalKey<FormState>();
+  Repos repos = Repos();
 
   onSearchChange(String newValue) {
     newValue = searchController.text;
@@ -17,14 +19,13 @@ class SearchController extends ChangeNotifier {
     return null;
   }
 
-  String? fetchWeatherBuCountry() {
-    if (searchHomeKey.currentState!.validate()) {
-      String country =
-          ConstantsManager.getBaseUrlByCountry(searchController.text);
-      // print(country);
-      return country;
-    } else {
-      return null;
-    }
+  @override
+  dispose() {
+    super.dispose();
+    searchController.dispose();
+  }
+
+  Future<Country?>? fetchWeatherByCountry() {
+    return repos.fetchWeatherByCountry(searchController.text);
   }
 }

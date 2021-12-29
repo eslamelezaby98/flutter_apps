@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/data/data_provider.dart';
+import 'package:weather_app/data/data_provider/search_controller.dart';
 import 'package:weather_app/helper/color_manager.dart';
 import 'package:weather_app/helper/routes_manager.dart';
 
@@ -28,26 +28,30 @@ class SearchScreen extends StatelessWidget {
                   controller: searchProvider.searchController,
                   onChanged: searchProvider.onSearchChange,
                   validator: searchProvider.validationSearch,
-                  decoration: const InputDecoration(
-                    hintText: 'Searching....',
-                    prefixIcon: Icon(
-                      Icons.search,
-                    ),
-                    suffixIcon: Icon(
-                      Icons.highlight_remove,
-                    ),
-                  ),
+                  decoration: InputDecoration(
+                      hintText: 'Searching....',
+                      prefixIcon: const Icon(
+                        Icons.search,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          searchProvider.searchController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.highlight_remove,
+                        ),
+                      )),
                   style: const TextStyle(color: ColorManager.white),
                   autofocus: true,
                 ),
               ),
               MaterialButton(
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    Routes.countryScreen,
-                    arguments: searchProvider.fetchWeatherBuCountry(),
-                  );
+                  if (searchProvider.searchHomeKey.currentState!.validate()) {
+                    Navigator.pushNamed(context, Routes.countryScreen);
+                  } else {
+                    return;
+                  }
                 },
                 child: const Text(
                   'Search',

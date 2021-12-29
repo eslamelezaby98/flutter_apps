@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/data/data_provider.dart';
-import 'package:weather_app/data/web_services/network_services.dart';
+import 'package:weather_app/data/data_provider/search_controller.dart';
 import 'package:weather_app/helper/routes_manager.dart';
 import 'package:weather_app/helper/theme_manager.dart';
 
