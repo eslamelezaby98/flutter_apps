@@ -6,6 +6,7 @@ class SearchController extends ChangeNotifier {
   TextEditingController searchController = TextEditingController();
   final searchHomeKey = GlobalKey<FormState>();
   Repos repos = Repos();
+  int currentIndex = 0;
 
   onSearchChange(String newValue) {
     newValue = searchController.text;
@@ -27,5 +28,10 @@ class SearchController extends ChangeNotifier {
 
   Future<Country?>? fetchWeatherByCountry() {
     return repos.fetchWeatherByCountry(searchController.text);
+  }
+
+  changeView(int newIndex) {
+    currentIndex = newIndex;
+    notifyListeners();
   }
 }

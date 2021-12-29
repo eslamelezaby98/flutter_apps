@@ -7,6 +7,8 @@ class ThemeManager {
       //color
       scaffoldBackgroundColor: ColorManager.primaryColor,
       primaryColor: ColorManager.primaryColor,
+      errorColor: Colors.red,
+
       appBarTheme: const AppBarTheme(
         backgroundColor: ColorManager.primaryColor,
         centerTitle: true,
@@ -35,35 +37,34 @@ class ThemeManager {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: ColorManager.buttonColor),
+          borderSide: const BorderSide(color: ColorManager.secondColor),
         ),
       ),
       // text
       textTheme: const TextTheme(
-        bodyText1: TextStyle(
-          color: Colors.white,
-          fontSize: 30,
-        ),
         headline1: TextStyle(
-          color: Colors.white,
+          color: ColorManager.secondColor,
           fontSize: 50,
           fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
-          color: Colors.white,
+          color: ColorManager.white,
           fontSize: 50,
           fontWeight: FontWeight.bold,
         ),
-         caption: TextStyle(
-          color: Colors.white,
-          fontSize: 50,
+        caption: TextStyle(
+          fontSize: 10,
         ),
         subtitle1: TextStyle(
-          color: Colors.white,
+          color: ColorManager.black,
           fontSize: 20,
         ),
-         headline3: TextStyle(
-          color: Colors.white,
+        headline3: TextStyle(
+           color: ColorManager.black,
+          fontSize: 15,
+        ),
+        headline4: TextStyle(
+           color: ColorManager.secondColor,
           fontSize: 15,
         ),
       ),

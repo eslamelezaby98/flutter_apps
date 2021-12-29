@@ -5,6 +5,7 @@ import 'package:weather_app/helper/routes_manager.dart';
 import 'package:weather_app/helper/theme_manager.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
