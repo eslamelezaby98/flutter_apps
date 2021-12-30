@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/data/data_provider/search_controller.dart';
 import 'package:weather_app/data/models/history.dart';
 import 'package:weather_app/data/services/hive_boxes.dart';
 import 'package:weather_app/helper/color_manager.dart';
-import 'package:weather_app/helper/constants_manager.dart';
 import 'package:weather_app/helper/routes_manager.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -16,17 +14,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Hive.openBox<Histroy>(ConstantsManager.history);
-  // }
-
-  // @override
-  // void dispose() {
-  //   Hive.close();
-  //   super.dispose();
-  // }
 
   Future addToHistory(String countryName) async {
     final history = Histroy()..countryName = countryName;
@@ -87,7 +74,12 @@ class _SearchScreenState extends State<SearchScreen> {
               onPressed: () async {
                 if (searchProvider.searchHomeKey.currentState!.validate()) {
                   await addToHistory(searchProvider.searchController.text);
-                  Navigator.pushNamed(context, Routes.countryScreen);
+                  
+                  Navigator.pushNamed(
+                    context,
+                    Routes.countryScreen,
+                    arguments: searchProvider.searchController.text,
+                  );
                 } else {
                   return;
                 }

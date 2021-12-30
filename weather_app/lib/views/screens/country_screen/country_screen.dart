@@ -6,8 +6,8 @@ import 'package:weather_app/views/widgets/daily_view.dart';
 import 'package:weather_app/views/widgets/today_view.dart';
 
 class CountryScreen extends StatefulWidget {
-  const CountryScreen({Key? key}) : super(key: key);
-
+  const CountryScreen({Key? key,required this.countryName}) : super(key: key);
+  final String countryName;
   @override
   State<CountryScreen> createState() => _CountryScreenState();
 }
@@ -29,7 +29,7 @@ class _CountryScreenState extends State<CountryScreen> {
         ),
       ),
       body: FutureBuilder<Country?>(
-        future: provider.fetchWeatherByCountry(),
+        future: provider.fetchWeatherByCountry(widget.countryName),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Column(

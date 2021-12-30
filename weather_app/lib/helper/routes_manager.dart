@@ -17,10 +17,11 @@ class GenerateRoutes {
           builder: (context) => const SearchScreen(),
         );
       case Routes.countryScreen:
+        final histroy = routeSettings.arguments as String;
         return MaterialPageRoute(
-          builder: (context) => const CountryScreen(),
+          builder: (context) => CountryScreen(countryName: histroy),
         );
-        case Routes.historyScreen:
+      case Routes.historyScreen:
         return MaterialPageRoute(
           builder: (context) => const HistroyScreen(),
         );

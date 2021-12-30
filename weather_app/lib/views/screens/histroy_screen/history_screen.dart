@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:weather_app/data/models/history.dart';
 import 'package:weather_app/data/services/hive_boxes.dart';
-import 'package:weather_app/helper/constants_manager.dart';
 import 'package:weather_app/helper/routes_manager.dart';
 
 class HistroyScreen extends StatefulWidget {
@@ -13,17 +12,7 @@ class HistroyScreen extends StatefulWidget {
 }
 
 class _HistroyScreenState extends State<HistroyScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Hive.openBox<Histroy>(ConstantsManager.history);
-  // }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   Hive.close();
-  // }
 
   void deleteItem(Histroy histroy) async {
     await histroy.delete();
@@ -49,6 +38,13 @@ class _HistroyScreenState extends State<HistroyScreen> {
             itemBuilder: (context, index) {
               return BuildHistoryWidget(
                 countryName: history[index].countryName,
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.countryScreen,
+                    arguments: history[index].countryName,
+                  );
+                },
                 onPress: () {
                   deleteItem(history[index]);
                 },
@@ -66,16 +62,19 @@ class BuildHistoryWidget extends StatelessWidget {
     Key? key,
     required this.countryName,
     required this.onPress,
+    required this.onTap,
   }) : super(key: key);
 
   final String countryName;
   final Function() onPress;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
+          onTap: onTap,
           title: Text(
             countryName,
             // histroyItem.countryName,

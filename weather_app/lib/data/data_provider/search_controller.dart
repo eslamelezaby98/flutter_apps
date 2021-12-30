@@ -26,8 +26,8 @@ class SearchController extends ChangeNotifier {
     searchController.dispose();
   }
 
-  Future<Country?>? fetchWeatherByCountry() {
-    return repos.fetchWeatherByCountry(searchController.text);
+  Future<Country?>? fetchWeatherByCountry(String countryName) {
+    return repos.fetchWeatherByCountry(countryName);
   }
 
   changeView(int newIndex) {
