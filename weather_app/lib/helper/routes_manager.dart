@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/views/screens/country_screen/country_screen.dart';
+import 'package:weather_app/views/screens/histroy_screen/history_screen.dart';
 import 'package:weather_app/views/screens/search_screen/search_screen.dart';
 
 class Routes {
   static const String searchScreen = '/';
   static const String countryScreen = '/countryScreen';
+  static const String historyScreen = '/historyScreen';
 }
 
 class GenerateRoutes {
@@ -17,6 +19,10 @@ class GenerateRoutes {
       case Routes.countryScreen:
         return MaterialPageRoute(
           builder: (context) => const CountryScreen(),
+        );
+        case Routes.historyScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HistroyScreen(),
         );
       default:
         defaultRoute();

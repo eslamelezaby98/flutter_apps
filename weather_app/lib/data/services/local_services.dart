@@ -1,51 +1,55 @@
-import 'dart:io';
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
+// import 'package:sqflite/sqflite.dart';
+// import 'package:path/path.dart';
+// import 'package:weather_app/data/models/history_model.dart';
+// import 'package:weather_app/helper/constants_manager.dart';
 
-class HistroyDB {
-  static const String dbName = 'history';
-  final int dbVersion = 1;
-  String tableName = 'history_table';
-  String countryName = 'countryName';
-  String columnId = 'columnId';
+// class HistroyDB {
+//   static final HistroyDB instance = HistroyDB.init();
+//   HistroyDB.init();
+//   static Database? _database;
+//   HistroyDB.ensureInitialized();
 
-  HistroyDB.__privateConstructor();
-  static final HistroyDB instance = HistroyDB.__privateConstructor();
+//   Future<Database> get database async {
+//     if (_database != null) {
+//       return _database!;
+//     }
+//     _database = await initDB(ConstantsManager.dbName);
+//     return _database!;
+//   }
 
-  static late Database _database;
-  Future<Database> get database async {
-    // if (_database != null) return _database;
+//   Future<Database> initDB(String fileName) async {
+//     final dbPath = await getDatabasesPath();
+//     final path = join(dbPath, fileName);
+//     return await openDatabase(path,
+//         version: ConstantsManager.dbVersion, onCreate: _onCreate);
+//   }
 
-    _database = await _initDatabase();
-    return _database;
-  }
+//   Future<void> _onCreate(Database db, int version) async {
+//      await db.execute(
+//         'CREATE TABLE ${ConstantsManager.tableName} (${ConstantsManager.id} INTEGER PRIMARY KEY AUTOINCREMENT, ${ConstantsManager.countryName} TEXT NOT NULL');
+//   }
 
-  _initDatabase() async {
-    Directory directory = await getApplicationDocumentsDirectory();
-    String path = join(directory.path, dbName);
-    return await openDatabase(path, version: dbVersion, onCreate: _onCreate);
-  }
+//   addItemToHistory(Histroy histroy) async {
+//     Database db = await instance.database;
+//     final int result =
+//         await db.insert(ConstantsManager.tableName, histroy.toJson());
+//     return result;
+//   }
 
-  _onCreate(Database database, int version) async {
-    await database.execute(
-      'CREATE TABLE $tableName ($columnId INTEGER PRIMARY KEY, $countryName TEXT)',
-    );
-  }
+//   getAllItems() async {
+//     Database db = await instance.database;
+//     final List<Map<String, dynamic>> result =
+//         await db.query(ConstantsManager.tableName);
+//     print(result);
+//     return result;
+//   }
 
-  insert(Map<String, Object?> countryRow) async {
-    Database database = await instance.database;
-    return await database.insert(tableName, countryRow);
-  }
-
-  deleteAll() async {
-    Database database = await instance.database;
-    return await database.delete(tableName);
-  }
-
-  deleteById(int id) async {
-    Database database = await instance.database;
-    return await database
-        .delete(tableName, where: '$columnId = ?', whereArgs: [id]);
-  }
-}
+//   Future<int> deleteItem(int id) async {
+//     Database db = await instance.database;
+//     return db.delete(
+//       ConstantsManager.tableName,
+//       where: '${ConstantsManager.id} = ?',
+//       whereArgs: [id],
+//     );
+//   }
+// }
