@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/data/data_provider/search_controller.dart';
-import 'package:weather_app/data/models/history.dart';
-import 'package:weather_app/data/services/hive_boxes.dart';
-import 'package:weather_app/helper/color_manager.dart';
-import 'package:weather_app/helper/routes_manager.dart';
+import '../../../data/data_provider/search_controller.dart';
+import '../../../data/models/history.dart';
+import '../../../data/services/hive_boxes.dart';
+import '../../../helper/color_manager.dart';
+import '../../../helper/routes_manager.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);

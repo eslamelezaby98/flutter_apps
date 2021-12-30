@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/views/widgets/weather_tile_list.dart';
+import 'weather_tile_list.dart';
 
 class TodayView extends StatelessWidget {
   const TodayView({

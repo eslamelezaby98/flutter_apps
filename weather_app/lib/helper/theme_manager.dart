@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/helper/color_manager.dart';
+import 'color_manager.dart';
 
 class ThemeManager {
   ThemeData getTheme() {

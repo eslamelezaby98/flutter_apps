@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/data/models/country_model.dart';
-import 'package:weather_app/data/repos/repos.dart';
+import '../models/country_model.dart';
+import '../repos/repos.dart';
 
 class SearchController extends ChangeNotifier {
   TextEditingController searchController = TextEditingController();

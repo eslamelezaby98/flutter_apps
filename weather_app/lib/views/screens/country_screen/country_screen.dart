@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/data/data_provider/search_controller.dart';
-import 'package:weather_app/data/models/country_model.dart';
-import 'package:weather_app/views/widgets/daily_view.dart';
-import 'package:weather_app/views/widgets/today_view.dart';
+import '../../../data/data_provider/search_controller.dart';
+import '../../../data/models/country_model.dart';
+import '../../widgets/daily_view.dart';
+import '../../widgets/today_view.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({Key? key,required this.countryName}) : super(key: key);

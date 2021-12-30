@@ -1,5 +1,5 @@
 
-import 'package:weather_app/data/models/condition_model.dart';
+import 'condition_model.dart';
 
 class Forecast {
   Forecast({

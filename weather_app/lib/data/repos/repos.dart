@@ -1,5 +1,5 @@
-import 'package:weather_app/data/models/country_model.dart';
-import 'package:weather_app/data/services/network_services.dart';
+import '../models/country_model.dart';
+import '../services/network_services.dart';
 
 class Repos {
   NetworkServices networkServices = NetworkServices();

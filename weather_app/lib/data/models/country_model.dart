@@ -1,6 +1,6 @@
-import 'package:weather_app/data/models/forecast_model.dart';
-import 'package:weather_app/data/models/location_model.dart';
-import 'package:weather_app/data/models/today_model.dart';
+import 'forecast_model.dart';
+import 'location_model.dart';
+import 'today_model.dart';
 
 class Country {
   Country({

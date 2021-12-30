@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:weather_app/helper/constants_manager.dart';
+import '../../helper/constants_manager.dart';
 part 'history.g.dart';
 
 @HiveType(typeId: ConstantsManager.historyKypeKey)

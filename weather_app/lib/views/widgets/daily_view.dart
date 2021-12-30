@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/helper/color_manager.dart';
-import 'package:weather_app/views/widgets/weather_tile_list.dart';
+import '../../helper/color_manager.dart';
+import 'weather_tile_list.dart';
 
 class DailyView extends StatelessWidget {
   const DailyView({

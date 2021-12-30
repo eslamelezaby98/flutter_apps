@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:weather_app/data/models/country_model.dart';
-import 'package:weather_app/helper/constants_manager.dart';
+
+import '../../helper/constants_manager.dart';
+import '../models/country_model.dart';
 
 class NetworkServices {
   late Dio dio;

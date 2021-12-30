@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:weather_app/data/models/history.dart';
-import 'package:weather_app/data/services/hive_boxes.dart';
-import 'package:weather_app/helper/routes_manager.dart';
+import '../../../data/models/history.dart';
+import '../../../data/services/hive_boxes.dart';
+import '../../../helper/routes_manager.dart';
 
 class HistroyScreen extends StatefulWidget {
   const HistroyScreen({Key? key}) : super(key: key);
