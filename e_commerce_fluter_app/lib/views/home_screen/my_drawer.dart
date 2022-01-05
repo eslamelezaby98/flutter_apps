@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//TODO: build drawer
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
