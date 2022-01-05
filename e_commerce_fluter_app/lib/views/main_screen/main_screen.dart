@@ -1,4 +1,3 @@
-import 'package:e_commerce_fluter_app/data/data_provider/main_screen_provider.dart';
 import 'package:e_commerce_fluter_app/helper/color_manager.dart';
 import 'package:e_commerce_fluter_app/views/cart_screen/cart_screen.dart';
 import 'package:e_commerce_fluter_app/views/home_screen/home_screen.dart';
@@ -6,7 +5,6 @@ import 'package:e_commerce_fluter_app/views/home_screen/my_drawer.dart';
 import 'package:e_commerce_fluter_app/views/search_screen/search_screen.dart';
 import 'package:e_commerce_fluter_app/views/user_profile_screen/user_profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
