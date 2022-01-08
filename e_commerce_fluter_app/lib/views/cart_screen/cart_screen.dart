@@ -1,7 +1,6 @@
-import 'package:e_commerce_fluter_app/helper/color_manager.dart';
 import 'package:e_commerce_fluter_app/views/widgets/screen_title_widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:pay/pay.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -86,7 +85,7 @@ class CartScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'product',
+                                  'Nike Air Max 200',
                                   style: Theme.of(context).textTheme.headline2,
                                 ),
                                 const SizedBox(height: 10),
@@ -151,16 +150,63 @@ class CheckoutWidget extends StatelessWidget {
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                'Next',
-              ),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(100, 40),
-                primary: ColorManager.secondColor,
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ApplePayButton(
+                  paymentConfigurationAsset: 'apple.json',
+                  paymentItems: const [
+                    PaymentItem(
+                      label: 'Total',
+                      amount: '99.99',
+                      status: PaymentItemStatus.final_price,
+                    )
+                  ],
+                  style: ApplePayButtonStyle.black,
+                  type: ApplePayButtonType.buy,
+                  margin: const EdgeInsets.only(top: 15.0),
+                  onPaymentResult: (result) {
+                    print(result);
+                  },
+                  loadingIndicator: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  width: size.width / 2,
+                  height: 50,
+                ),
+                GooglePayButton(
+                  paymentConfigurationAsset: 'gpay.json',
+                  margin: const EdgeInsets.only(top: 15.0),
+                  width: size.width / 2,
+                  height: 50,
+                  loadingIndicator: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  paymentItems: const [
+                    PaymentItem(
+                      label: 'Total',
+                      amount: '99.99',
+                      status: PaymentItemStatus.final_price,
+                    )
+                  ],
+                  style: GooglePayButtonStyle.black,
+                  type: GooglePayButtonType.pay,
+                  onPaymentResult: (result) {
+                    print(result);
+                  },
+                ),
+              ],
             ),
+            // ElevatedButton(
+            //   onPressed: () {},
+            //   child: const Text(
+            //     'Next',
+            //   ),
+            //   style: ElevatedButton.styleFrom(
+            //     minimumSize: const Size(100, 40),
+            //     primary: ColorManager.secondColor,
+            //   ),
+            // ),
           ],
         ),
       ),
