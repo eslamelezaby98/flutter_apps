@@ -2,7 +2,6 @@ import 'package:e_commerce_fluter_app/helper/color_manager.dart';
 import 'package:e_commerce_fluter_app/helper/routes_manager.dart';
 import 'package:e_commerce_fluter_app/views/widgets/screen_title_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:pay/pay.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);

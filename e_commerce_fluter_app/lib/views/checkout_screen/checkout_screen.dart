@@ -1,8 +1,21 @@
+import 'package:e_commerce_fluter_app/data/services/paymod_srvices.dart';
+import 'package:e_commerce_fluter_app/helper/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  @override
+  void initState() {
+    super.initState();
+    PaymodServcie().getToken();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +43,8 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(height: 10),
             InkWell(
               onTap: () {
-                //TODO: add checkout method.
+                Navigator.pushNamed(
+                    context, RoutesManager.paypalCheckoutScreen);
               },
               child: Container(
                 height: 50,
@@ -48,7 +62,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      'Pay with checkout gatway',
+                      'Pay with Paymod',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -87,7 +101,7 @@ class GoolgeAndApplePayWidget extends StatelessWidget {
           type: ApplePayButtonType.buy,
           margin: const EdgeInsets.only(top: 15.0),
           onPaymentResult: (result) {
-            print(result);
+            // print(result);
           },
           loadingIndicator: const Center(
             child: CircularProgressIndicator(),
@@ -113,7 +127,7 @@ class GoolgeAndApplePayWidget extends StatelessWidget {
           style: GooglePayButtonStyle.black,
           type: GooglePayButtonType.pay,
           onPaymentResult: (result) {
-            print(result);
+            // print(result);
           },
         ),
       ],
