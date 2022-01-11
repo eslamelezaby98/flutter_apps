@@ -30,28 +30,36 @@ class StroiesWidget extends StatelessWidget {
             image: CachedNetworkImageProvider(imageUrl),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ProfileAvater(
-                imageUrl: imageUrl,
-                isActive: isActive,
-                hasStory: hasStory,
-              ),
-              Text(
-                userName,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-            ],
+        child: Align(
+          alignment: Alignment.topLeft,
+          child: ProfileAvater(
+            imageUrl: imageUrl,
+            isActive: isActive,
+            hasStory: hasStory,
           ),
         ),
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //       ProfileAvater(
+        //         imageUrl: imageUrl,
+        //         isActive: isActive,
+        //         hasStory: hasStory,
+        //       ),
+        //       Text(
+        //         userName,
+        //         style: const TextStyle(
+        //           color: Colors.white,
+        //           fontWeight: FontWeight.bold,
+        //           fontSize: 14,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }

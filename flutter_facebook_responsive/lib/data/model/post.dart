@@ -5,7 +5,7 @@ class Post {
   final String caption;
   final String timeAgo;
   final String imageUrl;
-  final int likes;
+  final String likes;
   final int comments;
   final int shares;
 

@@ -22,27 +22,34 @@ class UserAddStroy extends StatelessWidget {
             image: CachedNetworkImageProvider(currentUser.imageUrl),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CircleButton(
-                icon: Icons.add,
-                onPress: () {},
-              ),
-              const Text(
-                'Add to stroy',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-            ],
+        child: Center(
+          child: CircleButton(
+            icon: Icons.add,
+            onPress: () {},
           ),
         ),
+
+        //  Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //       CircleButton(
+        //         icon: Icons.add,
+        //         onPress: () {},
+        //       ),
+        //       const Text(
+        //         'Add to stroy',
+        //         style: TextStyle(
+        //           color: Colors.white,
+        //           fontWeight: FontWeight.bold,
+        //           fontSize: 14,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }
