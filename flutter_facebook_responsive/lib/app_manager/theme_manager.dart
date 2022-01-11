@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
+
+class ThemeManager {
+  ThemeData getAppTheme() {
+    return ThemeData(
+      primarySwatch: Colors.blue,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      scaffoldBackgroundColor: ColorManager.scffoldColor,
+    );
+  }
+}
