@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
 import 'package:flutter_facebook_responsive/data/dummy_data/dummy_online_users_data.dart';
@@ -23,17 +22,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: ColorManager.facebookBlue,
-        currentIndex: 0,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(MdiIcons.video), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: ''),
-          BottomNavigationBarItem(icon: Icon(MdiIcons.account), label: ''),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   selectedItemColor: ColorManager.facebookBlue,
+      //   currentIndex: 0,
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(MdiIcons.video), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(Icons.notifications), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(MdiIcons.account), label: ''),
+      //   ],
+      // ),
       body: CustomScrollView(
         slivers: [
           //? app bar

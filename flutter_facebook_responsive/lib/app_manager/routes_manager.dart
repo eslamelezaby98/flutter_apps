@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive/views/screens/home_screen/home_screen.dart';
+import 'package:flutter_facebook_responsive/views/screens/nav_screen/nav_screen.dart';
 
 class RoutesManager {
   static const String homeScreen = '/home';
+  static const String navScreen = '/';
 
  static Route? generateRoutes(RouteSettings settings) {
     switch (settings.name) {
+      case navScreen:
+        return MaterialPageRoute(
+          builder: (context) => const NavScreen(),
+        );
       case homeScreen:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
