@@ -1,6 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
+import 'package:flutter_facebook_responsive/data/dummy_data/dummy_online_users_data.dart';
+import 'package:flutter_facebook_responsive/data/dummy_data/dummy_stories_data.dart';
+import 'package:flutter_facebook_responsive/data/dummy_data/dummy_user_data.dart';
+import 'package:flutter_facebook_responsive/data/model/stroy.dart';
+import 'package:flutter_facebook_responsive/data/model/user.dart';
 import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/circle_button.dart';
+import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/create_post_widget.dart';
+import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/create_room_widget.dart';
+import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
+import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/stories_widget.dart';
+import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/user_add_stroy.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
           //? app bar
@@ -16,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             floating: true,
             backgroundColor: Colors.white,
             centerTitle: false,
-            title:const Text(
+            title: const Text(
               'facebook',
               style: TextStyle(
                 color: ColorManager.facebookBlue,
@@ -38,10 +49,80 @@ class HomeScreen extends StatelessWidget {
           ),
 
           //? create post.
-          SliverToBoxAdapter(
-            child: Container(
-              height: 100,
-              color: Colors.yellow,
+          const CreatePostWidget(currentUser: currentUser),
+
+          //? create room and active users
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 10),
+            sliver: SliverToBoxAdapter(
+              child: Container(
+                height: 50,
+                color: Colors.white,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 1 + onlineUsers.length,
+                  itemBuilder: (context, index) {
+                    if (index == 0) {
+                      return const CreateRoomWidget();
+                    }
+                    final User user = onlineUsers[index - 1];
+                    return Container(
+                      margin: const EdgeInsets.all(2),
+                      height: 40,
+                      width: 40,
+                      color: Colors.white,
+                      child: ProfileAvater(
+                        imageUrl: user.imageUrl,
+                        isActive: true,
+                        hasStory: false,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+
+          //? Stories
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 10),
+            sliver: SliverToBoxAdapter(
+              child: Container(
+                height: 170,
+                color: Colors.white,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 1 + stories.length,
+                  itemBuilder: (context, index) {
+                    if (index == 0) {
+                      return const UserAddStroy();
+                    } else {
+                      Story story = stories[index - 1];
+                      return StroiesWidget(
+                        hasStory: story.isViewed,
+                        isActive: story.isViewed,
+                        userName: story.user.name,
+                        imageUrl: story.imageUrl,
+                      );
+                    }
+                  },
+                ),
+              ),
+            ),
+          ),
+          //? posts
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                  height: 200,
+                   color: Colors.black,
+                  ),
+                );
+              },
+              childCount: 10,
             ),
           ),
         ],
@@ -49,5 +130,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
