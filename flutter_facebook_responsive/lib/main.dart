@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/routes_manager.dart';
-import 'package:flutter_facebook_responsive/app_manager/theme_manager.dart';
+import 'app_manager/routes_manager.dart';
+import 'app_manager/theme_manager.dart';
 
 void main() {
   runApp(const MyApp());

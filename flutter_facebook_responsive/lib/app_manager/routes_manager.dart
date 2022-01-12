@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/home_screen.dart';
-import 'package:flutter_facebook_responsive/views/screens/nav_screen/nav_screen.dart';
+import '../views/screens/home_screen/home_screen.dart';
+import '../views/screens/nav_screen/nav_screen.dart';
 
 class RoutesManager {
   static const String homeScreen = '/home';

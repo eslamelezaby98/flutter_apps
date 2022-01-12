@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
+import '../../../app_manager/color_manager.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({

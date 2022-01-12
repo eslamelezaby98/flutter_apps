@@ -1,6 +1,6 @@
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_online_users_data.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_user_data.dart';
-import 'package:flutter_facebook_responsive/data/model/post.dart';
+import 'dummy_online_users_data.dart';
+import 'dummy_user_data.dart';
+import '../model/post.dart';
 
  List<Post> posts = [
  const Post(

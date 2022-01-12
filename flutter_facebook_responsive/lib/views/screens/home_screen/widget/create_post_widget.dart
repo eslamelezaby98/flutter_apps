@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/data/model/user.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
+import '../../../../data/model/user.dart';
+import 'profile_avatar.dart';
 
 class CreatePostWidget extends StatelessWidget {
   const CreatePostWidget({Key? key, required this.currentUser, required})

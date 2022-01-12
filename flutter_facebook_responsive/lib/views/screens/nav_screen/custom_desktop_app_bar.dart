@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_user_data.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/circle_button.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
-import 'package:flutter_facebook_responsive/views/screens/nav_screen/custom_tab_bar.dart';
+import '../../../app_manager/color_manager.dart';
+import '../../../data/dummy_data/dummy_user_data.dart';
+import '../home_screen/widget/circle_button.dart';
+import '../home_screen/widget/profile_avatar.dart';
+import 'custom_tab_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class CustomDesktopAppBar extends StatelessWidget {

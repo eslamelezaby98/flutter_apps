@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
+import 'profile_avatar.dart';
 
 class StroiesWidget extends StatelessWidget {
   const StroiesWidget({

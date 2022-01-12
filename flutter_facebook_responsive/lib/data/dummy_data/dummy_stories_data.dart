@@ -1,5 +1,5 @@
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_online_users_data.dart';
-import 'package:flutter_facebook_responsive/data/model/stroy.dart';
+import 'dummy_online_users_data.dart';
+import '../model/stroy.dart';
 
 List<Story> stories = [
   Story(

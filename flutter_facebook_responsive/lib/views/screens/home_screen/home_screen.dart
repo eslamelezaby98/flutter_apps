@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/views/screens/nav_screen/home_screen_desktop.dart';
+import '../nav_screen/home_screen_desktop.dart';
 
-import 'package:flutter_facebook_responsive/views/screens/nav_screen/home_screen_mobile.dart';
-import 'package:flutter_facebook_responsive/views/widgets/responsive_widget.dart';
+import '../nav_screen/home_screen_mobile.dart';
+import '../../widgets/responsive_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

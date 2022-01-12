@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/data/model/post.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
+import '../../../../data/model/post.dart';
+import 'profile_avatar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class PostWidget extends StatelessWidget {

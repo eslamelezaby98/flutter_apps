@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
+import '../../../../app_manager/color_manager.dart';
 
 class ProfileAvater extends StatelessWidget {
   const ProfileAvater({

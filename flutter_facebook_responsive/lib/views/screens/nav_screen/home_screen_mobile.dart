@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_online_users_data.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_posts_data.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_stories_data.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_user_data.dart';
-import 'package:flutter_facebook_responsive/data/model/post.dart';
-import 'package:flutter_facebook_responsive/data/model/stroy.dart';
-import 'package:flutter_facebook_responsive/data/model/user.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/circle_button.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/create_post_widget.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/create_room_widget.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/post_widget.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/profile_avatar.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/stories_widget.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/user_add_stroy.dart';
+import '../../../app_manager/color_manager.dart';
+import '../../../data/dummy_data/dummy_online_users_data.dart';
+import '../../../data/dummy_data/dummy_posts_data.dart';
+import '../../../data/dummy_data/dummy_stories_data.dart';
+import '../../../data/dummy_data/dummy_user_data.dart';
+import '../../../data/model/post.dart';
+import '../../../data/model/stroy.dart';
+import '../../../data/model/user.dart';
+import '../home_screen/widget/circle_button.dart';
+import '../home_screen/widget/create_post_widget.dart';
+import '../home_screen/widget/create_room_widget.dart';
+import '../home_screen/widget/post_widget.dart';
+import '../home_screen/widget/profile_avatar.dart';
+import '../home_screen/widget/stories_widget.dart';
+import '../home_screen/widget/user_add_stroy.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreenMobile extends StatelessWidget {

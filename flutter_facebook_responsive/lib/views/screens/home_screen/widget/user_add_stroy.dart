@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/data/dummy_data/dummy_user_data.dart';
-import 'package:flutter_facebook_responsive/views/screens/home_screen/widget/circle_button.dart';
+import '../../../../data/dummy_data/dummy_user_data.dart';
+import 'circle_button.dart';
 
 class UserAddStroy extends StatelessWidget {
   const UserAddStroy({

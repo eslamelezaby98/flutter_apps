@@ -1,4 +1,4 @@
-import 'package:flutter_facebook_responsive/data/model/user.dart';
+import '../model/user.dart';
 
 const List<User> onlineUsers = [
   User(

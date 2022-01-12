@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_responsive/app_manager/color_manager.dart';
+import '../../app_manager/color_manager.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 const List moreOptionsList = [
