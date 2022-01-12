@@ -16,7 +16,7 @@ class CreateRoomWidget extends StatelessWidget {
         width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: ColorManager.createRoomGradient,
+          // gradient: Colors.white,
           border: Border.all(
             color: ColorManager.facebookBlue,
             width: 2,

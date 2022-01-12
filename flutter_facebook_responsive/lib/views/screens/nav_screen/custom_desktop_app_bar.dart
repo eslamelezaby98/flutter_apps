@@ -47,6 +47,7 @@ class CustomDesktopAppBar extends StatelessWidget {
             ),
           ),
           SizedBox(
+            height: double.infinity,
             width: 600,
             child: CustomTabBar(
               icons: icons,
@@ -59,14 +60,15 @@ class CustomDesktopAppBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
+                SizedBox(
                   height: 40,
                   width: 160,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.black54),
-                  ),
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.circular(20),
+                  //   border: Border.all(color: Colors.black54),
+                  // ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ProfileAvater(
                         imageUrl: currentUser.imageUrl,
