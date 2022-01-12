@@ -44,37 +44,37 @@ class LeftContainer extends StatelessWidget {
       flex: 2,
       child: Padding(
         padding: const EdgeInsets.all(40.0),
-        child: Container(
-          constraints:const BoxConstraints(maxWidth: 300),
-          child: ListView.builder(
-            itemCount: 1 + moreOptionsList.length,
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      ProfileAvater(
-                          imageUrl: currentUser.imageUrl,
-                          isActive: true,
-                          hasStory: false),
-                      const SizedBox(width: 10),
-                      Text(
-                        currentUser.name,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }
-              final List option = moreOptionsList[index - 1];
-
+        child: ListView.builder(
+          itemCount: 1 + moreOptionsList.length,
+          itemBuilder: (context, index) {
+            if (index == 0) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    ProfileAvater(
+                        imageUrl: currentUser.imageUrl,
+                        isActive: true,
+                        hasStory: false),
+                    const SizedBox(width: 10),
+                    Text(
+                      currentUser.name,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+            final List option = moreOptionsList[index - 1];
+
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {},
                 child: Row(
                   children: [
                     CircleAvatar(
@@ -82,19 +82,20 @@ class LeftContainer extends StatelessWidget {
                       child: Icon(option[0]),
                     ),
                     const SizedBox(width: 10),
-                    Text(
-                      option[2],
-                      style: const TextStyle(
-                        // color: Colors.black,
-                        // fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                    Flexible(
+                      child: Text(
+                        option[2],
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ),
     );

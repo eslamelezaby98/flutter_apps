@@ -63,10 +63,6 @@ class CustomDesktopAppBar extends StatelessWidget {
                 SizedBox(
                   height: 40,
                   width: 160,
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(20),
-                  //   border: Border.all(color: Colors.black54),
-                  // ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
