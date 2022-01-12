@@ -20,6 +20,7 @@ class CircleButton extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: IconButton(
+          iconSize: 30,
           onPressed: onPress,
           icon: Icon(
             icon,

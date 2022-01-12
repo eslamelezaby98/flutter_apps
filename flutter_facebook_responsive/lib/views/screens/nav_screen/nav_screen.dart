@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive/views/screens/home_screen/home_screen.dart';
+import 'package:flutter_facebook_responsive/views/screens/nav_screen/custom_desktop_app_bar.dart';
 import 'package:flutter_facebook_responsive/views/screens/nav_screen/custom_tab_bar.dart';
+import 'package:flutter_facebook_responsive/views/widgets/responsive_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NavScreen extends StatefulWidget {
@@ -32,25 +34,43 @@ class _NavScreenState extends State<NavScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return DefaultTabController(
       length: _screen.length,
       child: Scaffold(
+        appBar: ResponsiveWidget.isDesktop(context)
+            ? PreferredSize(
+                child: CustomDesktopAppBar(
+                  icons: _icons,
+                  onTap: (int index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  selectedTap: _selectedIndex,
+                ),
+                preferredSize: Size(size.width, 100),
+              )
+            : null,
         body: IndexedStack(
           children: _screen,
           index: _selectedIndex,
         ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: CustomTabBar(
-            icons: _icons,
-            selectedTap: _selectedIndex,
-            onTap: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-          ),
-        ),
+        bottomNavigationBar: !ResponsiveWidget.isDesktop(context)
+            ? Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: CustomTabBar(
+                  isBottomIndicuator: ResponsiveWidget.isDesktop(context),
+                  icons: _icons,
+                  selectedTap: _selectedIndex,
+                  onTap: (int index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                ),
+              )
+            : const SizedBox.shrink(),
       ),
     );
   }
