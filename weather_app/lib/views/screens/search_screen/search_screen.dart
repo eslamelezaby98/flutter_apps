@@ -14,7 +14,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
   Future addToHistory(String countryName) async {
     final history = Histroy()..countryName = countryName;
     final box = Boxes.getHistory();
@@ -74,8 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
               onPressed: () async {
                 if (searchProvider.searchHomeKey.currentState!.validate()) {
                   await addToHistory(searchProvider.searchController.text);
-                  
-                  Navigator.pushNamed(
+                  await Navigator.pushNamed(
                     context,
                     Routes.countryScreen,
                     arguments: searchProvider.searchController.text,

@@ -36,9 +36,11 @@ request.headers.addAll(headers);
 http.StreamedResponse response = await request.send();
 
 if (response.statusCode == 200) {
+  // ignore: avoid_print
   print(await response.stream.bytesToString());
 }
 else {
+  // ignore: avoid_print
   print(response.reasonPhrase);
 }
   }

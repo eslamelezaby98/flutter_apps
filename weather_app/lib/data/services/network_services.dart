@@ -15,7 +15,7 @@ class NetworkServices {
     dio = Dio(baseOptions);
   }
 
-  Future<Country?>? fetchWeatherByCountry(String country) async {
+  Future<Country?> fetchWeatherByCountry(String country) async {
     try {
       Response response =
           await dio.get(ConstantsManager.getBaseUrlByCountry(country));
