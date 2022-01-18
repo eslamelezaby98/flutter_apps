@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:e_commerce_fluter_app/data/my_keys.dart';
+import 'package:e_commerce_fluter_app/my_keys.dart';
 import 'package:http/http.dart' as http;
 
 class PaymodServcie {
