@@ -45,4 +45,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-flutter_apps/weather_app/lib/keys.dart
+weather_app/lib/keys.dart
