@@ -16,9 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
-          primarySwatch: Colors.purple,
-          accentColor: Colors.amber,
-          // errorColor: Colors.red,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
                 subtitle1: TextStyle(
@@ -29,14 +26,20 @@ class MyApp extends StatelessWidget {
                 button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
-            textTheme: ThemeData.light().textTheme.copyWith(
+            toolbarTextStyle: ThemeData.light().textTheme.copyWith(
                   subtitle1: TextStyle(
                     fontFamily: 'OpenSans',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-          )),
+                ).bodyText2, titleTextStyle: ThemeData.light().textTheme.copyWith(
+                  subtitle1: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ).headline6,
+          ), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple).copyWith(secondary: Colors.amber)),
       home: MyHomePage(),
     );
   }
@@ -157,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Text('Show Chart'),
                 Switch(
-                  activeColor: Theme.of(context).accentColor,
+                  activeColor: Theme.of(context).colorScheme.secondary,
                   value: _showChart,
                   onChanged: (val) {
                     setState(() {

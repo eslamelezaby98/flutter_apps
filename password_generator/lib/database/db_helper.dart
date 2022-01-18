@@ -2,7 +2,6 @@ import 'package:password_generator/constants/constants.dart';
 import 'package:password_generator/models/site.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 class DbHelper {
   static final DbHelper instance = DbHelper._instance();
