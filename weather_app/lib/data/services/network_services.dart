@@ -15,7 +15,7 @@ class NetworkServices {
     dio = Dio(baseOptions);
   }
 
-  Future<Country?> fetchWeatherByCountry(String country) async {
+  Future<Country?>? fetchWeatherByCountry(String country) async {
     try {
       Response response =
           await dio.get(ConstantsManager.getBaseUrlByCountry(country));
@@ -30,8 +30,8 @@ class NetworkServices {
         throw AssertionError();
       }
     } catch (e) {
-      // print('Error and return null catch ${e.toString()}');
-      throw AssertionError();
+      print('Error and return null catch ${e.toString()}');
+      // throw AssertionError();
     }
   }
 }
