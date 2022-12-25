@@ -128,7 +128,6 @@ class CheckoutWidget extends StatelessWidget {
       height: size.height / 5,
       width: size.width,
       child: Card(
-        elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -151,7 +150,6 @@ class CheckoutWidget extends StatelessWidget {
                 ],
               ),
             ),
-           
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, RoutesManager.checkoutScreen);
@@ -161,7 +159,7 @@ class CheckoutWidget extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(100, 40),
-                primary: ColorManager.secondColor,
+                backgroundColor: ColorManager.secondColor,
               ),
             ),
           ],
